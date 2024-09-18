@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>小广告</title>
+  <link rel="stylesheet" href="css/good.css">
+  <script src="js/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <ul id="left">
+      <li><a href="#">女靴</a></li>
+      <li><a href="#">雪地靴</a></li>
+      <li><a href="#">冬裙</a></li>
+      <li><a href="#">呢大衣</a></li>
+      <li><a href="#">毛衣</a></li>
+      <li><a href="#">棉服</a></li>
+      <li><a href="#">女裤</a></li>
+      <li><a href="#">羽绒服</a></li>
+      <li><a href="#">牛仔裤</a></li>
+    </ul>
+    <ul id="center">
+      <li><a href="#"><img src="img/女靴.jpg" /></a></li>
+      <li><a href="#"><img src="img/雪地靴.jpg" /></a></li>
+      <li><a href="#"><img src="img/冬裙.jpg" /></a></li>
+      <li><a href="#"><img src="img/呢大衣.jpg" /></a></li>
+      <li><a href="#"><img src="img/毛衣.jpg" /></a></li>
+      <li><a href="#"><img src="img/棉服.jpg" /></a></li>
+      <li><a href="#"><img src="img/女裤.jpg"></a></li>
+      <li><a href="#"><img src="img/羽绒服.jpg" /></a></li>
+      <li><a href="#"><img src="img/牛仔裤.jpg" /></a></li>
+      <li><a href="#"><img src="img/女包.jpg" /></a></li>
+      <li><a href="#"><img src="img/男包.jpg" /></a></li>
+      <li><a href="#"><img src="img/登山鞋.jpg" /></a></li>
+      <li><a href="#"><img src="img/皮带.jpg" /></a></li>
+      <li><a href="#"><img src="img/围巾.jpg" /></a></li>
+      <li><a href="#"><img src="img/皮衣.jpg" /></a></li>
+      <li><a href="#"><img src="img/男毛衣.jpg" /></a></li>
+      <li><a href="#"><img src="img/男棉服.jpg" /></a></li>
+      <li><a href="#"><img src="img/男靴.jpg" /></a></li>
+    </ul>
+    <ul id="right">
+      <li><a href="#">女包</a></li>
+      <li><a href="#">男包</a></li>
+      <li><a href="#">登山鞋</a></li>
+      <li><a href="#">皮带</a></li>
+      <li><a href="#">围巾</a></li>
+      <li><a href="#">皮衣</a></li>
+      <li><a href="#">男毛衣</a></li>
+      <li><a href="#">男棉服</a></li>
+      <li><a href="#">男靴</a></li>
+    </ul>
+  </div>
+  <script>
+    // 作业2：写入jquery代码实现需求：鼠标悬停在标签名上时，中间显示出对应图片
+    $(() => {
+      $('#center li:gt(0)').hide()
+      $('#left li,#right li').mouseenter(() => {
+
+      })
+    })
+  </script>
+</body>
+
+</html>
