@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span {
+        background-color: black;
+        color: white;
+        margin: 5px;
+        padding-inline: 3px;
+    }
+</style>
+
+<body>
+    <p>距离 2024-5-21 00:00:00 还有</p>
+    <span class="天">00</span>天
+    <span class="小时">00</span>:
+    <span class="分钟">00</span>:
+    <span class="秒">00</span>
+</body>
+<script>
+    var 天 = document.querySelector(".天")
+    var 小时 = document.querySelector(".小时")
+    var 分钟 = document.querySelector(".分钟")
+    var 秒 = document.querySelector(".秒")
+    var date1 = new Date("2024-5-21 00:00:00")
+    倒计时()
+    function 倒计时() {
+        var date2 = new Date()
+        var time = (date1 - date2) / 1000
+        天.innerText = parseInt(time / 60 / 60 / 24)
+        小时.innerText = parseInt(time / 60 / 60 % 24)
+        分钟.innerText = parseInt(time / 60 % 60)
+        秒.innerText = parseInt(time % 60)
+    }
+    setInterval(() => {
+        倒计时()
+    }, 1000);
+</script>
+
+</html>

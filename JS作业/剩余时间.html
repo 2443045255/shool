@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    function 计算时间() {
+        let date = new Date;
+        let update = new Date("2024-5-10 12:00:00")
+        let stime = (update - date)/1000
+        let d = parseInt(stime / 60 / 60 / 24)
+        let h = parseInt(stime / 60 / 60 % 24)
+        let m = parseInt(stime / 60 % 60)
+        let s = parseInt(stime % 60)
+        let AppDiv = document.getElementById("app")
+        AppDiv.innerText = `距离${update} 还有:${d}天${h}小时${m}分钟${s}秒`
+    }
+    计算时间()
+    setInterval(() => {
+            计算时间()
+    }, 1000);
+</script>
+
+</html>

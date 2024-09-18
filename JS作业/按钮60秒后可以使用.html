@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="button1" disabled>已阅读用户协议(60秒)</button>
+</body>
+<script>
+    var button1 = document.getElementById("button1")
+    var time = 5
+    var setInterval_1 = setInterval(() => {
+        button1.innerText = `已阅读用户协议(${time}秒)`
+        if (time == 0) {
+            button1.disabled = false
+            button1.innerText = `已阅读用户协议`
+            clearInterval(setInterval_1)
+        }
+        time--
+    }, 1000);
+</script>
+
+</html>
