@@ -55,10 +55,22 @@
   </div>
   <script>
     // 作业2：写入jquery代码实现需求：鼠标悬停在标签名上时，中间显示出对应图片
-    $(() => {
+    $(function () {
       $('#center li:gt(0)').hide()
-      $('#left li,#right li').mouseenter(() => {
+      var imgSum = $('#center>li>a:last').index('a') - $('#center>li>a:first').index('a')
 
+      $('#right>li>a,#left>li>a').mouseenter(function () {
+        var hoverNum = $(this).index('a')
+        $('#center li').hide()
+        if (hoverNum <= 8) {
+          $('#center>li').eq(hoverNum).show()
+        } else {
+          $('#center>li').eq(hoverNum - imgSum - 1).show()
+        }
+      })
+      $('#right>li>a,#left>li>a').mouseleave(function () {
+        $('#center li').show()
+        $('#center li:gt(0)').hide()
       })
     })
   </script>
