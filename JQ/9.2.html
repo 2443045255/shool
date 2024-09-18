@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-1.12.4.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .div1 {
+        height: 30vh;
+        background: rgb(201, 255, 201);
+        margin-top: 30px;
+    }
+
+    .noshow {
+        display: none;
+    }
+</style>
+
+<body>
+    <button onclick="显示()">显示</button>
+    <button onclick="显示文字()">设置内容</button>
+    <div class="div1" id="div1"></div>
+    <div class="div1" id="div2"></div>
+</body>
+<script>
+    // function 显示(){
+    //     var div1 = document.querySelectorAll(".div1")
+    //     div1.forEach(e=>{
+    //         e.classList.toggle("noshow")
+    //     })
+    // }
+    function 显示() {
+        $(".div1").toggleClass("noshow")
+    }
+    function 显示文字() {
+        $(".div1").text("132")
+    }
+</script>
+
+</html>

@@ -63,14 +63,14 @@
     $('.menu_body').hide()
     $('.menu_head').click(function () {
       if (menuSave == $(this).context) {
-        $(this).toggleClass("current");
+        $(this).removeClass("menu_list current");
         $(this).next().hide()
         menuSave = ''
         return
       } else {
-        $('.menu_head').removeClass("current");
+        $('.menu_head').removeClass("menu_list current");
         $('.menu_body').hide()
-        $(this).toggleClass("current");
+        $(this).addClass("menu_list current");
         $(this).next().show()
       }
       menuSave = $(this).context
