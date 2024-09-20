@@ -6,6 +6,13 @@ a{
     text-decoration: none;
     color: inherit;
 }
+a:hover{
+    text-decoration: underline;
+}
+.a{
+    cursor: pointer;
+    user-select: none;
+}
 header{
     background: rgb(10, 10, 10);
     color: white;
@@ -17,4 +24,26 @@ nav{
 }
 nav>a{
     margin: 0 5px;
+}
+.section1{
+    padding: 1% 10%;
+}
+.title{
+    text-align: center;
+}
+.mainTitle{
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 2px solid;
+}
+.page{
+    padding: 10px 0;
+}
+.button{
+    width: max-content;
+    color: white;
+    padding: 8px 15px;
+    background: black;
+    border-radius: 4px;
+    margin: 10px;
 }

@@ -19,18 +19,29 @@
                 }
             ?>
         </nav>
-        <section>
+    </header>
+    <section class="section1">
+        <div class="title">
             <h5>欢迎来到我的博客</h5>
             <p>这里是分享我的个人生活与技术知识的地方。</p>
-            <h2>最新文章</h2>
-            <?php
-            $pageArray = [
-                "Title":"文章标题一",
-                "Time":"2024年9月19日",
-                "Content":"这是第一篇博客的内容"
-            ];
-            ?>
-        </section>
-    </header>
+        </div>
+        <h2 class="mainTitle">最新文章</h2>
+        <?php
+        $pageArray = [
+            array("文章标题一","2024年9月19日","这是第一篇博客的内容"),
+            array("文章标题二","2024年9月19日","这是第一篇博客的内容")
+        ];
+        foreach($pageArray as $v){
+            echo <<<EOF
+                <div class="page">
+                    <h2>$v[0]</h2>
+                    <p>$v[1]</p>
+                    <p>$v[2]</p>
+                    <div class="button a">点击阅读</div>
+                </div>
+            EOF;
+        }
+        ?>
+    </section>
 </body>
 </html>
