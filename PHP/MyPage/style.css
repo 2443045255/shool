@@ -1,0 +1,20 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+header{
+    background: rgb(10, 10, 10);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+nav{
+    padding-top: 10px;
+}
+nav>a{
+    margin: 0 5px;
+}
