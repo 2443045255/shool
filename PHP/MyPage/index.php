@@ -6,6 +6,57 @@
     <title>我的博客</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    *{
+    box-sizing: border-box;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    text-decoration: underline;
+}
+.a{
+    cursor: pointer;
+    user-select: none;
+}
+header{
+    background: rgb(10, 10, 10);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+nav{
+    padding-top: 10px;
+}
+nav>a{
+    margin: 0 5px;
+}
+.section1{
+    padding: 1% 10%;
+}
+.title{
+    text-align: center;
+}
+.mainTitle{
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 2px solid;
+}
+.page{
+    padding: 10px 0;
+}
+.button{
+    width: max-content;
+    color: white;
+    padding: 8px 15px;
+    background: black;
+    border-radius: 4px;
+    margin: 10px;
+}
+</style>
 <body>
     <header>
         <h1>我的博客</h1>

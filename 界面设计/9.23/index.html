@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPhoneX</title>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <div class="IPhoneX-body">
+        <div class="IPhoneX-状态栏"></div>
+        <div class="IPhoneX-Content">
+            <div class="Content-导航栏"></div>
+        </div>
+        <div class="IPhoneX-导航条"></div>
+    </div>
+</body>
+<script>
+    window.onload = () => {
+        写元素1(4)
+    }
+    function 写元素1(value = 0) {
+        var Content_导航栏 = document.querySelector(".Content-导航栏")
+        var textArray = [
+            '首页',
+            '分类',
+            '消息',
+            '我的'
+        ]
+        for (let i = 1; i <= value; i++) {
+            Content_导航栏.innerHTML += `
+            <div class="导航栏-li">
+                <div class="导航栏-li-img"></div>
+                <div class="导航栏-li-text">${textArray[i - 1]}</div>
+            </div>
+            `
+        }
+    }
+</script>
+
+</html>

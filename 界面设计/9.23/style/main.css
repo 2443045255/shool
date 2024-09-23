@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.IPhoneX-body {
+    width: 1125px;
+    height: 2436px;
+    border: 1px solid;
+    border-radius: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.IPhoneX-状态栏 {
+    background: url(../iPhoneX-状态栏.jpg);
+    height: 132px;
+}
+
+.IPhoneX-导航条 {
+    background: url(../首页指示器.png);
+    height: 102px;
+    width: 100%;
+}
+
+.IPhoneX-Content{
+    flex: 1;
+    position: relative;
+}
+
+.Content-导航栏{
+    position: absolute;
+    background: rgba(255, 0, 0, 0.2);
+    height: 146px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.导航栏-li{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+    align-items: center;
+    text-align: center;
+}
+
+.导航栏-li-img{
+    height: 90px;
+    width: 90px;
+    background: rgba(255, 0, 0, 0.4);
+}
+
+.导航栏-li-text{
+    height: 30px;
+    width: 100%;
+    background: rgba(255, 0, 0, 0.4);
+    font-size: 1.5rem;
+    line-height: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
