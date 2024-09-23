@@ -3,4 +3,10 @@ git add .
 git commit -m "%date%%time%"
 git branch -m main
 git push -u origin main
+
+git remote add origin https://gitcode.com/Rxaser_gitcode/Shool.git
+git add .
+git commit -m "%date%%time%"
+git branch -m main
+git push -u origin main
 pause
