@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<style>
+    div {
+        background: black;
+        height: 300px;
+        width: 300px;
+        user-select: none;
+    }
+</style>
+
+<body>
+    <div id="div1">123</div>
+</body>
+<script>
+    $(() => {
+        var count = 0
+        $("div").click(function () {
+            $(this).toggleClass("class1", count++ % 3 == 0)
+            console.log($(this));
+        })
+    })
+</script>
+
+</html>
