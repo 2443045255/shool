@@ -7,26 +7,26 @@ typedef struct{
 	int length;
 }SeqList;
 
-//¢Ù³õÊ¼»¯±í
+//â‘ åˆå§‹åŒ–è¡¨
 void InitList(SeqList* L){
 	L->data=(int *)malloc(sizeof(int)*ListSize);
 	L->length=5;
 }
 
-//¢ÚÅĞ¶ÏÊÇ·ñÊÇ¿Õ±í
+//â‘¡åˆ¤æ–­æ˜¯å¦æ˜¯ç©ºè¡¨
 void ListEmpty(SeqList* L){
 	if(L->length == 0)
-		printf("LÊÇ¿Õ±í\n");
+		printf("Læ˜¯ç©ºè¡¨\n");
 	else
-		printf("L²»ÊÇ¿Õ±í\n");	
+		printf("Lä¸æ˜¯ç©ºè¡¨\n");	
 }
 
-//¢ÛÇóÏßĞÔ±íµÄ³¤¶È
+//â‘¢æ±‚çº¿æ€§è¡¨çš„é•¿åº¦
 int ListLength(SeqList* L){
 	return L->length;
 }
 
-//¢ÜÊä³öÏßĞÔ±í
+//â‘£è¾“å‡ºçº¿æ€§è¡¨
 void DispList(SeqList* L){
 	for(int i=0;i <= L->length-1;i++){
 		printf("%d ",L->data[i]);
@@ -34,13 +34,13 @@ void DispList(SeqList* L){
 	printf("\n");
 }
 
-//¢İ°´Î»²éÕÒ
+//â‘¤æŒ‰ä½æŸ¥æ‰¾
 int GetElem(SeqList* L,int index){
-	if(index<1 || index>L->length) //·Ç·¨Î»ÖÃ 
-		return -1;  //ÓÃ-1×÷´íÎó±êÊ¶ 
+	if(index<1 || index>L->length) //éæ³•ä½ç½® 
+		return -1;  //ç”¨-1ä½œé”™è¯¯æ ‡è¯† 
 	return L->data[index-1];
 }
-// ¢Ş°´Öµ²éÕÒ
+// â‘¥æŒ‰å€¼æŸ¥æ‰¾
 int LocateElem(SeqList* L,int e){
 	for(int i=0;i <= L->length-1;i++){
 		if(e == L->data[i]){
@@ -49,32 +49,32 @@ int LocateElem(SeqList* L,int e){
 	}
 	return -1;
 }
-//¢ß²åÈë
+//â‘¦æ’å…¥
 int ListInsert(SeqList* L,int i,int e){
-	if(i<1 || i>L->length+1){ //ÅĞ¶ÏiµÄ·¶Î§ÊÇ·ñÓĞĞ§ 
-		return 0; //ÓÃ0´ú±í¼Ù 
+	if(i<1 || i>L->length+1){ //åˆ¤æ–­içš„èŒƒå›´æ˜¯å¦æœ‰æ•ˆ 
+		return 0; //ç”¨0ä»£è¡¨å‡ 
 	}
 	if(L->length == ListSize){
-		return 0; //ÓÃ0´ú±í¼Ù
+		return 0; //ç”¨0ä»£è¡¨å‡
 	}
 	for(int j=L->length-1;j>=i-1;j--){
 		L->data[j+1] = L->data[j];
 	}
 	L->data[i-1] = e;
 	L->length++;
-	return 1; //ÓÃ1±íÊ¾Õæ 
+	return 1; //ç”¨1è¡¨ç¤ºçœŸ 
 }
 
-//¢àÉ¾³ıÊı¾İÔªËØ
+//â‘§åˆ é™¤æ•°æ®å…ƒç´ 
 int ListDelete(SeqList* L,int i){
-	if(i<1 || i>L->length){ //·Ç·¨Çø¼ä 
-		return 0; //·µ»Ø´íÎó 
+	if(i<1 || i>L->length){ //éæ³•åŒºé—´ 
+		return 0; //è¿”å›é”™è¯¯ 
 	}
 	for(int j=i-1;j<L->length-1;j++){
-		L->data[j] = L->data[j+1];//Ç°ÒÆ 
+		L->data[j] = L->data[j+1];//å‰ç§» 
 	}
-	L->length--; //Ë³Ğò±í³¤¶È¼õÒ» 
-	return 1; //·µ»Ø³É¹¦ 
+	L->length--; //é¡ºåºè¡¨é•¿åº¦å‡ä¸€ 
+	return 1; //è¿”å›æˆåŠŸ 
 }
  
 int main(){
@@ -83,11 +83,11 @@ int main(){
 	printf("%d\n",L.length);
 	ListEmpty(&L);
 	int n = ListLength(&L);
-	printf("µ±Ç°ÏßĞÔ±íµÄ³¤¶ÈÎª£º%d\n",n);
+	printf("å½“å‰çº¿æ€§è¡¨çš„é•¿åº¦ä¸ºï¼š%d\n",n);
 	DispList(&L);
 	printf("\n");
-	printf("°´Î»²éÕÒµÄÔªËØÎª£º%d\n",GetElem(&L,11));
-	printf("°´Öµ²éÕÒµÄÎ»ÖÃÎª£º%d\n",LocateElem(&L,0));
+	printf("æŒ‰ä½æŸ¥æ‰¾çš„å…ƒç´ ä¸ºï¼š%d\n",GetElem(&L,11));
+	printf("æŒ‰å€¼æŸ¥æ‰¾çš„ä½ç½®ä¸ºï¼š%d\n",LocateElem(&L,0));
 	
 	ListInsert(&L,1,100);
 	DispList(&L);

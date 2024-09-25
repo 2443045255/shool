@@ -57,7 +57,6 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "code-runner.executorMap": {
-
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
     "c": "cd $dir && gcc -std=c99 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
