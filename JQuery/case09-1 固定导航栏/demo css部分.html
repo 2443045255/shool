@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head lang="zh">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    img {
+      vertical-align: top;
+    }
+
+    .main {
+      margin: 0 auto;
+      width: 1000px;
+      margin-top: 10px;
+    }
+
+    #Q-nav1 {
+      overflow: hidden;
+      background: black;
+      height: 60px;
+      width: 1423px;
+      color: #fff;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    /* 导航栏页面结构 */
+    ul {
+      list-style: none;
+      height: 100%;
+      margin-left: 140px;
+
+    }
+
+    ul>li {
+      float: left;
+      height: 100%;
+      line-height: 60px;
+      margin-left: 25px;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(() => {
+      $(window).scroll(function () {
+        $(this).scrollTop() >= 100 ? $('#Q-nav1').addClass("fixed") : $('#Q-nav1').removeClass("fixed")
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <div class="top" id="top">
+    <img src="images/top.png" alt="" />
+  </div>
+  <div id="Q-nav1">
+    <ul>
+      <li>体育首页</li>
+      <li>中国足球</li>
+      <li>亚冠</li>
+      <li>中超</li>
+      <li>国足</li>
+      <li>中甲</li>
+      <li>视频直播</li>
+    </ul>
+  </div>
+  <div class="main" id="main">
+    <img src="images/main.png" alt="" />
+  </div>
+</body>
+
+</html>

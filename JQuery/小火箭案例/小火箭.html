@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      height: 8000px;
+    }
+
+    a {
+      color: #FFF;
+    }
+
+    .actGotop {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      width: 150px;
+      height: 195px;
+      display: none;
+      z-index: 100;
+    }
+
+    .actGotop a,
+    .actGotop a:link {
+      width: 150px;
+      height: 195px;
+      display: inline-block;
+      background: url(images/gotop.png) no-repeat;
+      outline: none;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <h1>我是导航栏</h1>
+  <!-- 返回顶部小火箭 -->
+  <div class="actGotop"><a href="javascript:;" title="Top"></a></div>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(window).scroll(function () {
+      $(this).scrollTop() >= 1000 ? $('.actGotop').show() : $('.actGotop').hide()
+    })
+    $('.actGotop').click(() => {
+      $(window).scrollTop(0)
+    })
+  </script>
+</body>
+
+</html>
