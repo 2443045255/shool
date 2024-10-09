@@ -103,7 +103,11 @@
             $("#tb input[type='checkbox']").prop("checked", $(this).prop("checked"))
         })
         $("#tb input[type='checkbox']").click(function () {
-            
+            if ($("#tb input[type='checkbox']:checked").length == $("#tb input[type='checkbox']").length) {
+                $("#cbAll").prop("checked", true)
+            } else {
+                $("#cbAll").prop("checked", false)
+            }
         })
     </script>
 </body>
