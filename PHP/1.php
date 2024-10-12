@@ -1,14 +1,24 @@
 <?php
-$a = [1,"dog" => 3];
-foreach($a as $k => $v){
-    echo $k . ':' . $v;
-    echo PHP_EOL;
+class Animaf{
+    private $age;
+    protected $name;
+    public function __construct($age){
+        $this->age = $age;
+    }
+
+    final public function eat(){
+        echo $this->age . "岁的" . $this->name . "在吃饭。";
+    }
 }
-$a = "123";
-function firstFunc(int $value){
-    echo " $value ";
-    global $a;
-    echo $a;
+
+class Cat extends Animaf{
+    public function __construct($age,$name){
+        $this->name = $name;
+        parent::__construct($age);
+    }
 }
-firstFunc(123);
+
+$cat = new Cat(3,"TOM");
+// var_dump($cat);
+$cat->eat();
 ?>
