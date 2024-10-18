@@ -1,24 +1,20 @@
 <?php
-class Animaf{
-    private $age;
-    protected $name;
-    public function __construct($age){
-        $this->age = $age;
-    }
+// function 输出($name,$age,$hight){
+//     echo $name . ",年龄" . $age . ",身高" . "$hight" . PHP_EOL;;
+// }
+// 输出("小明","12","165");
+// 输出("小王","13","165");
+// 输出("小红","14","165");
 
-    final public function eat(){
-        echo $this->age . "岁的" . $this->name . "在吃饭。";
-    }
-}
-
-class Cat extends Animaf{
-    public function __construct($age,$name){
-        $this->name = $name;
-        parent::__construct($age);
+class Animas
+{
+    public $name = "1";
+    function action()
+    {
+        echo $this->name . "在";
     }
 }
 
-$cat = new Cat(3,"TOM");
-// var_dump($cat);
-$cat->eat();
-?>
+$Tom = new Animas();
+$Tom->name = "汤姆";
+$Tom->action();
