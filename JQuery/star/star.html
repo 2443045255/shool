@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>星级评价</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+  <ul class="comment">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <script>
+    $(function () {
+      var starNum
+      $(".comment>li").mouseenter(function () {
+        $(this).prevAll().addClass("light")
+        $(this).addClass("light")
+      })
+      $(".comment>li").mouseleave(function () {
+        $(".comment>li").removeClass("light")
+        if (starNum) {
+          starNum.prevAll().addClass("light")
+          starNum.addClass("light")
+          starNum.nextAll().removeClass("light")
+        }
+      })
+      $(".comment>li").click(function () {
+        starNum = $(this)
+      })
+    })
+  </script>
+</body>
+
+</html>
