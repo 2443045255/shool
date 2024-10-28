@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery动态添加和删除数据</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div>
+      <input type="button" value="添加数据" id="j_btnAddData" class="btnAdd">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>课程名称</th>
+          <th>所属学院</th>
+          <th>已学会</th>
+        </tr>
+      </thead>
+      <tbody id="j_tb">
+        <tr>
+          <td>JavaScript</td>
+          <td>信息工程系</td>
+          <td><a href="javascrip:;" class="del">删除</a></td>
+        </tr>
+        <tr>
+          <td>css</td>
+          <td>信息工程系</td>
+          <td><a href="javascrip:;" class="del">删除</a></td>
+        </tr>
+        <tr>
+          <td>html</td>
+          <td>信息工程系</td>
+          <td><a href="javascrip:;" class="del">删除</a></td>
+        </tr>
+        <tr>
+          <td>jQuery</td>
+          <td>信息工程系</td>
+          <td><a href="javascrip:;" class="del">删除</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="j_mask" class="mask"></div>
+  <div id="j_formAdd" class="form-add">
+    <div class="form-add-title">
+      <span>添加数据</span>
+      <div id="j_hideFormAdd">x</div>
+    </div>
+    <div class="form-item">
+      <label class="lb" for="j_txtLesson">课程名称：</label>
+      <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称" autocomplete="off">
+    </div>
+    <div class="form-item">
+      <label class="lb" for="j_txtBelSch">所属学院：</label>
+      <input class="txt" type="text" id="j_txtBelSch" value="信息工程系" readonly>
+    </div>
+    <div class="form-submit">
+      <input type="button" value="添加" id="j_btnAdd">
+    </div>
+  </div>
+  <script>
+    $(function () {
+      addFuc()
+      $("#j_btnAddData").click(function () {
+        $("#j_formAdd").show()
+        $("#j_mask").show()
+      })
+    })
+    $("#j_btnAdd").click(function () {
+      AllHide()
+      addTxt()
+    })
+    $("#j_hideFormAdd").click(function () {
+      AllHide()
+    })
+    function AllHide() {
+      $("#j_formAdd").hide()
+      $("#j_mask").hide()
+    }
+    function addTxt(){
+      let txtLesson = $("#j_txtLesson").val()
+      let txtBelSch = $("#j_txtBelSch").val()
+      let html = `<tr><td>${txtLesson}</td><td>${txtBelSch}</td><td><a href="javascrip:;" class="del">删除</a></td></tr>`
+      $("#j_tb").append(html)
+      $("#j_txtLesson").val("")
+      addFuc()
+    }
+
+    function addFuc(){
+      $("#j_tb>tr").on("click","td>.del",function(){
+        $(this).parent().parent().remove()
+      })
+    }
+  </script>
+</body>
+
+</html>
