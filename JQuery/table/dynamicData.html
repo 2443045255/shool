@@ -93,7 +93,8 @@
 
     function addFuc(){
       $("#j_tb>tr").on("click","td>.del",function(){
-        $(this).parent().parent().remove()
+        $(this).closest('tr').remove()
+
       })
     }
   </script>
