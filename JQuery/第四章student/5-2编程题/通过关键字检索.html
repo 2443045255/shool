@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+</head>
+
+<body>
+	关键字：<input id="keyword" type="text" autocomplete="off">
+	<div id="contain">
+		<ul id="list">
+
+		</ul>
+	</div>
+	<script>
+		var data = ["Head First HTML与CSS", "JavaScript高级程序设计", "JavaScript DOM编程艺术", "高性能网站建设进阶指南", "高性能网站建设指南", "Web前端黑客技术揭秘	", "JavaScript权威指南", "精通CSS", "编写可维护的JavaScript	", "高性能JavaScript"]
+		$(function () {
+			$("#keyword").change(function () {
+				var htmlVal = ""
+				data.forEach(element => {
+					var value1 = $(this).val()
+					if (element.toLowerCase().indexOf(value1.toLowerCase()) != -1) {
+						htmlVal += `<li>${element}</li>`
+					}
+				});
+				if (!htmlVal) {
+					$("#list").html("无")
+				} else {
+					$("#list").html(htmlVal)
+				}
+			})
+		})
+	</script>
+</body>
+
+</html>
