@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        .swiper {
+            width: 560px;
+            height: 300px;
+            border: 1px solid;
+            margin: 80px auto;
+            position: relative
+        }
+
+        .swiper .imgURL {
+            list-style: none;
+            padding: 0
+        }
+
+        .swiper .imgURL li {
+            position: absolute;
+            display: none
+        }
+
+        .swiper .imgURL .selectLi {
+            display: block
+        }
+
+        .leftBtn,
+        .rightBtn {
+            position: absolute;
+            width: 30px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, .3);
+            font-size: 25px;
+            top: 40%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+
+        .rightBtn {
+            right: 0
+        }
+
+        .leftBtn:hover,
+        .rightBtn:hover {
+            color: #fff;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .swiper .maodianUl {
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            bottom: 10px;
+            left: 35%;
+        }
+
+        .swiper .maodianUl li {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            background-color: orange;
+            text-align: center;
+            line-height: 22px;
+            border-radius: 50%;
+        }
+
+        .swiper .maodianUl .selectMaoDian {
+            background-color: purple
+        }
+
+        .swiper .maodianUl li a {
+            text-decoration: none;
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <ul class="imgURL">
+            <li class="selectLi">
+                <a href="#"><img src="img/0.jpg" style="width: 560px;height: 300px;" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/1.jpg" style="width: 560px;height: 300px;" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/2.jpg" style="width: 560px;height: 300px;" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/3.jpg" style="width: 560px;height: 300px;" alt="" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/4.jpg" style="width: 560px;height: 300px;" alt="" /></a>
+            </li>
+        </ul>
+        <div class="leftBtn">
+            < </div>
+                <div class="rightBtn">></div>
+                <ul class="maodianUl">
+                    <li class="selectMaoDian"><a href="#">0</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                </ul>
+        </div>
+</body>
+<script>
+
+    $(function () {
+        var imgIndex = 0
+        var oldImgIndex = 0
+        $(".leftBtn").click(function () {
+            图片切换(imgIndex--)
+        })
+        $(".rightBtn").click(function () {
+            图片切换(imgIndex++)
+        })
+        setInterval(() => {
+            图片切换(imgIndex++)
+        }, 3000);
+        function 图片切换() {
+            imgIndex < 0 ? imgIndex = 4 : null
+            imgIndex > 4 ? imgIndex = 0 : null
+            $('.imgURL>li').eq(oldImgIndex).fadeOut("fast");
+            $('.imgURL>li').eq(imgIndex).fadeIn("fast")
+            按钮选中(imgIndex)
+            oldImgIndex = imgIndex
+        }
+        $(".maodianUl>li").mouseenter(function () {
+            按钮选中($(this).index())
+            imgIndex = $(this).index()
+            图片切换(imgIndex)
+        })
+        function 按钮选中(value){
+            $(".maodianUl>li").removeClass("selectMaoDian")
+            $(".maodianUl>li").eq(value).addClass("selectMaoDian")
+        }
+    })
+
+</script>
+
+</html>
