@@ -134,10 +134,12 @@
             if (任务元素.length != 0) {
                 if (prev_title.innerText != 任务元素[0]["title"]) {
                     切换下一个视频()
-                    clearInterval(setInterval_2)
                 }
             }
-        }, 500);
+            if (document.getElementById("iframe").contentWindow.document.getElementById("ext-gen1051")["aria-label"] == "任务点已完成") {
+                切换下一个视频()
+            }
+        }, 5000);
 
     }
 })();
