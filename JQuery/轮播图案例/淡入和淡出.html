@@ -129,9 +129,13 @@
         $(".rightBtn").click(function () {
             图片切换(imgIndex++)
         })
-        setInterval(() => {
-            图片切换(imgIndex++)
-        }, 3000);
+        var imgImgsetInterval
+        自动轮播()
+        function 自动轮播() {
+            imgImgsetInterval = setInterval(() => {
+                图片切换(imgIndex++)
+            }, 1000);
+        }
         function 图片切换() {
             imgIndex < 0 ? imgIndex = 4 : null
             imgIndex > 4 ? imgIndex = 0 : null
@@ -145,10 +149,15 @@
             imgIndex = $(this).index()
             图片切换(imgIndex)
         })
-        function 按钮选中(value){
+        function 按钮选中(value) {
             $(".maodianUl>li").removeClass("selectMaoDian")
             $(".maodianUl>li").eq(value).addClass("selectMaoDian")
         }
+        $('.swiper').hover(function () {
+            clearInterval(imgImgsetInterval)
+        }, function () {
+            自动轮播()
+        })
     })
 
 </script>
