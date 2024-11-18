@@ -36,6 +36,7 @@
     window.onload = function () {
         循环判断是否暂停()
         判断任务点是否完成()
+        循环获取2任务条目()
     }
     // document.getElementById("iframe").contentWindow.document.querySelectorAll("iframe")[document.getElementById("iframe").contentWindow.document.querySelectorAll("iframe").length - 1].contentWindow.document.getElementById("video_html5_api")
     function 视频元素() {
