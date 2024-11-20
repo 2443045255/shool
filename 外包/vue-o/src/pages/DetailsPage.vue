@@ -1,12 +1,8 @@
 <template>
-    <div class="head">
-        <h2>详情</h2>
-    </div>
+  <main>
+    <h2>详情</h2>
+  </main>
 </template>
 <script setup>
 </script>
-<style scoped>
-.head{
-    background: #ccc;
-}
-</style>
+<style scoped></style>

@@ -1,12 +1,10 @@
 <template>
-    <div class="head">
+    <main>
         <h2>登录</h2>
-    </div>
+    </main>
 </template>
 <script setup>
 </script>
 <style scoped>
-.head{
-    background: #ccc;
-}
+
 </style>

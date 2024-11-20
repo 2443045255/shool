@@ -6,9 +6,28 @@
   margin: 0;
 }
 
+main {
+  padding: 0 10px;
+  padding-bottom: 10px;
+  background: #ccc;
+  text-align: center;
+}
 
+section{
+   padding: 10px;
+   border-radius: 6px;
+   background: white;
+   text-align: left;
+}
 
-.a{
+img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.a {
   user-select: none;
   cursor: pointer;
 }

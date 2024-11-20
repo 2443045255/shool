@@ -38,13 +38,14 @@ const tabsToCN = {
 header {
   display: flex;
   align-items: center;
+  justify-content: center;
   background: #ccc;
   padding: 10px;
 }
 
 .logo {
   font-size: larger;
-  margin-right: 10px;
+  margin-right: 15px;
   padding-right: 15px;
   border-right: 1px solid;
 }
