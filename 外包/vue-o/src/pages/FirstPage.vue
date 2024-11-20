@@ -57,20 +57,13 @@ const old轮播图active = ref(0)
 function 轮播图切换(value) {
   轮播图active.value = value
   var new轮播图img = document.createElement("img")
-  new轮播图img.style.cssText = "position: absolute;top: 0;left: 100%;"
+  new轮播图img.className = "new轮播图img"
   new轮播图img.src = imgUrls[轮播图active.value]
   document.querySelector(".轮播图-ul").append(new轮播图img)
-  new轮播图img.animate([
-    { left: "100%" },
-    { left: "0%" }
-  ], {
-    duration: 500,
-    //修改
-  })
   setTimeout(() => {
     new轮播图img.remove()
-    old轮播图active.value = 轮播图active.value
-  }, 700);
+    old轮播图active.value = value
+  }, 400);
 }
 function 同步高宽(arrValue) {
   // var arrValue1 = document.getElementById("")

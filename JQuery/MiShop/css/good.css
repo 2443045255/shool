@@ -1,0 +1,84 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    color: #000000;
+    background: #f2e7ca top center no-repeat;
+} */
+#rtnTop{
+    text-align: center;
+    position: fixed;
+    top: 30%;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0,0,0,0.5);
+    opacity: 0.3;
+}
+#rtnBack{
+    text-align: center;
+    position: fixed;
+    top: 38%;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0,0,0,0.5);
+    opacity: 0.3;
+}
+#rtnTop div.rotate{
+    -ms-transform: rotate(-90deg);
+    /* IE 9 */
+    transform: rotate(-90deg);
+    transition-duration: 0ms;
+    margin-top: 10px;
+    /* 标准语法 */
+}
+.home-category{
+    display: none;
+    top: 25%;
+    left: 10%
+}
+.goodInfo {
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+}
+
+.style {
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    color: #ff6700;
+    letter-spacing: 0;
+    text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135
+}
+.style2 {
+    font: 8px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+    /* background:-webkit-linear-gradient(top, #FF0000, #00FF00); */
+}
+.goodInfo h2.goodTitle {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    width: 80px;
+    text-align: center;
+    /* font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    color: rgba(255, 103, 0, 0.9); */
+}
+
+.goodInfo h3.goodDescription {
+    color: #882100;
+    position: absolute;
+    left: 2%;
+    top: 8%;
+    width: 160px;
+    text-align: center;
+    /* font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+    color: rgba(0, 0, 0, 0.6); */
+}
+
+.goodInfo .goodInfo-img {
+    width: 100%;
+    height: 400px;
+}

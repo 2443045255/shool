@@ -13,18 +13,35 @@ main {
   text-align: center;
 }
 
-section{
-   padding: 10px;
-   border-radius: 6px;
-   background: white;
-   text-align: left;
+section {
+  padding: 10px;
+  border-radius: 6px;
+  background: white;
+  text-align: left;
 }
 
-img{
+img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.new轮播图img {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  animation: 向左进入 .4s forwards;
+}
+
+@keyframes 向左进入 {
+  from {
+    left: 100%;
+  }
+
+  to {
+    left: 0%;
+  }
 }
 
 .a {
