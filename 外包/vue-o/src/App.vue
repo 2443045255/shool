@@ -1,25 +1,70 @@
 <script setup>
+import { ref } from 'vue'
+
+import FirstPage from "./pages/FirstPage.vue"
+import DetailsPage from "./pages/DetailsPage.vue"
+import LoginPage from "./pages/LoginPage.vue"
+
+const activeTab = ref('FirstPage')
+
+const tabs = {
+  FirstPage,
+  DetailsPage,
+  LoginPage
+}
+const tabsToCN = {
+  FirstPage: "首页",
+  DetailsPage: "详情",
+  LoginPage: "登录"
+}
+
 </script>
 
 <template>
   <header>
     <div class="logo"><span>LOGO</span></div>
     <div class="wrapper">
-
+      <nav>
+        <span v-for="(_, tab) in tabs" :key="tab" :class="['tab-span a', { active: activeTab == tab }]"
+          @click="activeTab = tab">{{ tabsToCN[tab] }}</span>
+      </nav>
     </div>
   </header>
 
-  <main>
-    
-  </main>
+  <component :is="tabs[activeTab]" class="tab"></component>
 </template>
 
 <style scoped>
-header{
+header {
   display: flex;
   align-items: center;
+  background: #ccc;
+  padding: 10px;
 }
-.logo{
-  font-size: large;
+
+.logo {
+  font-size: larger;
+  margin-right: 10px;
+  padding-right: 15px;
+  border-right: 1px solid;
+}
+
+nav>.active {
+  border-color: red;
+}
+
+.tab-span {
+  padding: 4px 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: border-color .2s;
+}
+
+.tab-span:hover {
+  border-color: black;
+}
+
+.tab-span:active {
+  background: rgba(0, 255, 153, 0.3);
 }
 </style>

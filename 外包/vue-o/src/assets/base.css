@@ -20,6 +20,7 @@
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
+  border: 0;
 }
 
 body {
