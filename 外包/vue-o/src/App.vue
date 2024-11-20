@@ -19,4 +19,7 @@ header{
   display: flex;
   align-items: center;
 }
+.logo{
+  font-size: large;
+}
 </style>
