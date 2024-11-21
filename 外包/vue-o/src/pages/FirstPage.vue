@@ -3,7 +3,7 @@
     <h2>首页</h2>
     <section>
       <div class="module">
-        <h3 class="module-title">轮播图</h3>
+        <h3 class="module-title">轮播图、倒计时(文本插值、v-for)</h3>
         <div class="module-body">
           <div class="轮播图" @mouseover="自动轮播图(false)" @mouseout="自动轮播图(true)">
             <div class="轮播图-ul">
@@ -22,7 +22,7 @@
       </div>
 
       <div class="module">
-        <h3 class="module-title">表单验证</h3>
+        <h3 class="module-title">表单验证、列表展示、隔行换色(文本插值、v、v-model、v-for)</h3>
         <div class="module-body">
           <div class="flex" style="align-items: center;justify-content: center;">
             <div class="input-group">
@@ -41,21 +41,38 @@
 
             <button class="large-btn" style="margin-left: 20px;" @click="addBook()">添加</button>
           </div>
-          <div class="book-li">
-            <div class="book-title">预览：</div>
-            <div class="book-name">{{ bookName }}</div>
-            <div class="book-price">{{ bookPrice }}</div>
-            <div class="book-num">{{ bookNum }}</div>
+
+          <div class="pre">
+            <h4 class="pre-title">预览</h4>
+            <div class="pre-body">
+              <div class="book-li">
+                <div class="book-name">{{ bookArr[0][0] }}</div>
+                <div class="book-price">{{ bookArr[0][1] }}</div>
+                <div class="book-num">{{ bookArr[0][2] }}</div>
+              </div>
+              <div class="book-li">
+                <div class="book-name">{{ bookName }}</div>
+                <div class="book-price">{{ bookPrice }}</div>
+                <div class="book-num">{{ bookNum }}</div>
+              </div>
+            </div>
           </div>
-          <div class="book-ul">
-            <div class="book-li" v-for="key in bookArr" :key="key">
-              <div class="book-name">{{ key[0] }}</div>
-              <div class="book-price">{{ key[1] }}</div>
-              <div class="book-num">{{ key[2] }}</div>
+
+
+          <div class="scroll">
+            <div class="book-ul">
+              <div class="book-li" v-for="key in bookArr" :key="key">
+                <div class="book-name">{{ key[0] }}</div>
+                <div class="book-price">{{ key[1] }}</div>
+                <div class="book-num">{{ key[2] }}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
     </section>
   </main>
 </template>
@@ -127,13 +144,13 @@ const bookPrice = ref()
 const bookNum = ref()
 
 const bookArr = ref([
-  ["测试名", 10, 100]
+  ["书名", "价格", "数量"]
 ])
 
-function addBook(){
+function addBook() {
   var newArr = []
 
-  if(bookName.value){
+  if (bookName.value) {
     newArr.push(bookName.value)
     !bookPrice.value ? newArr.push(1) : newArr.push(bookPrice.value)
     !bookNum.value ? newArr.push(1) : newArr.push(bookNum.value)
@@ -153,8 +170,8 @@ function addBook(){
   margin-top: 0;
 }
 
-.module-title::after {
-  content: "--";
+.module-title {
+  padding-bottom: 10px;
 }
 
 .轮播图 {
@@ -212,15 +229,51 @@ function addBook(){
   margin-right: 6px;
 }
 
-.book-li {
-  height: 30px;
+.pre {
   width: fit-content;
   margin: auto;
   margin-top: 20px;
+  border-radius: 6px;
+  padding: 10px;
+  padding-top: 2px;
+  border: 1px solid;
+}
+
+.pre>h4 {
+  padding-bottom: 5px;
+}
+
+.pre-body {
+  border-radius: 6px;
+}
+
+.book-li:first-child {
+  background: rgba(0, 255, 153, 0.4) !important;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.book-li:last-child {
+  border-bottom: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.book-li {
+  height: 30px;
+  width: fit-content;
   display: flex;
   align-items: center;
-  border-radius: 6px;
-  overflow: hidden;
+  background-color: rgba(232, 232, 232, 0.4);
+  border-bottom: 1px solid black;
+}
+
+.book-li:hover {
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+.book-li:nth-child(2n) {
+  background-color: rgba(169, 169, 169, 0.4);
 }
 
 .book-li>div {
@@ -230,32 +283,39 @@ function addBook(){
   text-align: center;
 }
 
-.book-title{
-  background-color: rgba(0, 255, 255, 0.2);
-}
-
 .book-name {
-  background: rgba(255, 0, 0, 0.2);
+  color: rgba(255, 0, 0);
 }
 
 .book-price {
-  background: rgba(0, 255, 8, 0.2);
+  color: rgb(34, 94, 36);
 }
 
 .book-num {
-  background: rgba(0, 42, 255, 0.2);
+  color: rgba(0, 42, 255);
+}
+
+.scroll {
+  height: 300px;
+  overflow: auto;
+  background-color: #ddd;
+  margin: 10px 0;
+  padding: 10px 0;
 }
 
 .book-ul {
   border: 1px solid;
   width: fit-content;
   margin: auto;
-  margin-top: 30px;
   border-radius: 6px;
-  overflow: hidden;
 }
-.book-ul>div{
+
+.book-ul>div {
   margin: 0;
   border-radius: 0;
+}
+
+.book-ul>div:nth-child(2n) {
+  color: red;
 }
 </style>

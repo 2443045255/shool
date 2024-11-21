@@ -18,6 +18,14 @@ const tabsToCN = {
   LoginPage: "登录"
 }
 
+
+function gotop() {
+  document.documentElement.scrollTop = 0
+}
+const docScrollTop = ref(0)
+document.onscroll = function () {
+  docScrollTop.value = document.documentElement.scrollTop
+}
 </script>
 
 <template>
@@ -32,6 +40,10 @@ const tabsToCN = {
   </header>
 
   <component :is="tabs[activeTab]" class="tab"></component>
+
+  <div class="more-btn-group">
+    <div class="a" id="gotop" @click="gotop()" v-show="docScrollTop > 100">回到顶部</div>
+  </div>
 </template>
 
 <style scoped>
@@ -67,5 +79,26 @@ nav>.active {
 
 .tab-span:active {
   background: rgba(0, 255, 153, 0.3);
+}
+
+.more-btn-group {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+}
+
+.more-btn-group>div {
+  background: #ccc;
+  padding: 2px 10px;
+  border-radius: 6px;
+}
+
+.more-btn-group>div:hover {
+  background: #bbb;
+}
+
+.more-btn-group>div:active {
+  background: #aaa;
 }
 </style>
