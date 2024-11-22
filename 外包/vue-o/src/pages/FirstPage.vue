@@ -84,7 +84,20 @@
         </div>
       </div>
 
+      <div class="module">
+        <div class="module-title">
+          <span>图文混排</span>
+          <div class="module-btn-group">
+            <button class="module-btn module-hide-btn" v-show="moduleShow[2]">收起</button>
+            <button class="module-btn module-show-btn" v-show="!moduleShow[2]">展开</button>
+          </div>
+        </div>
+        <div class="module-body" :class="{ 'module-hide': !moduleShow[2] }">
+          <div class="">
 
+          </div>
+        </div>
+      </div>
 
     </section>
   </main>
