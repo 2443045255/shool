@@ -3,8 +3,14 @@
     <h2>首页</h2>
     <section>
       <div class="module">
-        <h3 class="module-title">轮播图、倒计时(文本插值、v-for)</h3>
-        <div class="module-body">
+        <div class="module-title">
+          <span>展开隐藏、轮播图、倒计时(文本插值、v-for)</span>
+          <div class="module-btn-group">
+            <button class="module-btn module-hide-btn" v-show="moduleShow[0]">收起</button>
+            <button class="module-btn module-show-btn" v-show="!moduleShow[0]">展开</button>
+          </div>
+        </div>
+        <div class="module-body" :class="{ 'module-hide': !moduleShow[0] }">
           <div class="轮播图" @mouseover="自动轮播图(false)" @mouseout="自动轮播图(true)">
             <div class="轮播图-ul">
               <img :src="imgUrls[old轮播图active]">
@@ -22,24 +28,31 @@
       </div>
 
       <div class="module">
-        <h3 class="module-title">表单验证、列表展示、隔行换色(文本插值、v、v-model、v-for)</h3>
-        <div class="module-body">
+        <div class="module-title">
+          <span>展开隐藏、表单验证、列表展示、隔行换色(文本插值、v-for、v-model)</span>
+          <div class="module-btn-group">
+            <button class="module-btn module-hide-btn" v-show="moduleShow[1]">收起</button>
+            <button class="module-btn module-show-btn" v-show="!moduleShow[1]">展开</button>
+          </div>
+        </div>
+        <div class="module-body" :class="{ 'module-hide': !moduleShow[1] }">
           <div class="flex" style="align-items: center;justify-content: center;">
             <div class="input-group">
               <span>书名:</span>
-              <input type="text" class="input-large" v-model="bookName">
+              <input type="text" class="input-large" v-model="book['name']">
             </div>
             <div class="input-group">
               <span>价格:</span>
-              <input type="number" class="input-large" v-model="bookPrice">
+              <input type="number" class="input-large" min="1" v-model="book['price']">
               <span>元</span>
             </div>
             <div class="input-group">
               <span>数量:</span>
-              <input type="number" class="input-large" v-model="bookNum">
+              <input type="number" class="input-large" min="1" v-model="book['num']">
             </div>
 
-            <button class="large-btn" style="margin-left: 20px;" @click="addBook()">添加</button>
+            <button class="large-btn" style="margin-left: 20px;" @click="addBook()"
+              :class="{ lock: !book['name'] }">添加</button>
           </div>
 
           <div class="pre">
@@ -51,9 +64,9 @@
                 <div class="book-num">{{ bookArr[0][2] }}</div>
               </div>
               <div class="book-li">
-                <div class="book-name">{{ bookName }}</div>
-                <div class="book-price">{{ bookPrice }}</div>
-                <div class="book-num">{{ bookNum }}</div>
+                <div class="book-name">{{ book['name'] }}</div>
+                <div class="book-price">{{ book['price'] }}</div>
+                <div class="book-num">{{ book['num'] }}</div>
               </div>
             </div>
           </div>
@@ -90,6 +103,20 @@ onMounted(() => {
   同步高宽(document.querySelectorAll(".轮播图-img"))
   自动轮播图(true)
 
+  document.querySelectorAll(".module-body").forEach((element, index) => {
+    element.style.height = element.scrollHeight + "px"
+  })
+
+  document.querySelectorAll(".module-hide-btn").forEach((element, index) => {
+    element.onclick = function () {
+      moduleShow.value[index] = false
+    }
+  })
+  document.querySelectorAll(".module-show-btn").forEach((element, index) => {
+    element.onclick = function () {
+      moduleShow.value[index] = true
+    }
+  })
 })
 onUnmounted(() => {
   自动轮播图(false)
@@ -139,9 +166,12 @@ function 同步高宽(arrValue) {
 }
 
 
-const bookName = ref('')
-const bookPrice = ref()
-const bookNum = ref()
+const book = ref({
+  "name": '',
+  "price": 1,
+  "num": 1
+})
+
 
 const bookArr = ref([
   ["书名", "价格", "数量"]
@@ -150,19 +180,44 @@ const bookArr = ref([
 function addBook() {
   var newArr = []
 
-  if (bookName.value) {
-    newArr.push(bookName.value)
-    !bookPrice.value ? newArr.push(1) : newArr.push(bookPrice.value)
-    !bookNum.value ? newArr.push(1) : newArr.push(bookNum.value)
-  }
+  if (!book.value['name']) return
+  newArr.push(book.value['name'])
+  !book.value["price"] ? newArr.push(1) : newArr.push(book.value["price"])
+  !book.value["num"] ? newArr.push(1) : newArr.push(book.value["num"])
   bookArr.value.push(newArr)
+
 }
+
+const moduleShow = ref([
+  true,
+  true
+])
+
+// function module收展(value, index) {
+//   var module_bodyAll = document.querySelectorAll(".module-body")
+//   if (value) {
+//     // document.querySelectorAll(".module-show-btn")
+//     module_bodyAll[index].style.height = "initial"
+//   }
+//   if (!value) {
+//     module_bodyAll[index].style.height = "0px"
+//   }
+// }
 </script>
 <style scoped>
+.module-enter-active,
+.module-leave-active {
+  height: auto;
+}
+
+.module-enter-from,
+.module-leave-to {
+  height: 0px;
+}
+
 .module {
   user-select: none;
   border-top: 1px solid;
-  margin-top: 20px;
 }
 
 .module:first-child {
@@ -170,8 +225,51 @@ function addBook() {
   margin-top: 0;
 }
 
+.module:first-child .module-title {
+  margin-top: 0;
+}
+
+.module:last-child .module-title {
+  margin-bottom: 0;
+}
+
 .module-title {
-  padding-bottom: 10px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.module-title>span {
+  font-size: larger;
+  background: linear-gradient(90deg, black, black) right bottom no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .2s;
+}
+
+.module-title>span:hover {
+  background: linear-gradient(90deg, black, black) left bottom no-repeat;
+  background-size: 100% 2px;
+}
+
+.module-btn-group {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.module-body {
+  overflow: hidden;
+  margin-bottom: 10px;
+  transition: height .3s;
+}
+
+.module:last-child .module-body {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.module-hide{
+  height: 0px !important;
 }
 
 .轮播图 {
@@ -194,6 +292,7 @@ function addBook() {
   font-size: large;
   color: white;
   background: rgba(0, 0, 0, 0.3);
+  border-bottom-right-radius: 6px;
 }
 
 .轮播图-chose {
@@ -210,13 +309,14 @@ function addBook() {
   height: 100%;
   border-radius: 6px;
   margin: 0 10px;
-  border: 1px solid rgb(168, 168, 168);
+  border: 2px solid rgb(168, 168, 168);
   overflow: hidden;
   transition: transform .2s;
 }
 
 .轮播图-chose>.active {
   transform: scale(1.1);
+  border-color: peru;
 }
 
 .input-group {
@@ -260,7 +360,6 @@ function addBook() {
 }
 
 .book-li {
-  height: 30px;
   width: fit-content;
   display: flex;
   align-items: center;
@@ -277,8 +376,8 @@ function addBook() {
 }
 
 .book-li>div {
-  padding: 0 10px;
-  width: 230px;
+  padding: 5px 10px;
+  width: 250px;
   height: 100%;
   text-align: center;
 }
@@ -297,10 +396,13 @@ function addBook() {
 
 .scroll {
   height: 300px;
+  width: fit-content;
   overflow: auto;
   background-color: #ddd;
-  margin: 10px 0;
-  padding: 10px 0;
+  margin: auto;
+  margin-top: 10px;
+  padding: 10px 30px;
+  border-radius: 6px;
 }
 
 .book-ul {

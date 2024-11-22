@@ -32,6 +32,9 @@ button {
   background: #eee;
   padding: 5px 15px;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: .1s;
 }
 
@@ -84,4 +87,14 @@ input {
 .input-large {
   font-size: large;
   padding: 5px !important;
+}
+
+.lock {
+  cursor: not-allowed;
+}
+
+button.lock,
+button.lock:hover,
+button.lock:active {
+  background-color: #eee;
 }
