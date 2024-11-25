@@ -38,8 +38,10 @@ document.onscroll = function () {
       </nav>
     </div>
   </header>
+  <keep-alive>
+    <component :is="tabs[activeTab]" class="tab"></component>
+  </keep-alive>
 
-  <component :is="tabs[activeTab]" class="tab"></component>
 
   <div class="more-btn-group">
     <div class="a" id="gotop" @click="gotop()" v-show="docScrollTop > 100">回到顶部</div>
@@ -83,7 +85,7 @@ nav>.active {
 
 .more-btn-group {
   position: fixed;
-  bottom: 20px;
+  bottom: 2cm;
   right: 20px;
   padding: 10px;
 }

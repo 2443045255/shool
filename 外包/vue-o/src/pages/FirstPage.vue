@@ -93,8 +93,21 @@
           </div>
         </div>
         <div class="module-body" :class="{ 'module-hide': !moduleShow[2] }">
-          <div class="">
-
+          <div class="card" style="padding-bottom: 10px;">
+            <div class="card-img" style="margin-right: 10px;"><img src="/public/images/vue.svg" alt=""></div>
+            <div class="card-txt">
+              <h4>Vue</h4>
+              <p>Vue 是一款用于构建用户界面的 JavaScript 框架。它基于标准 HTML、CSS 和 JavaScript
+                构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。</p>
+            </div>
+          </div>
+          <div class="card" style="padding-bottom: 10px;flex-direction: row-reverse;">
+            <div class="card-img" style="margin-left: 10px;"><img src="/public/images/vue.svg" alt=""></div>
+            <div class="card-txt" style="text-align: right;">
+              <h4>Vue</h4>
+              <p>Vue 是一款用于构建用户界面的 JavaScript 框架。它基于标准 HTML、CSS 和 JavaScript
+                构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。</p>
+            </div>
           </div>
         </div>
       </div>
@@ -158,6 +171,7 @@ function 自动轮播图(value) {
 }
 
 function 轮播图切换(value) {
+  if (!document.querySelector(".轮播图-ul")) return
   轮播图active.value = value
   var new轮播图img = document.createElement("img")
   new轮播图img.className = "new轮播图img"
@@ -180,7 +194,7 @@ function 同步高宽(arrValue) {
 
 
 const book = ref({
-  "name": '',
+  "name": '西游记',
   "price": 1,
   "num": 1
 })
@@ -203,6 +217,7 @@ function addBook() {
 
 const moduleShow = ref([
   true,
+  true,
   true
 ])
 
@@ -218,72 +233,7 @@ const moduleShow = ref([
 // }
 </script>
 <style scoped>
-.module-enter-active,
-.module-leave-active {
-  height: auto;
-}
 
-.module-enter-from,
-.module-leave-to {
-  height: 0px;
-}
-
-.module {
-  user-select: none;
-  border-top: 1px solid;
-}
-
-.module:first-child {
-  border-top: 0;
-  margin-top: 0;
-}
-
-.module:first-child .module-title {
-  margin-top: 0;
-}
-
-.module:last-child .module-title {
-  margin-bottom: 0;
-}
-
-.module-title {
-  margin: 10px 0;
-  position: relative;
-}
-
-.module-title>span {
-  font-size: larger;
-  background: linear-gradient(90deg, black, black) right bottom no-repeat;
-  background-size: 0% 2px;
-  transition: background-size .2s;
-}
-
-.module-title>span:hover {
-  background: linear-gradient(90deg, black, black) left bottom no-repeat;
-  background-size: 100% 2px;
-}
-
-.module-btn-group {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
-}
-
-.module-body {
-  overflow: hidden;
-  margin-bottom: 10px;
-  transition: height .3s;
-}
-
-.module:last-child .module-body {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
-.module-hide{
-  height: 0px !important;
-}
 
 .轮播图 {
   height: 600px;
@@ -432,5 +382,30 @@ const moduleShow = ref([
 
 .book-ul>div:nth-child(2n) {
   color: red;
+}
+
+.card {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+.card:nth-child(2n){
+  margin-top: 10px;
+}
+
+.card-img {
+  min-width: fit-content;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-txt h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #41B883;
 }
 </style>

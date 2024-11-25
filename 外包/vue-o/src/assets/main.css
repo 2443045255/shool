@@ -3,7 +3,9 @@
 
 
 #app {
-  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
@@ -77,6 +79,15 @@ input {
 
 .flex {
   display: flex;
+}
+
+.flex-warp{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.txt-center{
+  text-align: center;
 }
 
 .large-btn {
