@@ -6,10 +6,12 @@
   box-sizing: border-box;
   margin: 0;
   border: 0;
+  user-select: none;
 }
 
 body {
   min-height: 100vh;
+  min-width: 1000px;
   line-height: 1.2;
   font-family:"微软雅黑";
   font-size: 15px;
@@ -17,15 +19,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url(/public/images/body.jpg) center bottom no-repeat;
-  background-size: 100%;
+  background-size: cover
 }
 
 
 main{
-  margin: 5px;
+  margin: auto;
+  margin-top: 5px;
   padding: 10px;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.7);
+  max-width: 1200px;
 }
 img{
   display: block;
