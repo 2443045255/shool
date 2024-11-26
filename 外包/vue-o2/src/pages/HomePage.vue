@@ -20,9 +20,18 @@
         </div>
 
         <div class="LBimg">
-            <div class="LBimg-title">电影海报</div>
+            <div class="LBimg-title">
+                <span>电影海报</span>
+                <div class="LBimg-time">
+                    <span>倒计时 : </span>
+                    <span>{{ LBimg_time }}</span>
+                    <button @click="LBimg_func(!LBimg_setInterval_active)"
+                        :class="[{ '开始': !LBimg_setInterval_active }, { '停止': LBimg_setInterval_active }]">计时</button>
+                    <button @click="randomImg()">随机图片</button>
+                </div>
+            </div>
             <div class="LBimg-body">
-                <div class="img LBimg-body-img1"><img :src="LBimgName[0]" alt=""></div>
+                <div class="img LBimg-body-img1"><img id="LBimgImg" :src="LBimgName[0]" alt=""></div>
             </div>
             <div class="LBimg-item">
                 <div class="LBimg-item-img" v-for="(key, index) in LBimgName" :key="index"
@@ -34,7 +43,7 @@
     </main>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 var LBimgName = [
     '/public/images/LB-img1.png',
@@ -51,6 +60,7 @@ var LBimgName = [
     '/public/images/LB-img12.jpg',
 ]
 const LBimgActive = ref(0)
+const LBimg_time = ref(3)
 function 切换图片(value) {
     var activeImg = document.createElement('div')
     activeImg.className = 'img LBimg-body-imgActive'
@@ -63,6 +73,34 @@ function 切换图片(value) {
         activeImg.remove()
     }, 200);
 }
+var LBimg_setInterval;
+const LBimg_setInterval_active = ref(true)
+function LBimg_func(value) {
+    if (value) {
+        LBimg_setInterval_active.value = true
+        LBimg_setInterval = setInterval(() => {
+            LBimg_time.value--
+            if (LBimg_time.value == 0) {
+                LBimgActive.value + 1 >= LBimgName.length ? LBimgActive.value = 0 : LBimgActive.value++
+                切换图片(LBimgName[LBimgActive.value])
+                LBimg_time.value = 3
+            }
+        }, 1000);
+    } else {
+        LBimg_setInterval_active.value = false
+        clearInterval(LBimg_setInterval)
+    }
+}
+function randomImg() {
+    LBimg_setInterval_active.value ? LBimg_func(false) : null
+    var random = Math.floor(Math.random() * LBimgName.length)
+    切换图片(LBimgName[random])
+}
+onMounted(() => {
+    LBimg_func(true)
+
+
+})
 </script>
 <style>
 .topImg {
@@ -139,12 +177,23 @@ function 切换图片(value) {
 .LBimg {
     margin-top: 20px;
     border: 1px solid;
+    border-radius: 6px;
 }
 
 .LBimg-title {
     font-size: 20px;
     padding: 10px 0;
     text-align: center;
+    position: relative;
+}
+
+.LBimg-time {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #5e5e5e;
+    font-size: 16px;
 }
 
 .LBimg-body {

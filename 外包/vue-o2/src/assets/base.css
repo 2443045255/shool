@@ -17,7 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url(/public/images/body.jpg) center bottom no-repeat;
-  background-size: cover
+  background-size: cover;
 }
 
 
@@ -41,4 +41,19 @@ a {
   text-decoration: none;
   color: initial;
   padding: 5px 15px;
+}
+
+button{
+  padding: 3px 11px;
+  border-radius: 4px;
+  background: rgb(77, 255, 181);
+  border: 1px solid rgb(48, 201, 137);
+  transition: .1s;
+  margin: 0 5px;
+}
+button:hover{
+  background: rgb(61, 219, 153);
+}
+button:active{
+  background: rgb(43, 207, 139);
 }
