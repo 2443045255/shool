@@ -5,72 +5,189 @@
                 <img src="/public/images/topImg1.jpg" alt="">
             </div>
             <div class="topImg-Txt topImg-Txt1">
-                你 的 名 字
+                <p class="p1">
+                    <span class="你">你</span>
+                    <span class="的">的</span>
+                    <span class="名">名</span>
+                    <span class="字">字</span>
+                    <span class="结尾">。</span>
+                </p>
+                <p class="p2 t-center"><span>y o u r</span><span>n a m e.</span></p>
             </div>
             <div class="topImg-Txt topImg-Txt2">
-                2017.7.26
+                2016.12.02
             </div>
         </div>
 
         <div class="LBimg">
             <div class="LBimg-title">电影海报</div>
             <div class="LBimg-body">
-                <div class="img"><img src="/public/images/img1.png" alt=""></div>
+                <div class="img LBimg-body-img1"><img :src="LBimgName[0]" alt=""></div>
             </div>
             <div class="LBimg-item">
-                <div class="LBimg-item-img"><img src="/public/images/img1.png" alt=""></div>
+                <div class="LBimg-item-img" v-for="(key, index) in LBimgName" :key="index"
+                    :class="{ 'active': index == LBimgActive }" @click="LBimgActive = index; 切换图片(key)"><img :src="key"
+                        alt="">
+                </div>
             </div>
         </div>
     </main>
 </template>
+<script setup>
+import { ref } from 'vue';
+
+var LBimgName = [
+    '/public/images/LB-img1.png',
+    '/public/images/LB-img2.png',
+    '/public/images/LB-img3.png',
+    '/public/images/LB-img4.png',
+    '/public/images/LB-img5.jpg',
+    '/public/images/LB-img6.jpg',
+    '/public/images/LB-img7.jpg',
+    '/public/images/LB-img8.jpg',
+    '/public/images/LB-img9.jpg',
+    '/public/images/LB-img10.jpg',
+    '/public/images/LB-img11.jpg',
+    '/public/images/LB-img12.jpg',
+]
+const LBimgActive = ref(0)
+function 切换图片(value) {
+    var activeImg = document.createElement('div')
+    activeImg.className = 'img LBimg-body-imgActive'
+    var img = document.createElement('img')
+    img.src = value
+    activeImg.append(img)
+    document.querySelector(".LBimg-body").append(activeImg)
+    setTimeout(() => {
+        document.querySelector(".LBimg-body-img1 img").src = value
+        activeImg.remove()
+    }, 200);
+}
+</script>
 <style>
-.topImg{
+.topImg {
     position: relative;
 }
-.topImg .img{
+
+.topImg .img {
     max-height: 600px;
     min-height: 500px;
     overflow: hidden;
     display: flex;
     align-items: center;
 }
-.topImg-Txt{
+
+.topImg-Txt {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 80px;
     font-weight: 200;
     color: white;
     text-shadow: 0px 0px 10px #094C9E;
+    font-family: 宋体;
 }
-.topImg-Txt1{
+
+.topImg-Txt1 {
     top: 5%;
-    word-spacing: 20px;
-    
 }
-.topImg-Txt2{
+
+.topImg-Txt1 .p1 {
+    position: relative;
+}
+
+.topImg-Txt1 .p1 span {
+    margin: 10px;
+}
+
+.topImg-Txt1 .你 {
+    font-size: 80px;
+}
+
+.topImg-Txt1 .的 {
+    font-size: 60px;
+}
+
+.topImg-Txt1 .名 {
+    font-size: 80px;
+}
+
+.topImg-Txt1 .字 {
+    font-size: 80px;
+}
+
+.topImg-Txt1 .结尾 {
+    position: absolute;
+    top: 35%;
+    left: 100%;
+    font-size: 50px;
+}
+
+.topImg-Txt1 .p2 {
+    font-family: 微软雅黑;
+}
+
+.p2>span {
+    white-space: 5px;
+    margin: 10px;
+}
+
+.topImg-Txt2 {
     bottom: 5%;
     font-size: 50px;
 }
-.LBimg{
+
+.LBimg {
     margin-top: 20px;
     border: 1px solid;
 }
-.LBimg-title{
+
+.LBimg-title {
     font-size: 20px;
     padding: 10px 0;
     text-align: center;
 }
-.LBimg-body{
+
+.LBimg-body {
     max-height: 500px;
     overflow: hidden;
     display: flex;
     align-items: center;
+    position: relative;
 }
-.LBimg-item{
-    padding: 10px 0;
+
+.LBimg-item {
+    padding: 15px;
     display: grid;
-    grid-row: repeat(4,1fr);
-    
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.LBimg-item-img {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.LBimg-item-img>img {
+    transition: .2s;
+}
+
+.LBimg-item-img>img:hover {
+    transform: scale(1.1);
+}
+
+.LBimg-item-img.active {
+    position: relative;
+}
+
+.LBimg-item-img.active::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border: 3px solid #bd6615;
+    border-radius: 6px;
+    pointer-events: none;
 }
 </style>

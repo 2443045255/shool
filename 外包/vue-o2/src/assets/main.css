@@ -4,8 +4,25 @@
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-  color: initial;
-  padding: 5px 15px;
+.LBimg-body-imgActive {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  animation: 淡入 .2s forwards;
+}
+
+@keyframes 淡入 {
+  from {
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+  }
+}
+
+.t-center{
+  text-align: center;
 }
