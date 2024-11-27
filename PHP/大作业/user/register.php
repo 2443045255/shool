@@ -15,20 +15,14 @@
                     <span class="title">用户名:</span>
                     <input type="text" name="username">
                 </li>
-            </ul>
-            <ul>
                 <li class="line">
                     <span class="title">密码:</span>
                     <input type="password" name="password">
                 </li>
-            </ul>
-            <ul>
                 <li class="line">
                     <span class="title">确认密码:</span>
                     <input type="password" name="re_password">
                 </li>
-            </ul>
-            <ul>
                 <li class="line">
                     <input type="submit" name="提交注册">
                     <a href="./login.php">已有账号，去登陆</a>
