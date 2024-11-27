@@ -40,6 +40,11 @@
   display: flex;
 }
 
+.flex-c {
+  display: flex;
+  align-items: center;
+}
+
 .m-l-15px {
   margin-left: 15px;
 }
