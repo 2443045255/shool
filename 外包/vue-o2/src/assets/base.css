@@ -44,12 +44,14 @@ a {
 }
 
 button{
-  padding: 3px 11px;
+  padding: 6px 15px;
   border-radius: 4px;
   background: rgb(77, 255, 181);
   border: 1px solid rgb(48, 201, 137);
   transition: .1s;
   margin: 0 5px;
+  height: fit-content;
+  width: fit-content;
 }
 button:hover{
   background: rgb(61, 219, 153);

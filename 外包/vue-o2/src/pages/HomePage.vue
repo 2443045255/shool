@@ -40,11 +40,52 @@
                 </div>
             </div>
         </div>
+
+        <div class="LXwe">
+            <div class="LXwe-title">联系我们</div>
+            <div class="LXwe-body">
+                <div class="flex" style="align-items: center;justify-content: center;">
+                    <div class="LXwe-input-group m-l-15px">
+                        <p>昵称</p>
+                        <input type="text" v-model="userName">
+                    </div>
+                    <div class="LXwe-input-group m-l-15px">
+                        <p>邮箱</p>
+                        <input type="email" style="width: 300px;" v-model="userEmail">
+                    </div>
+                    <button class="m-l-15px" style="margin-top: auto;" @click="sendmsg()">发送</button>
+                </div>
+                <div class="flex" style="justify-content: center;margin-top: 10px;">
+                    <div class="LXwe-input-group">
+                        <p>消息</p>
+                        <textarea name="" id="" cols="100" rows="7" v-model="userMsg"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="LXwe-msg">
+                <div class="LXwe-msg-title">历史信息</div>
+                <div class="LXwe-msg-body">
+                    <div class="LXwe-msg-one" v-for="key in msgArray" :key="key">
+                        <div class="LXwe-msg-user flex">
+                            <div class="LXwe-msg-name">{{ key['name'] }}</div>
+                            <div class="LXwe-msg-email">{{ key['email'] }}</div>
+                        </div>
+                        <div class="LXwe-msg-txt">{{ key['msg'] }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 </template>
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
+onMounted(() => {
+    LBimg_func(true)
+})
 
+onUnmounted(() => {
+    LBimg_func(false)
+})
 var LBimgName = [
     '/public/images/LB-img1.png',
     '/public/images/LB-img2.png',
@@ -62,16 +103,14 @@ var LBimgName = [
 const LBimgActive = ref(0)
 const LBimg_time = ref(3)
 function 切换图片(value) {
-    var activeImg = document.createElement('div')
+    var activeImg = document.createElement('img')
     activeImg.className = 'img LBimg-body-imgActive'
-    var img = document.createElement('img')
-    img.src = value
-    activeImg.append(img)
+    activeImg.src = value
     document.querySelector(".LBimg-body").append(activeImg)
     setTimeout(() => {
         document.querySelector(".LBimg-body-img1 img").src = value
         activeImg.remove()
-    }, 200);
+    }, 300);
 }
 var LBimg_setInterval;
 const LBimg_setInterval_active = ref(true)
@@ -96,11 +135,31 @@ function randomImg() {
     var random = Math.floor(Math.random() * LBimgName.length)
     切换图片(LBimgName[random])
 }
-onMounted(() => {
-    LBimg_func(true)
 
-
-})
+const userName = ref('')
+const userEmail = ref('')
+const userMsg = ref('')
+const msgArray = ref([])
+function sendmsg() {
+    if (!userName.value) {
+        alert('昵称为空')
+        return
+    }
+    if (!userEmail.value) {
+        alert('邮箱为空')
+        return
+    }
+    if (!userMsg.value) {
+        alert('信息为空')
+        return
+    }
+    var msg = {}
+    msg['name'] = userName.value
+    msg['email'] = userEmail.value
+    msg['msg'] = userMsg.value
+    msgArray.value.push(msg)
+    userMsg.value = ''
+}
 </script>
 <style>
 .topImg {
@@ -238,5 +297,77 @@ onMounted(() => {
     border: 3px solid #bd6615;
     border-radius: 6px;
     pointer-events: none;
+}
+
+.LXwe {
+    margin-top: 20px;
+}
+
+.LXwe-title {
+    font-size: large;
+}
+
+.LXwe-input-group>p {
+    font-size: 14px;
+    color: #4d4d4d;
+}
+
+.LXwe-input-group>input {
+    margin-top: 5px;
+    padding: 5px;
+    width: 200px;
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.LXwe-input-group>textarea {
+    margin-top: 5px;
+    padding: 3px;
+    font-size: 15px;
+    font-family: "微软雅黑";
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.LXwe-msg-title {
+    font-size: 20px;
+    text-align: center;
+}
+
+.LXwe-msg-body {
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 6px;
+    height: 500px;
+    overflow: auto;
+}
+
+.LXwe-msg-one {
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 10px;
+    position: relative;
+}
+
+.LXwe-msg-user {
+    font-size: 14px;
+    color: #4d4d4d;
+    position: absolute;
+    left: 10px;
+    top: 0%;
+    transform: translateY(-50%);
+    padding: 2px 10px;
+    background: white;
+    border-radius: 4px;
+}
+
+.LXwe-msg-email {
+    margin-left: 10px;
+}
+
+.LXwe-msg-txt {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 </style>

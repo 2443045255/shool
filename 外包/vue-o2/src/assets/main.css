@@ -7,7 +7,8 @@
 .LBimg-body-imgActive {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   height: 100%;
   width: 100%;
   animation: 淡入 .2s forwards;
@@ -33,4 +34,12 @@
 
 .停止::before {
   content: '停止';
+}
+
+.flex{
+  display: flex;
+}
+
+.m-l-15px{
+  margin-left: 15px;
 }
