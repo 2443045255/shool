@@ -47,11 +47,11 @@
                 <div class="flex" style="align-items: center;justify-content: center;">
                     <div class="LXwe-input-group m-l-15px">
                         <p>昵称</p>
-                        <input type="text" v-model="userName">
+                        <input type="text" class="input-text" v-model="userName">
                     </div>
                     <div class="LXwe-input-group m-l-15px">
                         <p>邮箱</p>
-                        <input type="email" style="width: 300px;" v-model="userEmail">
+                        <input type="email" class="input-text" style="width: 300px;" v-model="userEmail">
                     </div>
                     <button class="m-l-15px" style="margin-top: auto;" @click="sendmsg()">发送</button>
                 </div>
@@ -313,11 +313,7 @@ function sendmsg() {
 }
 
 .LXwe-input-group>input {
-    margin-top: 5px;
-    padding: 5px;
-    width: 200px;
-    border-radius: 4px;
-    border: 1px solid;
+    margin-top: 5px;    
 }
 
 .LXwe-input-group>textarea {

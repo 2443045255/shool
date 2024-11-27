@@ -36,10 +36,18 @@
   content: '停止';
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
-.m-l-15px{
+.m-l-15px {
   margin-left: 15px;
+}
+
+.input-text {
+  padding: 5px;
+  width: 200px;
+  border-radius: 4px;
+  border: 1px solid;
+  font-size: 15px;
 }
