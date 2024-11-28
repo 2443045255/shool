@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星期图片</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: rgb(26, 202, 214);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ridius {
+      border-radius: 6px;
+    }
+
+    .showWeek {
+      margin-top: 30px;
+      padding: 10px;
+      background: #fff;
+      width: 300px;
+    }
+
+    .showImg {
+      padding: 10px;
+      --height: 300px;
+      width: var(--height);
+      height: var(--height);
+      background: #fff;
+      margin-top: 20px;
+    }
+
+    .showImg>img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .weekChose {
+      padding: 10px;
+      background: #fff;
+      margin-top: 20px;
+    }
+
+    .weekChose input {
+      padding: 5px;
+      font-size: 15px;
+      border-radius: 4px;
+      border: 1px solid;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ridius showWeek">
+    <span>今天是:</span>
+    <span class="putVal"></span>
+  </div>
+  <div class="ridius showImg">
+    <img id="img1" src="images/星期一.jpg" alt="">
+  </div>
+  <div class="ridius weekChose">
+    <input id="getVal1" type="number">
+  </div>
+</body>
+<script>
+  var now = new Date
+  var week = now.getDay()
+  console.log(week);
+  putImg(week)
+  function putImg(value) {
+    if (!value) {
+      value = week
+    }
+    var weekToChinese = ''
+    switch (value) {
+      case 1:
+        weekToChinese = '星期一'
+        break;
+      case 2:
+        weekToChinese = '星期二'
+        break;
+      case 3:
+        weekToChinese = '星期三'
+        break;
+      case 4:
+        weekToChinese = '星期四'
+        break;
+      case 5:
+        weekToChinese = '星期五'
+        break;
+      case 6:
+        weekToChinese = '星期六'
+        break;
+      default:
+        weekToChinese = '星期日'
+        break;
+    }
+    var imgUrl = `images/${weekToChinese}.jpg`
+    document.getElementById('img1').src = imgUrl
+    document.querySelector('.showWeek .putVal').innerText = weekToChinese
+  }
+  document.getElementById('getVal1').oninput = function () {
+    var num = parseInt(this.value)
+    if (num > 7 || num < 0) {
+      alert('请输出1-7之间的数字')
+      this.value = 0
+      return
+    }
+    putImg(num)
+  }
+</script>
+
+</html>

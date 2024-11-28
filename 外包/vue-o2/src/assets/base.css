@@ -43,19 +43,20 @@ a {
   padding: 5px 15px;
 }
 
-button{
+button {
   padding: 6px 15px;
   border-radius: 4px;
-  background: rgb(77, 255, 181);
-  border: 1px solid rgb(48, 201, 137);
+  background: rgb(64, 158, 255);
   transition: .1s;
   margin: 0 5px;
   height: fit-content;
   width: fit-content;
 }
-button:hover{
-  background: rgb(61, 219, 153);
+
+button:hover {
+  background: rgb(64, 188, 255);
 }
-button:active{
-  background: rgb(43, 207, 139);
+
+button:active {
+  background: rgb(64, 128, 255);
 }
