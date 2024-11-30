@@ -1,0 +1,27 @@
+@import './base.css';
+
+#app {
+  min-height: 100vh;
+}
+
+.a {
+  cursor: pointer;
+  user-select: none;
+}
+
+.a:hover {
+  text-decoration: underline;
+}
+
+.img>img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.flex-c-c{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
