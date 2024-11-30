@@ -28,10 +28,10 @@
           </div>
         </div>
         <div class="module-body">
-          <div class="flex-warp">
+          <div class="grid">
             <SlotOne v-for="key in Number(num1)" :key="key">
               <template #col-card-img>
-                <img alt="" :src="imgUrl[key]">
+                <img alt="" :src="imgUrl[key > 4 ? key = key % 4 : key]">
               </template>
               <template #col-card-title>
                 <h3>你好世界</h3>
@@ -86,5 +86,11 @@ function 随机图片(value) {
 .getValue {
   padding-left: 20px;
   display: flex;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
 }
 </style>

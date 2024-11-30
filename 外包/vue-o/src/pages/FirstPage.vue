@@ -220,17 +220,6 @@ const moduleShow = ref([
   true,
   true
 ])
-
-// function module收展(value, index) {
-//   var module_bodyAll = document.querySelectorAll(".module-body")
-//   if (value) {
-//     // document.querySelectorAll(".module-show-btn")
-//     module_bodyAll[index].style.height = "initial"
-//   }
-//   if (!value) {
-//     module_bodyAll[index].style.height = "0px"
-//   }
-// }
 </script>
 <style scoped>
 

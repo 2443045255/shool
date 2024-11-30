@@ -1,6 +1,5 @@
 <template>
     <main>
-        <h2>登录</h2>
         <section>
             <div class="login-main">
                 <div class="login-body">
