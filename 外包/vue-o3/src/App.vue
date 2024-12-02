@@ -24,10 +24,13 @@
         </div>
       </div>
     </div>
+
+    <SecondMod />
   </main>
 </template>
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
+import SecondMod from './components/SecondMod.vue';
 
 onMounted(() => {
   自动轮播(true)
@@ -132,7 +135,7 @@ header {
 
 header>.wrapper {
   margin: auto;
-  width: 1200px;
+  width: 1100px;
   display: flex;
   justify-content: space-between;
 }
@@ -142,7 +145,7 @@ header .user span:not(:first-child) {
 }
 
 main {
-  width: 1200px;
+  width: 1100px;
   margin: auto;
   margin-top: 10px;
   background: #fff;
@@ -155,11 +158,16 @@ main {
 }
 
 .FM-list {
-  width: 120px;
+  width: 150px;
   margin-right: 10px;
   text-align: center;
   display: grid;
   grid-template-rows: repeat(12, 1fr);
+}
+
+.FM-item {
+  border-radius: 6px;
+  transition: .1s;
 }
 
 .FM-item:hover {
