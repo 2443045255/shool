@@ -1,9 +1,9 @@
 <template>
   <main>
-    <section>
       <div class="first-mod">
         <div class="FM-list">
-          <div class="FM-item flex-c-c a" v-for="value in FM_itemArr" :key="value">{{ value }}</div>
+          <div class="FM-item flex-c-c a" v-for="value in FM_itemArr" :key="value">
+            {{ value }}</div>
         </div>
         <div class="FM-body">
           <div class="FM-ul">
@@ -14,20 +14,21 @@
         </div>
       </div>
 
-      <SecondMod />
-    </section>
+      <SecondMod @data="getdata" />
   </main>
 </template>
 <script setup>
 import SecondMod from '@/components/SecondMod.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 
-const emit = defineEmits(['page', 'data'])
-
-function sendVal(page, data) {
-  var value1 = [1, 2, 3]
-  if (page) {
-    emit('page', page)
+const emit = defineEmits(['data'])
+function getdata(data) {
+  if (data[1]) {
+    emit('data', data)
+    return
+  }
+  if (data[0]) {
+    emit('data', data[0])
   }
 }
 
@@ -125,16 +126,8 @@ function 轮播(value) {
 }
 </style>
 <style scoped>
-section {
-  width: 1100px;
-  margin: auto;
-  margin-top: 10px;
-  background: #fff;
-  border-radius: 6px;
-}
 
 .first-mod {
-  padding: 10px;
   display: flex;
 }
 

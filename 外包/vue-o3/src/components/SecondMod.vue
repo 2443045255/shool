@@ -5,7 +5,7 @@
             <div class="SM-seeMore a">更多</div>
         </div>
         <div class="SM-body">
-            <div class="SM-item a" v-for="value in books" :key="value">
+            <div class="SM-item a" v-for="value in books" :key="value" @click="sendVal('InfoPage', value)">
                 <div class="SM-item-img img">
                     <img :src="url1 + value[0]" alt="">
                 </div>
@@ -21,6 +21,18 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+
+const emit = defineEmits(['data'])
+function sendVal(page, data) {
+    if (data) {
+        var value = [page, data]
+        emit('data', value)
+        return
+    }
+    if (page) {
+        emit('data', page)
+    }
+}
 
 var url1 = '/public/images/book/'
 const books = ref([
@@ -49,8 +61,8 @@ const books = ref([
 <style scoped>
 .second-mod {
     background: #f4f4f4;
-    margin: 10px;
-    padding: 15px;
+    margin-top: 20px;
+    padding: 10px;
     border-radius: 6px;
 }
 
@@ -119,7 +131,7 @@ const books = ref([
     color: #FA2B1A;
 }
 
-.SM-item-price span{
+.SM-item-price span {
     font-family: Arial;
     font-weight: 600;
 }

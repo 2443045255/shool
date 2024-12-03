@@ -10,8 +10,8 @@
       </div>
     </div>
   </header>
-  <Transition>
-    <component :is="pages[page]" @page="AppToPage"></component>
+  <Transition name="page" mode="out-in">
+    <component :is="pages[page]" @data="getdata" :msg="msg"></component>
   </Transition>
 
 
@@ -21,15 +21,22 @@ import HomePage from './pages/HomePage.vue';
 import InfoPage from './pages/InfoPage.vue';
 import { ref } from 'vue';
 
-
+const msg = ref([])
 const page = ref('HomePage')
 const pages = {
   HomePage,
   InfoPage
 }
-function AppToPage(value) {
-  page.value = value
+
+function getdata(data) {
+  if (data[0]) {
+    page.value = data[0]
+  }
+  if (data[1]) {
+    msg.value = data[1]
+  }
 }
+
 
 </script>
 <style scoped>
@@ -51,14 +58,19 @@ header .user span:not(:first-child) {
   color: rgb(255, 96, 96);
 }
 
-.v-enter-active,
-.v-leave-active {
+.page-enter-active,
+.page-leave-active {
   transition: .2s;
 }
 
-.v-enter-from,
-.v-leave-to {
-  transform: translateY(1%);
+.page-enter-to,
+.page-leave-from {
+  opacity: 1;
+}
+
+.page-enter-from,
+.page-leave-to {
+  transform: translateY(10px);
   opacity: 0;
 }
 </style>
