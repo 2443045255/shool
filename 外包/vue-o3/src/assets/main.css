@@ -13,6 +13,11 @@
   text-decoration: underline;
 }
 
+.a1 {
+  cursor: pointer;
+  user-select: none;
+}
+
 .img>img {
   display: block;
   height: 100%;

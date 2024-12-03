@@ -1,41 +1,49 @@
 <template>
   <main>
     <div class="topBtn">
-      <div class="goBack a" @click="goBack('HomePage')">返回</div>
+      <div class="goBack a" @click="toPage('HomePage')">返回</div>
     </div>
     <div class="show">
       <div class="show-img img">
         <img :src="imgurl + msg[0]" alt="">
       </div>
       <SoltShow>
-        
+        <template #title>
+          {{ msg[1] }}
+        </template>
+        <template #price>
+          {{ msg[2] }}
+        </template>
       </SoltShow>
     </div>
+
+    <SecondMod />
   </main>
 </template>
 <script setup>
+import SecondMod from '@/components/SecondMod.vue';
 import SoltShow from '@/components/SoltShow.vue';
+import { onActivated,inject } from 'vue';
 
+const ActivePage = inject('ActivePage')
+function toPage(value) {
+  ActivePage.value = value
+}
 defineProps({
   msg: {
     type: Array,
     required: true,
-    default: []
   },
 })
-
-const emit = defineEmits(['data'])
-function goBack(page) {
-  if (page) {
-    emit('data', [page, []])
-  }
-}
+onActivated(() => {
+    document.documentElement.scrollTop = 0
+})
 
 const imgurl = '/public/images/book/'
 </script>
 <style scoped>
 .topBtn {
-  padding: 5px 0;
+  padding-bottom: 15px;
 }
 
 .goBack {
@@ -69,9 +77,5 @@ const imgurl = '/public/images/book/'
 
 .show-img>img {
   object-fit: contain;
-}
-
-.show-text {
-  flex: 1;
 }
 </style>

@@ -1,36 +1,61 @@
 <template>
   <header>
     <div class="wrapper">
-      <div class="title a">图书购买</div>
+      <div class="title a" @click="toPage('HomePage')">回到主页</div>
       <div class="right">
         <p class="user">
           <span>当前用户：</span>
-          <span class="a" @click="sendVal('InfoPage')">请登录</span>
+          <span class="a" v-show="ActiveUser[0]" @click="UserSettingActive = true">{{ ActiveUser[0] }}</span>
+          <span class="a logout" v-show="ActiveUser[0]" @click="ActiveUser = []">退出账户</span>
+          <span class="a" @click="toPage('LoginPage')" v-show="!ActiveUser[0]">请登录</span>
         </p>
       </div>
     </div>
   </header>
   <Transition name="page" mode="out-in">
-    <component :is="pages[page]" @data="getdata" :msg="msg"></component>
+    <KeepAlive>
+      <component :is="pages[ActivePage]" :msg="PageData"></component>
+    </KeepAlive>
   </Transition>
 
-
+  <UserSetting />
+  <GoTop />
 </template>
 <script setup>
+import { inject, ref } from 'vue';
+import UserSetting from './components/UserSetting.vue';
+import GoTop from './components/GoTop.vue';
+
 import HomePage from './pages/HomePage.vue';
 import InfoPage from './pages/InfoPage.vue';
-import { ref } from 'vue';
+import LoginPage from './pages/LoginPage.vue';
+import RegisterPage from './pages/RegisterPage.vue';
+import SearchPage from './pages/SearchPage.vue';
+
+
+
+const UserSettingActive = inject('UserSettingActive')
+
+const ActiveUser = inject('ActiveUser')
+
 
 const msg = ref([])
-const page = ref('HomePage')
+const ActivePage = inject('ActivePage')
+const PageData = inject('PageData')
+function toPage(value) {
+  ActivePage.value = value
+}
 const pages = {
   HomePage,
-  InfoPage
+  InfoPage,
+  LoginPage,
+  RegisterPage,
+  SearchPage
 }
 
 function getdata(data) {
   if (data[0]) {
-    page.value = data[0]
+    toPage(data[0])
   }
   if (data[1]) {
     msg.value = data[1]
@@ -56,6 +81,11 @@ header>.wrapper {
 
 header .user span:not(:first-child) {
   color: rgb(255, 96, 96);
+}
+
+.logout {
+  color: black !important;
+  margin: 0 5px;
 }
 
 .page-enter-active,

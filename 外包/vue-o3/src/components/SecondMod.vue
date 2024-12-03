@@ -5,7 +5,7 @@
             <div class="SM-seeMore a">更多</div>
         </div>
         <div class="SM-body">
-            <div class="SM-item a" v-for="value in books" :key="value" @click="sendVal('InfoPage', value)">
+            <div class="SM-item a1" v-for="value in books" :key="value" @click="toPage('InfoPage', value)">
                 <div class="SM-item-img img">
                     <img :src="url1 + value[0]" alt="">
                 </div>
@@ -20,18 +20,17 @@
     </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { inject, ref } from 'vue';
 
-const emit = defineEmits(['data'])
-function sendVal(page, data) {
-    if (data) {
-        var value = [page, data]
-        emit('data', value)
-        return
+const ActivePage = inject('ActivePage')
+const PageData = inject('PageData')
+function toPage(page, data) {
+    if (ActivePage.value == page) {
+        PageData.value = data
+        document.documentElement.scrollTop = 0
     }
-    if (page) {
-        emit('data', page)
-    }
+    ActivePage.value = page
+    PageData.value = data
 }
 
 var url1 = '/public/images/book/'
@@ -55,38 +54,9 @@ const books = ref([
 .SM-item:nth-child(8n-2),
 .SM-item:nth-child(8n-1),
 .SM-item:nth-child(8n) {
-    background-color: #ddd !important;
-}
-</style>
-<style scoped>
-.second-mod {
-    background: #f4f4f4;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 6px;
+    background-color: #ccc !important;
 }
 
-.SM-title {
-    font-size: 25px;
-    font-weight: 600;
-    padding-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.SM-seeMore {
-    border: 1px solid;
-    color: #aaa;
-    font-size: 15px;
-    padding: 3px 10px;
-    border-radius: 4px;
-    transition: .2s;
-}
-
-.SM-seeMore:hover {
-    color: black;
-}
 
 .SM-body {
     display: grid;
@@ -95,8 +65,7 @@ const books = ref([
 }
 
 .SM-item {
-    text-decoration: none;
-    background-color: #fff;
+    background-color: #e6e6e6;
     padding: 10px;
     border-radius: 6px;
     display: flex;
@@ -138,5 +107,35 @@ const books = ref([
 
 .SM-item-price::before {
     content: '￥';
+}
+</style>
+<style scoped>
+.second-mod {
+    background: #f4f4f4;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.SM-title {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SM-seeMore {
+    border: 1px solid;
+    color: #aaa;
+    font-size: 15px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    transition: .2s;
+}
+
+.SM-seeMore:hover {
+    color: black;
 }
 </style>

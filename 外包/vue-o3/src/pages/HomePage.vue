@@ -1,41 +1,53 @@
 <template>
   <main>
-      <div class="first-mod">
-        <div class="FM-list">
-          <div class="FM-item flex-c-c a" v-for="value in FM_itemArr" :key="value">
-            {{ value }}</div>
-        </div>
-        <div class="FM-body">
-          <div class="FM-ul">
-            <div id="FMimg_1" class="FM-li img">
-              <img :src="FMimgArr[FMimgold]" alt="">
-            </div>
+    <SearchDiv />
+    <div class="first-mod">
+      <div class="FM-list">
+        <div class="FM-item flex-c-c a" v-for="value in FM_itemArr" :key="value">
+          {{ value }}</div>
+      </div>
+      <div class="FM-body">
+        <div class="FM-time">{{ FMtime }}</div>
+        <div class="FM-ul">
+          <div id="FMimg_1" class="FM-li img">
+            <img :src="FMimgArr[FMimgold]" alt="">
           </div>
         </div>
+        <div class="FM-imgIndex">
+          <span v-for="(value, index) in FMimgArr" :key="value" :class="{ 'active': index == FMimgold }"
+            @click="轮播(index)"></span>
+        </div>
       </div>
+    </div>
 
-      <SecondMod @data="getdata" />
+    <SecondMod />
   </main>
 </template>
 <script setup>
+import SearchDiv from '@/components/SearchDiv.vue';
 import SecondMod from '@/components/SecondMod.vue';
-import { onMounted, onUnmounted, ref } from 'vue';
 
-const emit = defineEmits(['data'])
-function getdata(data) {
-  if (data[1]) {
-    emit('data', data)
-    return
-  }
-  if (data[0]) {
-    emit('data', data[0])
-  }
-}
+import { inject, onActivated, onMounted, onUnmounted, ref } from 'vue';
+
+const scroll_top = ref(0)
+
+
 
 onMounted(() => {
   自动轮播(true)
 })
 
+onActivated(() => {
+  if (scroll_top.value != 0) {
+    document.documentElement.scrollTop = scroll_top.value
+  }
+  //记录跳转前的位置
+  document.onscroll = function () {
+    if (document.documentElement.scrollTop != 0) {
+      scroll_top.value = document.documentElement.scrollTop
+    }
+  }
+})
 onUnmounted(() => {
   自动轮播(false)
 })
@@ -65,7 +77,7 @@ const FMimgArr = [
 
 const FMimgActive = ref(0)
 const FMimgold = ref(0)
-const FMtime = ref(2)
+const FMtime = ref(3)
 var setTimeout1
 function 自动轮播(value) {
   if (value) {
@@ -73,7 +85,7 @@ function 自动轮播(value) {
       if (FMtime.value == 0) {
         FMimgActive.value + 1 > 4 ? FMimgActive.value = 0 : FMimgActive.value++
         轮播(FMimgActive.value)
-        FMtime.value = 2
+        FMtime.value = 3
       } else {
         FMtime.value--
       }
@@ -84,7 +96,10 @@ function 自动轮播(value) {
 }
 
 function 轮播(value) {
+  FMimgActive.value = value
   var FM_ul = document.querySelector('.FM-ul')
+  if (!FM_ul) return
+
   var new_FM_li = document.createElement('div')
   new_FM_li.className = 'FM-li img newFMimg'
   var new_img = document.createElement('img')
@@ -126,7 +141,6 @@ function 轮播(value) {
 }
 </style>
 <style scoped>
-
 .first-mod {
   display: flex;
 }
@@ -140,7 +154,7 @@ function 轮播(value) {
 }
 
 .FM-item {
-  border-radius: 6px;
+  border-radius: 4px;
   transition: .1s;
 }
 
@@ -153,10 +167,43 @@ function 轮播(value) {
   flex: 1;
   overflow: hidden;
   border-radius: 6px;
+  position: relative;
+}
+
+.FM-time {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px 15px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .FM-ul {
   width: 200%;
   display: flex;
+}
+
+.FM-imgIndex {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.FM-imgIndex>span {
+  display: block;
+  --widhei: 15px;
+  height: var(--widhei);
+  width: var(--widhei);
+  background: #fff;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.FM-imgIndex>span.active {
+  background: #aaa;
 }
 </style>
