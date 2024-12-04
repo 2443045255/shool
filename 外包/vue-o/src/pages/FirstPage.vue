@@ -1,6 +1,5 @@
 <template>
   <main>
-    <h2>首页</h2>
     <section>
       <div class="module">
         <div class="module-title">
@@ -29,55 +28,42 @@
 
       <div class="module">
         <div class="module-title">
-          <span>展开隐藏、表单验证、列表展示、隔行换色(文本插值、v-for、v-model)</span>
+          <span>搜索小说</span>
           <div class="module-btn-group">
             <button class="module-btn module-hide-btn" v-show="moduleShow[1]">收起</button>
             <button class="module-btn module-show-btn" v-show="!moduleShow[1]">展开</button>
           </div>
         </div>
         <div class="module-body" :class="{ 'module-hide': !moduleShow[1] }">
-          <div class="flex" style="align-items: center;justify-content: center;">
-            <div class="input-group">
-              <span>书名:</span>
-              <input type="text" class="input-large" v-model="book['name']">
-            </div>
-            <div class="input-group">
-              <span>价格:</span>
-              <input type="number" class="input-large" min="1" v-model="book['price']">
-              <span>元</span>
-            </div>
-            <div class="input-group">
-              <span>数量:</span>
-              <input type="number" class="input-large" min="1" v-model="book['num']">
-            </div>
-
-            <button class="large-btn" style="margin-left: 20px;" @click="addBook()"
-              :class="{ lock: !book['name'] }">添加</button>
-          </div>
-
-          <div class="pre">
-            <h4 class="pre-title">预览</h4>
-            <div class="pre-body">
-              <div class="book-li">
-                <div class="book-name">{{ bookArr[0][0] }}</div>
-                <div class="book-price">{{ bookArr[0][1] }}</div>
-                <div class="book-num">{{ bookArr[0][2] }}</div>
-              </div>
-              <div class="book-li">
-                <div class="book-name">{{ book['name'] }}</div>
-                <div class="book-price">{{ book['price'] }}</div>
-                <div class="book-num">{{ book['num'] }}</div>
-              </div>
+          <div class="flex-c-c">
+            <div class="search">
+              <input type="text" v-model="searchTxt">
+              <div class="search-btn a" @click="search()">搜索</div>
             </div>
           </div>
-
-
-          <div class="scroll">
-            <div class="book-ul">
-              <div class="book-li" v-for="key in bookArr" :key="key">
-                <div class="book-name">{{ key[0] }}</div>
-                <div class="book-price">{{ key[1] }}</div>
-                <div class="book-num">{{ key[2] }}</div>
+          <div class="bookUl">
+            <div class="noItem" v-show="searchArr == 0">
+              <span>无内容</span>
+            </div>
+            <div class="bookli" v-for="value in searchArr" :key="value">
+              <div class="bookli-img">
+                <img :src="bookUrl + value[0]" alt="">
+              </div>
+              <div class="bookli-txt">
+                <div class="bookli-title">
+                  <span>{{ value[1] }}</span>
+                </div>
+                <div class="bookli-writer">
+                  <span>作者:</span>
+                  <span>{{ value[2] }}</span>
+                </div>
+                <div class="bookli-type">
+                  <span>状态:</span>
+                  <span>{{ value[3] }}</span>
+                </div>
+                <div class="bookli-time">
+                  <span>{{ value[4] }}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -86,27 +72,34 @@
 
       <div class="module">
         <div class="module-title">
-          <span>图文混排</span>
+          <span>推荐小说</span>
           <div class="module-btn-group">
             <button class="module-btn module-hide-btn" v-show="moduleShow[2]">收起</button>
             <button class="module-btn module-show-btn" v-show="!moduleShow[2]">展开</button>
           </div>
         </div>
         <div class="module-body" :class="{ 'module-hide': !moduleShow[2] }">
-          <div class="card" style="padding-bottom: 10px;">
-            <div class="card-img" style="margin-right: 10px;"><img src="/public/images/vue.svg" alt=""></div>
-            <div class="card-txt">
-              <h4>Vue</h4>
-              <p>Vue 是一款用于构建用户界面的 JavaScript 框架。它基于标准 HTML、CSS 和 JavaScript
-                构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。</p>
-            </div>
-          </div>
-          <div class="card" style="padding-bottom: 10px;flex-direction: row-reverse;">
-            <div class="card-img" style="margin-left: 10px;"><img src="/public/images/vue.svg" alt=""></div>
-            <div class="card-txt" style="text-align: right;">
-              <h4>Vue</h4>
-              <p>Vue 是一款用于构建用户界面的 JavaScript 框架。它基于标准 HTML、CSS 和 JavaScript
-                构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。</p>
+          <div class="bookUl bookTo" style="height: auto;">
+            <div class="bookli noflex" v-for="value in bookArray" :key="value">
+              <div class="bookli-img">
+                <img :src="bookUrl + value[0]" alt="">
+              </div>
+              <div class="bookli-txt">
+                <div class="bookli-title">
+                  <span>{{ value[1] }}</span>
+                </div>
+                <div class="bookli-writer">
+                  <span>作者:</span>
+                  <span>{{ value[2] }}</span>
+                </div>
+                <div class="bookli-type">
+                  <span>状态:</span>
+                  <span>{{ value[3] }}</span>
+                </div>
+                <div class="bookli-time">
+                  <span>{{ value[4] }}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -119,19 +112,17 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 
 
-window.onload = function () {
-  同步高宽(document.querySelectorAll(".轮播图-img"))
-}
-
 const 轮播图time = ref(3)
 var 轮播图setInterval = null
-onMounted(() => {
-  同步高宽(document.querySelectorAll(".轮播图-img"))
-  自动轮播图(true)
-
+window.onload = function () {
   document.querySelectorAll(".module-body").forEach((element, index) => {
     element.style.height = element.scrollHeight + "px"
   })
+}
+onMounted(() => {
+  自动轮播图(true)
+
+
 
   document.querySelectorAll(".module-hide-btn").forEach((element, index) => {
     element.onclick = function () {
@@ -182,38 +173,48 @@ function 轮播图切换(value) {
     old轮播图active.value = value
   }, 400);
 }
-function 同步高宽(arrValue) {
-  // var arrValue1 = document.getElementById("")
-  var firstHeight = arrValue[0].offsetWidth
-  if (firstHeight != 0) {
-    arrValue.forEach(element => {
-      element.style.width = firstHeight + "px"
-    });
+
+const bookUrl = '/images/books/'
+const bookArray = ref([
+  ['1.jpg', '十日终焉', '杀虫队队员', '已完结', '2024-10-31'],
+  ['2.jpg', '我在精神病院斩神', '三九音域', '已完结', '2024-10-31'],
+  ['3.jpg', '我不是戏神', '三九音域', '已完结', '2024-10-31'],
+  ['4.jpg', '天渊', '沐潇三生', '已完结', '2024-10-31'],
+  ['5.jpg', '大一实习,你跑去749收容怪物', '我爱罗的沙', '已完结', '2024-10-31'],
+  ['6.jpg', '颠,都颠,颠点好', '小盐子', '已完结', '2024-10-31'],
+
+  ['1.jpg', '十日终焉', '杀虫队队员', '已完结', '2024-10-31'],
+  ['2.jpg', '我在精神病院斩神', '三九音域', '已完结', '2024-10-31'],
+  ['3.jpg', '我不是戏神', '三九音域', '已完结', '2024-10-31'],
+  ['4.jpg', '天渊', '沐潇三生', '已完结', '2024-10-31'],
+  ['5.jpg', '大一实习,你跑去749收容怪物', '我爱罗的沙', '已完结', '2024-10-31'],
+  ['6.jpg', '颠,都颠,颠点好', '小盐子', '已完结', '2024-10-31'],
+])
+
+const searchArr = ref([])
+const searchTxt = ref('')
+function search() {
+  if (!searchTxt.value) {
+    searchArr.value = []
+    return
+  }
+  searchArr.value = []
+  for (let i = 0; i <= bookArray.value.length - 1; i++) {
+    if (bookArray.value[i][1].indexOf(searchTxt.value) != -1) {
+      var isSome = false
+      for (let j = 0; j <= searchArr.value.length - 1; j++) {
+        if (searchArr.value[j][1] == bookArray.value[i][1]) {
+          isSome = true
+          break
+        }
+      }
+      if (!isSome) {
+        searchArr.value.push(bookArray.value[i])
+      }
+    }
   }
 }
 
-
-const book = ref({
-  "name": '西游记',
-  "price": 1,
-  "num": 1
-})
-
-
-const bookArr = ref([
-  ["书名", "价格", "数量"]
-])
-
-function addBook() {
-  var newArr = []
-
-  if (!book.value['name']) return
-  newArr.push(book.value['name'])
-  !book.value["price"] ? newArr.push(1) : newArr.push(book.value["price"])
-  !book.value["num"] ? newArr.push(1) : newArr.push(book.value["num"])
-  bookArr.value.push(newArr)
-
-}
 
 const moduleShow = ref([
   true,
@@ -222,8 +223,6 @@ const moduleShow = ref([
 ])
 </script>
 <style scoped>
-
-
 .轮播图 {
   height: 600px;
   border-radius: 6px;
@@ -275,130 +274,107 @@ const moduleShow = ref([
   border-color: peru;
 }
 
-.input-group {
-  margin-left: 10px;
+.search {
   display: flex;
   align-items: center;
+  width: 600px;
+  border-radius: 30px;
+  border: 1px solid;
+  padding: 2px;
+  padding-left: 5px;
+  margin-bottom: 20px;
 }
 
-.input-group>span {
-  margin-right: 6px;
+.search>input {
+  flex: 1;
+  width: auto;
+  outline: none;
+  border: none;
+  font-size: 16px;
 }
 
-.pre {
-  width: fit-content;
+.search-btn {
+  background: #ddd;
+  border-radius: 30px;
+  padding: 3px 10px;
+}
+
+.bookUl {
+  display: grid;
+  gap: 25px 15px;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1120px;
+  height: 340px;
+  overflow-y: auto;
   margin: auto;
-  margin-top: 20px;
-  border-radius: 6px;
   padding: 10px;
-  padding-top: 2px;
-  border: 1px solid;
+  position: relative;
 }
 
-.pre>h4 {
-  padding-bottom: 5px;
-}
-
-.pre-body {
-  border-radius: 6px;
-}
-
-.book-li:first-child {
-  background: rgba(0, 255, 153, 0.4) !important;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-}
-
-.book-li:last-child {
-  border-bottom: 0;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-
-.book-li {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  background-color: rgba(232, 232, 232, 0.4);
-  border-bottom: 1px solid black;
-}
-
-.book-li:hover {
-  box-shadow: 0px 0px 10px rgb(0, 0, 0);
-}
-
-.book-li:nth-child(2n) {
-  background-color: rgba(169, 169, 169, 0.4);
-}
-
-.book-li>div {
-  padding: 5px 10px;
-  width: 250px;
-  height: 100%;
+.noItem {
+  font-size: 25px;
   text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 
-.book-name {
-  color: rgba(255, 0, 0);
-}
 
-.book-price {
-  color: rgb(34, 94, 36);
-}
-
-.book-num {
-  color: rgba(0, 42, 255);
-}
-
-.scroll {
-  height: 300px;
-  width: fit-content;
-  overflow: auto;
-  background-color: #ddd;
-  margin: auto;
-  margin-top: 10px;
-  padding: 10px 30px;
-  border-radius: 6px;
-}
-
-.book-ul {
-  border: 1px solid;
-  width: fit-content;
-  margin: auto;
-  border-radius: 6px;
-}
-
-.book-ul>div {
-  margin: 0;
-  border-radius: 0;
-}
-
-.book-ul>div:nth-child(2n) {
-  color: red;
-}
-
-.card {
-  height: 160px;
+.bookli {
   display: flex;
-  align-items: center;
-  border: 1px solid;
-  border-radius: 8px;
-  padding: 0 10px;
+  border-radius: 6px;
+  padding: 5px;
+  transition: .2s;
+  height: fit-content;
 }
 
-.card:nth-child(2n){
-  margin-top: 10px;
+.bookli:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
-.card-img {
-  min-width: fit-content;
-  height: 100%;
+.bookli-img {
+  border-radius: 4px;
   overflow: hidden;
+  margin-right: 10px;
+  width: 40%;
 }
 
-.card-txt h4 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #41B883;
+.bookli-txt {
+  width: calc(60% - 10px);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bookli-title {
+  font-size: 16px;
+}
+
+.bookli-writer,
+.bookli-type,
+.bookli-time {
+  color: #717171;
+}
+
+.bookUl.bookTo {
+  grid-template-columns: repeat(6, 1fr);
+  overflow: visible;
+}
+
+.bookli.noflex {
+  display: block;
+}
+
+.bookli.noflex .bookli-img,
+.bookli.noflex .bookli-txt {
+  width: auto;
+  margin: 0;
+}
+
+.bookli.noflex .bookli-txt {
+  margin-top: 5px;
 }
 </style>

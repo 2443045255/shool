@@ -1,7 +1,7 @@
 /* color palette from <https://github.com/vuejs/theme> */
 @font-face {
   font-family: "HarmonyOS_Sans_SC_Regular";
-  src: url(/public/fonts/HarmonyOS_Sans_SC_Regular.ttf);
+  src: url(/fonts/HarmonyOS_Sans_SC_Regular.ttf);
 }
 :root {
   --测试: black;

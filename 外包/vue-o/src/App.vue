@@ -44,7 +44,7 @@ document.onscroll = function () {
 
 
   <div class="more-btn-group">
-    <div class="a" id="gotop" @click="gotop()" v-show="docScrollTop > 100">回到顶部</div>
+    <div class="a" id="gotop" @click="gotop()" v-show="docScrollTop > 300">回到顶部</div>
   </div>
 </template>
 

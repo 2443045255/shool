@@ -81,6 +81,12 @@ input {
   display: flex;
 }
 
+.flex-c-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .flex-warp {
   display: flex;
   flex-wrap: wrap;

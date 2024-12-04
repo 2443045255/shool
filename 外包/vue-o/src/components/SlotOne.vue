@@ -1,41 +1,62 @@
 <template>
-  <div class="col-card-main">
-    <div class="col-card">
-      <div class="col-card-img">
-        <slot name="col-card-img"></slot>
+  <div class="bookli">
+    <div class="bookli-img">
+      <slot name="img"></slot>
+    </div>
+    <div class="bookli-txt">
+      <div class="bookli-title">
+        <slot name="title"></slot>
       </div>
-      <div class="col-card-txt">
-        <div class="col-card-title">
-          <slot name="col-card-title"></slot>
-        </div>
-        <div class="col-card-text">
-          <slot name="col-card-text"></slot>
-        </div>
+      <div class="bookli-writer">
+        <span>作者:</span>
+        <slot name="writer"></slot>
+      </div>
+      <div class="bookli-type">
+        <span>状态:</span>
+        <slot name="type"></slot>
+      </div>
+      <div class="bookli-time">
+        <slot name="time"></slot>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
-.col-card-main {
-  transition: .3s;
-  width: fit-content;
-  background: #ddd;
-  padding: 10px;
+.bookli {
+  display: flex;
   border-radius: 6px;
-  margin: 0 5px;
-  margin-bottom: 10px;
+  padding: 5px;
+  transition: .2s;
+  height: fit-content;
 }
 
-.col-card-img {
-  height: 120px;
-  width: 230px;
-  border-radius: 6px;
+.bookli:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.bookli-img {
+  border-radius: 4px;
   overflow: hidden;
+  margin-right: 10px;
+  width: 40%;
 }
-.col-card-txt{
-  margin-top: 5px;
+
+.bookli-txt {
+  width: calc(60% - 10px);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.col-card-text{
-  color: rgb(139, 139, 139);
+
+.bookli-title {
+  font-size: 16px;
+}
+
+.bookli-writer,
+.bookli-type,
+.bookli-time {
+  color: #717171;
 }
 </style>
