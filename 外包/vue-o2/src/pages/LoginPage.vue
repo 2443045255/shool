@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="img" :class="[{ 'img-right': img_right }, { 'img-left': img_left }]">
-                <img src="/public/images/login.jpg" alt="">
+                <img src="/images/login.jpg" alt="">
             </div>
         </div>
         <div class="showUser" :class="[{ 'open': showUser }, { 'close': !showUser }]">

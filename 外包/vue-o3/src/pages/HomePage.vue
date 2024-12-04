@@ -42,11 +42,11 @@ onActivated(() => {
     document.documentElement.scrollTop = scroll_top.value
   }
   //记录跳转前的位置
-  document.onscroll = function () {
+  document.addEventListener("scroll",function(){
     if (document.documentElement.scrollTop != 0) {
       scroll_top.value = document.documentElement.scrollTop
     }
-  }
+  })
 })
 onUnmounted(() => {
   自动轮播(false)
@@ -68,11 +68,11 @@ const FM_itemArr = ref([
 ])
 
 const FMimgArr = [
-  '/public/images/FMimg1.jpg',
-  '/public/images/FMimg2.jpg',
-  '/public/images/FMimg3.jpg',
-  '/public/images/FMimg4.jpg',
-  '/public/images/FMimg5.jpg',
+  '/images/FMimg1.jpg',
+  '/images/FMimg2.jpg',
+  '/images/FMimg3.jpg',
+  '/images/FMimg4.jpg',
+  '/images/FMimg5.jpg',
 ]
 
 const FMimgActive = ref(0)

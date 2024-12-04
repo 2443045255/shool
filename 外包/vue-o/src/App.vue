@@ -30,7 +30,7 @@ document.onscroll = function () {
 
 <template>
   <header>
-    <div class="logo"><span>效果展示</span></div>
+    <div class="logo"><span>番茄小说</span></div>
     <div class="wrapper">
       <nav>
         <span v-for="(_, tab) in tabs" :key="tab" :class="['tab-span a', { active: activeTab == tab }]"

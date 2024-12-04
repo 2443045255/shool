@@ -24,6 +24,7 @@ import { inject, onActivated, ref } from 'vue';
 import SearchDiv from '@/components/SearchDiv.vue';
 
 const PageData = inject('PageData')
+const ActivePage = inject('ActivePage')
 function toPage(page, data) {
   if (ActivePage.value == page) {
     PageData.value = data
@@ -50,7 +51,7 @@ function search() {
   }
 }
 
-var url1 = '/public/images/book/'
+var url1 = '/images/book/'
 const books = ref([
   ['1.jpg', '你笑了生活就笑了', '11.99'],
   ['2.jpg', '文豪笔下的文豪', '25.99'],

@@ -51,7 +51,7 @@ function get(value) {
     P2_talk.value = value
 }
 
-const sameUrl = 'public/images/people/'
+const sameUrl = '/images/people/'
 const peopleArr = ref([
     {
         'img': '1.png',

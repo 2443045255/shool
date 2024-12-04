@@ -33,7 +33,7 @@ function toPage(page, data) {
     PageData.value = data
 }
 
-var url1 = '/public/images/book/'
+var url1 = '/images/book/'
 const books = ref([
     ['1.jpg', '你笑了生活就笑了', '11.99'],
     ['2.jpg', '文豪笔下的文豪', '25.99'],

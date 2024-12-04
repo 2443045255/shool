@@ -1,2 +1,1 @@
-npm run dev
-pause
+start /b npm run dev

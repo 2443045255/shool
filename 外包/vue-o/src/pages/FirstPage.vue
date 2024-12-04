@@ -4,7 +4,7 @@
     <section>
       <div class="module">
         <div class="module-title">
-          <span>展开隐藏、轮播图、倒计时(文本插值、v-for)</span>
+          <span>近期活动</span>
           <div class="module-btn-group">
             <button class="module-btn module-hide-btn" v-show="moduleShow[0]">收起</button>
             <button class="module-btn module-show-btn" v-show="!moduleShow[0]">展开</button>
@@ -150,10 +150,10 @@ onUnmounted(() => {
 const 轮播图active = ref(0)
 const old轮播图active = ref(0)
 const imgUrls = [
-  "/public/images/01.jpg",
-  "/public/images/02.jpg",
-  "/public/images/03.jpg",
-  "/public/images/04.jpg",
+  "/images/01.jpg",
+  "/images/02.jpg",
+  "/images/03.jpg",
+  "/images/04.jpg",
 ]
 function 自动轮播图(value) {
   if (value) {
@@ -259,11 +259,15 @@ const moduleShow = ref([
 
 .轮播图-chose>div {
   height: 100%;
+  width: 230px;
   border-radius: 6px;
   margin: 0 10px;
   border: 2px solid rgb(168, 168, 168);
   overflow: hidden;
   transition: transform .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .轮播图-chose>.active {

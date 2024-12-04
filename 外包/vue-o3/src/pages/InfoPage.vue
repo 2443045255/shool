@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="topBtn">
-      <div class="goBack a" @click="toPage('HomePage')">返回</div>
+      <div class="goBack a" @click="toPage('HomePage')">返回主页</div>
     </div>
     <div class="show">
       <div class="show-img img">
@@ -39,7 +39,7 @@ onActivated(() => {
     document.documentElement.scrollTop = 0
 })
 
-const imgurl = '/public/images/book/'
+const imgurl = '/images/book/'
 </script>
 <style scoped>
 .topBtn {

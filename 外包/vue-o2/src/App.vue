@@ -2,7 +2,7 @@
   <header>
     <div class="logo">
       <div class="img">
-        <img src="/public/images/logo.png" alt="">
+        <img src="/images/logo.png" alt="">
       </div>
     </div>
     <div class="wrapper">
@@ -13,7 +13,7 @@
       </nav>
     </div>
   </header>
-  <div class="goTop" @click="goTop()" v-show="bodyScrollTop >= 200"><img src="/public/images/goTop.png" alt=""></div>
+  <div class="goTop" @click="goTop()" v-show="bodyScrollTop >= 200"><img src="/images/goTop.png" alt=""></div>
   <component :is="navUrl"></component>
 </template>
 <script setup>

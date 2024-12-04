@@ -81,12 +81,12 @@ input {
   display: flex;
 }
 
-.flex-warp{
+.flex-warp {
   display: flex;
   flex-wrap: wrap;
 }
 
-.txt-center{
+.txt-center {
   text-align: center;
 }
 

@@ -2,7 +2,7 @@
     <main>
         <div class="topImg">
             <div class="img">
-                <img src="/public/images/topImg1.jpg" alt="">
+                <img src="/images/topImg1.jpg" alt="">
             </div>
             <div class="topImg-Txt topImg-Txt1">
                 <p class="p1">
@@ -87,18 +87,18 @@ onUnmounted(() => {
     LBimg_func(false)
 })
 var LBimgName = [
-    '/public/images/LB-img1.png',
-    '/public/images/LB-img2.png',
-    '/public/images/LB-img3.png',
-    '/public/images/LB-img4.png',
-    '/public/images/LB-img5.jpg',
-    '/public/images/LB-img6.jpg',
-    '/public/images/LB-img7.jpg',
-    '/public/images/LB-img8.jpg',
-    '/public/images/LB-img9.jpg',
-    '/public/images/LB-img10.jpg',
-    '/public/images/LB-img11.jpg',
-    '/public/images/LB-img12.jpg',
+    '/images/LB-img1.png',
+    '/images/LB-img2.png',
+    '/images/LB-img3.png',
+    '/images/LB-img4.png',
+    '/images/LB-img5.jpg',
+    '/images/LB-img6.jpg',
+    '/images/LB-img7.jpg',
+    '/images/LB-img8.jpg',
+    '/images/LB-img9.jpg',
+    '/images/LB-img10.jpg',
+    '/images/LB-img11.jpg',
+    '/images/LB-img12.jpg',
 ]
 const LBimgActive = ref(0)
 const LBimg_time = ref(3)
@@ -313,7 +313,7 @@ function sendmsg() {
 }
 
 .LXwe-input-group>input {
-    margin-top: 5px;    
+    margin-top: 5px;
 }
 
 .LXwe-input-group>textarea {

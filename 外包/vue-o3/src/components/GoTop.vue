@@ -1,17 +1,20 @@
 <template>
-  <div class="gotop a1" @click="gotop()" v-show="gotop_show">回到顶部</div>
+  <div class="gotop a1" @click="gotop()" v-show="gotop_show">
+    <p>回到</p>
+    <p>顶部</p>
+  </div>
 </template>
 <script setup>
 import { ref } from 'vue';
 
 const gotop_show = ref(false)
-document.onscroll = function () {
+document.addEventListener("scroll", function () {
   if (document.documentElement.scrollTop > 100) {
     gotop_show.value = true
   } else {
     gotop_show.value = false
   }
-}
+})
 function gotop() {
   document.documentElement.scrollTop = 0
 }

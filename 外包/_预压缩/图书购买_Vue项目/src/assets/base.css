@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+  border: 0;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "微软雅黑";
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #eee;
+  line-height: 1.2;
+}
+
+a {
+  color: initial;
+}
+
+main {
+  width: 1100px;
+  margin: auto;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 13px;
+}
