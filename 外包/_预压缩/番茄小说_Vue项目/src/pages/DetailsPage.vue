@@ -105,5 +105,6 @@ function 随机添加小说() {
   grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   min-width: 1200px;
+  padding: 15px;
 }
 </style>
