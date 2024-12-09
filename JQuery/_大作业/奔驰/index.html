@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="style/index.css">
 </head>
+
 <body>
   <header>
     <div class="wrapper">
@@ -25,7 +27,15 @@
 
   <section>
     <div class="full_hight">
-      <div class="carousel"></div>
+      <div class="carousel">
+        <div class="carousel_ul">
+          <div id="main_carousel_li" class="carousel_li">
+            <img src="images/carousel_1.jpg" alt="">
+          </div>
+        </div>
+        <div class="carousel_pre"></div>
+        <div class="carousel_next"></div>
+      </div>
     </div>
   </section>
 
@@ -34,4 +44,40 @@
     </div>
   </section>
 </body>
+
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+  $(() => {
+
+  })
+
+  var carouselArr = [
+    'images/carousel_1.jpg',
+    'images/carousel_2.jpg',
+    'images/carousel_3.jpg',
+    'images/carousel_4.jpg',
+    'images/carousel_5.jpg'
+  ]
+  $('.carousel_next').click(() => {
+    carousel(2)
+  })
+  var old_carousel_index = 1
+  function carousel(value) {
+    var new_carousel_li = document.createElement('div')
+    var new_carousel_li_img = document.createElement('img')
+    new_carousel_li_img.src = carouselArr[value - 1]
+    new_carousel_li.append(new_carousel_li_img)
+    if (value > old_carousel_index) {
+      new_carousel_li.className = 'new_carousel_li 向左移入'
+      $('.carousel_ul').append(new_carousel_li)
+      $('#main_carousel_li').addClass('向左移出')
+    }
+    if (value < old_carousel_index) {
+      new_carousel_li.className = 'new_carousel_li 向右移'
+      $('.carousel_ul').prepend(new_carousel_li)
+      $('#main_carousel_li').addClass('向右移')
+    }
+  }
+</script>
+
 </html>
