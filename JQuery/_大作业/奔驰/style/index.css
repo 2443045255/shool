@@ -50,12 +50,12 @@
 }
 
 .向左移入 {
-  animation: 向左移 3s;
+  animation: 向左移 .4s;
   --left: 100%;
 }
 
 .向左移出 {
-  animation: 向左移 3s;
+  animation: 向左移 .4s;
   --left: 0%;
 }
 
@@ -70,19 +70,23 @@
 
 }
 
-
-
-
-.向右移 {
-  animation: 向右移 3s;
+.向右移入 {
+  animation: 向右移 .4s;
+  --right: -100%;
 }
+
+.向右移出 {
+  animation: 向右移 .4s;
+  --right: 0%;
+}
+
 
 @keyframes 向右移 {
   from {
-    transform: translateX(0%);
+    transform: translateX(var(--right));
   }
 
   to {
-    transform: translateX(100%);
+    transform: translateX(calc(var(--right) + 100%));
   }
 }
