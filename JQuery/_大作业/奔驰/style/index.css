@@ -1,5 +1,16 @@
+
+
+main{
+  height: 100vh;
+  overflow: hidden;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+}
+
 .carousel {
-  padding-top: 72px;
   height: 100%;
   overflow: hidden;
   position: relative;
@@ -8,10 +19,15 @@
 .carousel_ul {
   height: 100%;
   position: relative;
+  display: flex;
+  width: 700vw;
+  transition: .4s;
 }
 
 .carousel_li {
   height: 100%;
+  width: 100vw;
+  position: relative;
 }
 
 .carousel_pre,
@@ -27,12 +43,12 @@
 }
 
 .carousel_pre {
-  left: 10%;
+  left: 5%;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNCIgaGVpZ2h0PSIzNCIgdmlld0JveD0iMCAwIDM0IDM0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMjAgMzRMMTQuODM1IDM0IDAgMTYuOTM5IDE0LjY1NSAwIDE5Ljg4IDAgNy4wMjcgMTYuOTM5eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEwMCAtNDMzKSB0cmFuc2xhdGUoMTAwIDQzMykiLz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==") !important;
 }
 
 .carousel_next {
-  right: 10%;
+  right: 5%;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNCIgaGVpZ2h0PSIzNCIgdmlld0JveD0iMCAwIDM0IDM0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMjAgMzRMMTQuODM1IDM0IDAgMTYuOTM5IDE0LjY1NSAwIDE5Ljg4IDAgNy4wMjcgMTYuOTM5eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEzMDYgLTQzMykgbWF0cml4KC0xIDAgMCAxIDEzNDAgNDMzKSIvPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K") !important;
 }
 
@@ -41,52 +57,25 @@
   opacity: 1;
 }
 
-.new_carousel_li {
+.carouse_txt {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  left: 8%;
+  top: 45%;
+  transform: translateY(-50%);
 }
 
-.向左移入 {
-  animation: 向左移 .4s;
-  --left: 100%;
+.Learn_more {
+  border: 1px solid;
+  color: white;
+  background-color: transparent;
+  font-size: 14px;
+  width: 160px;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 24px;
+  line-height: 1.1;
 }
 
-.向左移出 {
-  animation: 向左移 .4s;
-  --left: 0%;
-}
-
-@keyframes 向左移 {
-  from {
-    transform: translateX(var(--left));
-  }
-
-  to {
-    transform: translateX(calc(var(--left) - 100%));
-  }
-
-}
-
-.向右移入 {
-  animation: 向右移 .4s;
-  --right: -100%;
-}
-
-.向右移出 {
-  animation: 向右移 .4s;
-  --right: 0%;
-}
-
-
-@keyframes 向右移 {
-  from {
-    transform: translateX(var(--right));
-  }
-
-  to {
-    transform: translateX(calc(var(--right) + 100%));
-  }
+.Learn_more:hover {
+  background: rgba(255, 255, 255, 0.1);
 }

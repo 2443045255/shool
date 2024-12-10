@@ -25,78 +25,72 @@
     </div>
   </header>
 
-  <section>
-    <div class="full_hight">
+  <main>
+    <section>
       <div class="carousel">
-        <div class="carousel_ul">
-          <div id="main_carousel_li" class="carousel_li">
+        <div class="carousel_ul" style="transform: translateX(-100vw);">
+          <div class="carousel_li">
+            <img src="images/carousel_5.jpg" alt="">
+            <div class="carouse_txt">
+              <img src="images/pc-ququanxin.svg" alt="">
+              <button class="Learn_more a">了解更多</button>
+            </div>
+          </div>
+          <div class="carousel_li">
             <img src="images/carousel_1.jpg" alt="">
+            <div class="carouse_txt">
+              <img src="images/g-580-pc.svg" alt="">
+              <button class="Learn_more a">了解更多</button>
+            </div>
+          </div>
+          <div class="carousel_li">
+            <img src="images/carousel_2.jpg" alt="">
+            <div class="carouse_txt">
+              <img src="images/g63-pc.svg" alt="">
+              <button class="Learn_more a">了解更多</button>
+            </div>
+          </div>
+          <div class="carousel_li">
+            <img src="images/carousel_3.jpg" alt="">
+            <div class="carouse_txt">
+              <img src="images/vito-pc-new.svg" alt="">
+              <button class="Learn_more a">了解更多</button>
+            </div>
+          </div>
+          <div class="carousel_li">
+            <img src="images/carousel_4.jpg" alt="">
+            <div class="carouse_txt">
+              <img src="images/guanwangbanner.svg" alt="">
+              <button class="Learn_more a">了解更多</button>
+            </div>
+          </div>
+          <div class="carousel_li">
+            <img src="images/carousel_5.jpg" alt="">
+            <div class="carouse_txt">
+              <img src="images/pc-ququanxin.svg" alt="">
+              <button class="Learn_more a">了解更多</button>
+            </div>
+          </div>
+          <div class="carousel_li">
+            <img src="images/carousel_1.jpg" alt="">
+            <div class="carouse_txt">
+              <img src="images/g-580-pc.svg" alt="">
+              <button class="Learn_more a">了解更多</button>
+            </div>
           </div>
         </div>
         <div class="carousel_pre"></div>
         <div class="carousel_next"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <div class="full_hight">
-    </div>
-  </section>
+    <section>
+    </section>
+  </main>
+
 </body>
 
 <script src="js/jquery-1.12.4.js"></script>
-<script>
-  $(() => {
-
-  })
-
-  var carouselArr = [
-    'images/carousel_1.jpg',
-    'images/carousel_2.jpg',
-    'images/carousel_3.jpg',
-    'images/carousel_4.jpg',
-    'images/carousel_5.jpg'
-  ]
-  $('.carousel_next').click(() => {
-    carousel(active_carousel_index++, 'next')
-  })
-  $('.carousel_pre').click(() => {
-    carousel(active_carousel_index++, 'pre')
-  })
-
-  var active_carousel_index = 0
-  var old_carousel_index = 1
-  function carousel(value, type) {
-    active_carousel_index > 4 ? active_carousel_index = 0 : null
-    active_carousel_index < 0 ? active_carousel_index = 4 : null
-    var new_carousel_li = document.createElement('div')
-    var new_carousel_li_img = document.createElement('img')
-    new_carousel_li_img.src = carouselArr[active_carousel_index]
-    new_carousel_li.append(new_carousel_li_img)
-    old_carousel_index = active_carousel_index
-    if (type == 'next') {
-      $(new_carousel_li).addClass('new_carousel_li 向左移入')
-      $('.carousel_ul').append(new_carousel_li)
-      $('#main_carousel_li').addClass('向左移出')
-      new_carousel_li.onanimationend = function () {
-        $('#main_carousel_li img').attr('src', carouselArr[active_carousel_index])
-        $('#main_carousel_li').removeClass('向左移出')
-        $(new_carousel_li).remove()
-      }
-
-    }
-    if (type == 'pre') {
-      $(new_carousel_li).addClass('new_carousel_li 向右移入')
-      $('.carousel_ul').prepend(new_carousel_li)
-      $('#main_carousel_li').addClass('向右移出')
-      new_carousel_li.onanimationend = function () {
-        $('#main_carousel_li img').attr('src', carouselArr[active_carousel_index])
-        $('#main_carousel_li').removeClass('向右移出')
-        $(new_carousel_li).remove()
-      }
-    }
-  }
-</script>
+<script src="js/index.js"></script>
 
 </html>

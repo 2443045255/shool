@@ -31,8 +31,6 @@ img{
   object-fit: cover;
 }
 
-
-
 header {
   background: black;
   position: fixed;
@@ -70,6 +68,7 @@ nav>a {
   transform: translate(-50%, -50%);
 }
 
-.full_hight{
-  height: 100vh;
+.a{
+  user-select: none;
+  cursor: pointer;
 }
