@@ -62,22 +62,6 @@ section {
   transform: translateY(-50%);
 }
 
-.Learn_more {
-  border: 1px solid;
-  color: white;
-  background-color: transparent;
-  font-size: 14px;
-  width: 160px;
-  height: 40px;
-  border-radius: 20px;
-  margin-top: 24px;
-  line-height: 1.1;
-}
-
-.Learn_more:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
 .img {
   height: 100%;
   background-repeat: no-repeat !important;

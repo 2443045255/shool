@@ -3,6 +3,12 @@
   src: url(PingFangSC-Regular.otf);
 }
 
+@font-face {
+  font-family: 'BenCi';
+  src: url(MBCorpoATitleCond-Regular-Web.woff2);
+}
+
+
 *,
 *::before,
 *::after {
@@ -96,4 +102,25 @@ nav>a {
 .see-car:hover{
   background: #fff;
   color: black;
+}
+
+.Benci{
+  font-family: 'BenCi';
+  font-weight: 400;
+}
+
+.Learn_more {
+  border: 1px solid;
+  color: white;
+  background-color: transparent;
+  font-size: 14px;
+  width: 160px;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 24px;
+  line-height: 1.1;
+}
+
+.Learn_more:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
