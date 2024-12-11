@@ -84,7 +84,27 @@
       </div>
     </section>
 
-    <section>
+    <section style="padding-top: 72px;">
+      <div class="section-body" style="position: relative;height: 100%;">
+        <div id="s2_img" class="img" style="background: url(images/s2_轿车_A.jpg);"></div>
+        <div class="s2-carChose">
+          <div class="carChose-first">
+            <div class="carChose-li a active">轿车</div>
+            <div class="carChose-li a">SUV</div>
+            <div class="carChose-li a">轿跑车&敞篷跑车</div>
+            <div class="carChose-li a">MPV</div>
+            <div class="carChose-li a">纯电车型</div>
+            <div class="carChose-li a">插电式混合动力</div>
+            <div class="carChose-li a">全部车型</div>
+          </div>
+          <div class="carChose-second">
+            <div class="carChose-li a active">A<span>级</span></div>
+            <div class="carChose-li a">C<span>级</span></div>
+            <div class="carChose-li a">E<span>级</span></div>
+            <div class="carChose-li a">S<span>级</span></div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -92,5 +112,95 @@
 
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/index.js"></script>
+
+<script>
+  function AddClickClass(parent, child, calss) {
+    parent.delegate(child, 'click', function () {
+      parent.find(child).removeClass(calss)
+      $(this).addClass(calss)
+    })
+  }
+
+  var 轿车imgArr = [
+    's2_轿车_A.jpg',
+    's2_轿车_C.jpg',
+    's2_轿车_E.jpg',
+    's2_轿车_S.jpg',
+  ]
+  var 轿车itemArr = [
+    'A<span>级</span>',
+    'C<span>级</span>',
+    'E<span>级</span>',
+    'S<span>级</span>',
+  ]
+
+  var SUVimgArr = [
+    's2_SUV_1.jpg',
+    's2_SUV_2.jpg',
+    's2_SUV_3.jpg',
+    's2_SUV_4.jpg',
+    's2_SUV_5.jpg',
+    's2_SUV_6.jpg',
+  ]
+  var SUVitemArr = [
+    'GLA',
+    'GLB',
+    'GLC',
+    'GLE',
+    'GLS',
+    'G<span>级</span>',
+  ]
+
+  $(() => {
+    var mainTxt, old_mainTxt
+    var imgArr = 轿车imgArr
+    var itemArr = 轿车itemArr
+    var imgUrl = 'images/'
+    AddClickClass($('.carChose-first'), '.carChose-li', 'active')
+    AddClickClass($('.carChose-second'), '.carChose-li', 'active')
+    $('.carChose-first .carChose-li').click(function () {
+      mainTxt = $(this).text()
+      if (old_mainTxt == mainTxt) { return }
+      old_mainTxt = mainTxt
+      switch (mainTxt) {
+        case '轿车':
+          imgArr = 轿车imgArr;
+          itemArr = 轿车itemArr;
+          break;
+        case 'SUV':
+          imgArr = SUVimgArr;
+          itemArr = SUVitemArr;
+          break;
+        default:
+          break;
+      }
+      $('.carChose-second').html('')
+      var html = ''
+      itemArr.forEach((e, index) => {
+        if (index == 0) {
+          html += `<div class="carChose-li a active">${e}</div>`
+        } else {
+          html += `<div class="carChose-li a">${e}</div>`
+        }
+        $('.carChose-second').html(html)
+      })
+      淡入淡出背景($('#s2_img'), imgUrl + imgArr[0])
+    })
+    $('.carChose-second').delegate('.carChose-li', 'click', function () {
+      淡入淡出背景($('#s2_img'), imgUrl + imgArr[$(this).index()])
+    })
+  })
+  function 淡入淡出背景(e, url) {
+    e.stop().animate({
+      'opacity': '0',
+    }, 150, function () {
+      e.css('background', `url(${url})`)
+      e.animate({
+        'opacity': '1',
+      }, 150, function () {
+      })
+    })
+  }
+</script>
 
 </html>
