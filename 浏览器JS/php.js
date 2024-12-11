@@ -67,7 +67,7 @@
     var input1 = document.querySelector('.Rxaser-div1-body input')
     var input1_value = parseInt(input1.value)
 
-    var progress_title = document.querySelector('.progress-chart>h2>em')
+    var progress_title = document.querySelector('.progress-chart h2 em')
     var progress_bar = document.querySelector('.progress-chart>.c-progress>.bar')
     var progress_liALl = document.querySelectorAll('.progress-chart .exercises a')
 
@@ -106,7 +106,7 @@
     }
   }
   function 老师的题目() {
-    var progress_title = document.querySelector('.progress-chart>h2>em')
+    var progress_title = document.querySelector('.progress-chart h2 em')
     var progress_bar = document.querySelector('.progress-chart>.c-progress>.bar')
     var progress_liALl = document.querySelectorAll('.progress-chart .exercises a')
 

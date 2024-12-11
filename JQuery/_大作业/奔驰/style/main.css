@@ -4,8 +4,18 @@
 }
 
 @font-face {
-  font-family: 'BenCi';
-  src: url(MBCorpoATitleCond-Regular-Web.woff2);
+  font-family: 'BenCi_cn';
+  src: url(font2_cn.woff);
+}
+
+@font-face {
+  font-family: 'BenCi_en';
+  src: url(font3_en.woff);
+}
+
+.BenCi {
+  font-family: BenCi_cn, BenCi_en;
+  font-weight: 400;
 }
 
 
@@ -99,14 +109,10 @@ nav>a {
   cursor: pointer;
   transition: .1s;
 }
-.see-car:hover{
+
+.see-car:hover {
   background: #fff;
   color: black;
-}
-
-.Benci{
-  font-family: 'BenCi';
-  font-weight: 400;
 }
 
 .Learn_more {
