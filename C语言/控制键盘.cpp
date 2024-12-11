@@ -21,7 +21,7 @@ void keypress(int vk)
 
 int main()
 {
-	// SetConsoleTitle("¿ØÖÆ¼üÅÌ");
+	SetConsoleTitle("¿ØÖÆ¼üÅÌ");
 	int userInput = 0, isExit = true;
 
 	while (isExit)
