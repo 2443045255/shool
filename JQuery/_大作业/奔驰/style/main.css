@@ -25,7 +25,7 @@ a:hover {
   text-decoration: underline;
 }
 
-img{
+img {
   display: block;
   height: 100%;
   width: 100%;
@@ -69,7 +69,31 @@ nav>a {
   transform: translate(-50%, -50%);
 }
 
-.a{
+.a {
   user-select: none;
   cursor: pointer;
+}
+
+.隐藏滚动条 {
+  scrollbar-width: none;
+}
+
+.隐藏滚动条::-webkit-scrollbar {
+  display: none;
+}
+
+.see-car {
+  width: 315px;
+  height: 43px;
+  max-width: 315px;
+  border-radius: 20px;
+  border: 1.4px solid #fff;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: .1s;
+}
+.see-car:hover{
+  background: #fff;
+  color: black;
 }

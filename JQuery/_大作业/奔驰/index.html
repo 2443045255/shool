@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>奔驰</title>
+  <title>奔驰-车型展示</title>
   <link rel="shortcut icon" href="logo.png" type="image/x-icon">
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="style/index.css">
@@ -14,8 +14,8 @@
   <header>
     <div class="wrapper">
       <nav>
-        <a href="#">首页</a>
-        <a href="#">探索车型</a>
+        <a href="index.html">车型展示</a>
+        <a href="page2.html">探索车型</a>
         <a href="#">预约评鉴</a>
       </nav>
 
@@ -97,7 +97,7 @@
             <div class="carChose-li a">插电式混合动力</div>
             <div class="carChose-li a">全部车型</div>
           </div>
-          <div class="carChose-second">
+          <div class="carChose-second 隐藏滚动条">
             <div class="carChose-li a active">A<span>级</span></div>
             <div class="carChose-li a">C<span>级</span></div>
             <div class="carChose-li a">E<span>级</span></div>
@@ -111,6 +111,7 @@
 </body>
 
 <script src="js/jquery-1.12.4.js"></script>
+<script src="js/OnePageScroll.js"></script>
 <script src="js/index.js"></script>
 
 <script>
@@ -201,6 +202,9 @@
       })
     })
   }
+  $('.carChose-second').on('mousewheel', function (event) {
+    event.stopPropagation();
+  })
 </script>
 
 </html>

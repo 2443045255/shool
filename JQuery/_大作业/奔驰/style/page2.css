@@ -1,0 +1,51 @@
+main {
+  height: 100vh;
+  overflow: hidden;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+}
+
+.car-show{
+  height: 100%;
+  background: url(../images/page2-img1.jpg) no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+.car-show-title{
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.car-show-title img{
+  object-fit: contain;
+}
+
+.car-show-title img:nth-child(1),
+.car-show-title img:nth-child(2){
+  height: 55px;
+}
+
+.car-show-title img:nth-child(3){
+  margin-top: 20px;
+  height: 36px;
+}
+
+.see-car{
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.car-show-tip{
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  padding: 0 5%;
+  color: #fff;
+}
