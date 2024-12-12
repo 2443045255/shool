@@ -10,14 +10,51 @@
 
 <body>
   <header>
-    <div class="wrapper">
-      <nav>
-        <a href="#">首页</a>
-        <a href="#">了解详情</a>
-        <a href="#">预约试驾</a>
-      </nav>
+    <div class="background"></div>
+    <div class="body">
+      <div class="wrapper">
+        <nav>
+          <a href="#">首页</a>
+          <a href="#">了解详情</a>
+          <a href="#">预约试驾</a>
+        </nav>
+      </div>
     </div>
   </header>
+
+  <section>
+    <div class="background"></div>
+  </section>
+
+  <section>
+    <div class="background"></div>
+  </section>
 </body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/main.js"></script>
+<script>
+  背景视差()
+  $(() => {
+    背景视差()
+    $(window).on('scroll', function () {
+      setTimeout(() => {
+        背景视差()
+      }, 0);
+    })
+
+  })
+  function 背景视差() {
+    $('.background').each(function (index, sthis) {
+      if ($(sthis).offset().top <= $(window).scrollTop()) {
+        // console.log($(window).scrollTop())
+        var translateY = ($(window).scrollTop() - $(sthis).offset().top) * 0.5
+        $(sthis).css('transform', `matrix(1, 0, 0, 1, 0, ${translateY})`)
+      }
+      if ($(sthis).offset().top > $(window).scrollTop()) {
+        $(sthis).css('transform', `matrix(1, 0, 0, 1, 0, 0)`)
+      }
+    })
+  }
+</script>
 
 </html>
