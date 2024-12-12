@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>宝马</title>
   <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/index.css">
+  <link rel="shortcut icon" href="Logo.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -13,48 +15,49 @@
     <div class="background"></div>
     <div class="body">
       <div class="wrapper">
+        <div class="logo">
+          <img src="images/BMW_White_Logo.svg" alt="">
+        </div>
         <nav>
           <a href="#">首页</a>
           <a href="#">了解详情</a>
           <a href="#">预约试驾</a>
         </nav>
       </div>
+      <div class="header-txt">
+        <div class="header-info">
+          <div class="header-info-txt">
+            <span>THE i4</span>
+            <span>新纯电动BMW i4 现已上市</span>
+          </div>
+          <button class="learn_more_btn">了解详情</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <section>
     <div class="background"></div>
+    <div class="body">
+      <div class="header-txt">
+        <div class="header-info">
+          <div class="header-info-txt">
+            <span>THE 2 & THE M235L</span>
+            <span>全新BMW 2系四门轿跑车</span>
+            <span>全新BMW M235L四门轿跑车</span>
+          </div>
+          <button class="learn_more_btn">了解详情</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section>
     <div class="background"></div>
+    <div class="body"></div>
   </section>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/main.js"></script>
-<script>
-  背景视差()
-  $(() => {
-    背景视差()
-    $(window).on('scroll', function () {
-      setTimeout(() => {
-        背景视差()
-      }, 0);
-    })
-
-  })
-  function 背景视差() {
-    $('.background').each(function (index, sthis) {
-      if ($(sthis).offset().top <= $(window).scrollTop()) {
-        // console.log($(window).scrollTop())
-        var translateY = ($(window).scrollTop() - $(sthis).offset().top) * 0.5
-        $(sthis).css('transform', `matrix(1, 0, 0, 1, 0, ${translateY})`)
-      }
-      if ($(sthis).offset().top > $(window).scrollTop()) {
-        $(sthis).css('transform', `matrix(1, 0, 0, 1, 0, 0)`)
-      }
-    })
-  }
-</script>
 
 </html>

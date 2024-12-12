@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "PingFangSC";
+  src: url(PingFangSC-Regular.otf);
+}
+
 *,
 *::before,
 *::after {
@@ -23,6 +28,7 @@ html {
 
 body {
   min-height: 100vh;
+  font-family: PingFangSC !important;
 }
 
 header,
@@ -43,6 +49,7 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
 }
 
 header>.background {
@@ -50,22 +57,53 @@ header>.background {
 }
 
 .wrapper {
-  height: 50px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 48px;
+  width: 48px;
 }
 
 nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
+  color: #fff;
+  font-weight: 600;
 }
 
 nav>a {
   padding: 0 20px;
+  transition: .1s;
 }
 
-section>.background {
-  background-image: url(../images/headerBg1.jpg);
+nav>a:hover {
+  transform: scale(1.1);
+}
+
+.learn_more_btn {
+  width: 150px;
+  height: 50px;
+  background-color: rgb(28, 105, 212);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.learn_more_btn:hover {
+  background-color: rgb(6, 83, 182);
 }
