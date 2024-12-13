@@ -45,12 +45,15 @@ nav {
 }
 
 .trycar-body {
+  padding-top: 40px;
+  padding-bottom: 100px;
   display: flex;
   justify-content: center;
 }
 
-.trycar-img{
-  max-width: 600px;
+.trycar-img {
+  width: 430px;
+  margin-right: 80px;
 }
 
 .trycar-img-title {
@@ -64,7 +67,97 @@ nav {
   color: #424242;
 }
 
-.trycar-img-main{
+.trycar-img-main {
   margin-top: 110px;
   margin-bottom: 93px;
+}
+
+.trycar-img-tip {
+  color: #aaa;
+}
+
+.trycar-input {
+  width: 430px;
+}
+
+.trycar-input-sellinfo-card {
+  padding: 20px;
+  border: 1px solid #BBBBBB;
+}
+
+.trycar-input-sellinfo>span {
+  display: block;
+  color: #767676;
+  margin-bottom: 10px;
+}
+
+.trycar-input-sellinfo-card p:nth-child(1) {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.trycar-input-sellinfo-time {
+  border: 1px solid #BBBBBB;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  color: #ccc;
+}
+
+.trycar-input-userinfo {
+  margin-top: 45px;
+}
+
+.trycar-input-userinfo>span {
+  display: block;
+  color: #767676;
+}
+
+.trycar-input-userinfo-gender {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.man,
+.gril {
+  display: flex;
+  align-items: center;
+}
+
+span.radio {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.trycar-input-userinfo-name{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sameclass1{
+  height: 52px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #BBBBBB;
+  padding: 0 20px;
+  color: #aaa;
+}
+
+.lastname,
+.firstname{
+  width: 48%;
+}
+
+.submit-box{
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c69d4;
+  color: #fff;
 }
