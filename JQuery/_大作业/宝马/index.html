@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>宝马</title>
+  <title>BWM-首页</title>
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="style/index.css">
   <link rel="shortcut icon" href="Logo.svg" type="image/x-icon">
@@ -19,9 +19,9 @@
           <img src="images/BMW_White_Logo.svg" alt="">
         </div>
         <nav>
-          <a href="#">首页</a>
-          <a href="#">了解详情</a>
-          <a href="#">预约试驾</a>
+          <a href="index.html">首页</a>
+          <a href="page2.html">了解详情</a>
+          <a href="page3.html">预约试驾</a>
         </nav>
       </div>
       <div class="header-txt">
@@ -54,10 +54,83 @@
 
   <section>
     <div class="background"></div>
-    <div class="body"></div>
+    <div class="body">
+      <div class="header-txt">
+        <div class="header-info">
+          <div class="header-info-txt">
+            <span>THE X5</span>
+            <span>BMW X5黑焰限量版 现已上市</span>
+          </div>
+          <button class="learn_more_btn">了解详情</button>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <section>
+    <div class="background"></div>
+    <div class="body">
+      <div class="header-txt">
+        <div class="header-info">
+          <div class="header-info-txt">
+            <span>THE 3</span>
+            <span>新BMW 3系</span>
+          </div>
+          <button class="learn_more_btn">了解详情</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section1">
+    <div class="title">推荐车型</div>
+    <div class="section1-body">
+      <div class="car">
+        <div class="car-img">
+          <img src="images/car1.jpg" alt="">
+        </div>
+        <button class="see_car_btn">查看详情</button>
+      </div>
+      <div class="car">
+        <div class="car-img">
+          <img src="images/car2.jpg" alt="">
+        </div>
+        <button class="see_car_btn">查看详情</button>
+      </div>
+      <div class="car">
+        <div class="car-img">
+          <img src="images/car3.jpg" alt="">
+        </div>
+        <button class="see_car_btn">查看详情</button>
+      </div>
+    </div>
+    <footer>
+      <h2>仿WMW中国官网</h2>
+      <h2>by:雷</h2>
+    </footer>
+  </div>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/main.js"></script>
+<script>
+  var settimeout1 = null
+
+  $(window).on('scroll', function (event) {
+    clearTimeout(settimeout1)
+    settimeout1 = setTimeout(() => {
+      body吸附()
+    }, 300);
+  })
+  var leng = []
+  function body吸附() {
+    $('.body').each(function (index, element) {
+      leng[index] = $(window).scrollTop() - $(element).offset().top
+      leng[index] < 0 ? leng[index] = leng[index] * -1 : leng[index]
+      if (leng[index] < 300) {
+        $(window).scrollTop($(element).offset().top)
+      }
+    })
+  }
+</script>
 
 </html>

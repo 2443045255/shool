@@ -28,19 +28,15 @@ html {
 
 body {
   min-height: 100vh;
+  min-width: 1400px;
   font-family: PingFangSC !important;
-}
-
-header,
-section {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
 }
 
 .body,
 .background {
   position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   width: 100%;
 }
@@ -106,4 +102,20 @@ nav>a:hover {
 
 .learn_more_btn:hover {
   background-color: rgb(6, 83, 182);
+}
+
+.see_car_btn{
+  border: 1px solid black;
+  text-align: center;
+  padding: 3% 0;
+  width: 100%;
+  background: #fff;
+  color: black;
+  margin-top: 3%;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.see_car_btn:hover{
+  box-shadow: inset 0px 0px 5px black;
 }

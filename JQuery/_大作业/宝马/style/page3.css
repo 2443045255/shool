@@ -1,0 +1,70 @@
+header {
+  position: relative;
+}
+
+header .body {
+  position: relative;
+}
+
+header .wrapper {
+  background: #fff;
+  box-shadow: none;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+nav {
+  color: black;
+}
+
+.trycar {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+
+.trycar-title {
+  height: 80px;
+  display: flex;
+  padding: 0 5%;
+}
+
+.trycar-title p {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  color: #646464;
+}
+
+.trycar-title p:first-child {
+  padding-right: 80px;
+  border-right: 1px solid #e6e6e6;
+}
+
+.trycar-title p:last-child {
+  padding-left: 30px;
+}
+
+.trycar-body {
+  display: flex;
+  justify-content: center;
+}
+
+.trycar-img{
+  max-width: 600px;
+}
+
+.trycar-img-title {
+  font-size: 48px;
+  color: #424242;
+}
+
+.trycar-img-desc {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #424242;
+}
+
+.trycar-img-main{
+  margin-top: 110px;
+  margin-bottom: 93px;
+}
