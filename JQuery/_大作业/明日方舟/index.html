@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>明日方舟 - Arknights</title>
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/index.css">
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+  <main>
+    <header>
+      <div class="wrapper">
+        <div class="logo">
+          <img src="images/arknights.svg" alt="">
+        </div>
+        <nav>
+          <a href="#" class="active">
+            <span>INDEX</span>
+            <span>首页</span>
+          </a>
+          <a href="#">
+            <span>INFORMATION</span>
+            <span>情报</span>
+          </a>
+          <a href="#">
+            <span>OPERATOR</span>
+            <span>干员</span>
+          </a>
+          <a href="#">
+            <span>WORLD</span>
+            <span>设定</span>
+          </a>
+          <a href="#">
+            <span>MEDIA</span>
+            <span>泰拉万象</span>
+          </a>
+          <a href="#">
+            <span>MORE</span>
+            <span>更多内容</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <div class="pageline">
+      <div class="pageline-right"></div>
+      <div class="pageline-bottom"></div>
+    </div>
+    <div class="video-bg h-100">
+      <video src="images/PV04_landscape-00001.mp4" muted autoplay loop></video>
+    </div>
+    <section>
+      <div class="index-ab-bg ab1"></div>
+      <div class="index-ab-bg ab2"></div>
+      <div class="index-title">
+        <div class="index-title1">
+          <div class="index-title1-left">ARKNIGHTS</div>
+          <div class="index-title1-right">
+            <p>RHODES ISLAND</p>
+            <p>HTTPS://AK.HYPERGRYPH.COM/</p>
+          </div>
+        </div>
+        <div class="index-title2">
+          <img src="images/copyright_mini.svg" alt="">
+        </div>
+      </div>
+      <div class="download"></div>
+      <div class="tip">
+        <div class="qc a">
+          <div>
+            <span>扫</span>
+            <span>码</span>
+            <span>下</span>
+            <span>载</span>
+          </div>
+          <img src="images/qrcode_download.png" alt="">
+        </div>
+        <div class="age a"><img src="images/age_rating.png" alt=""></div>
+      </div>
+    </section>
+  </main>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+  $(() => {
+
+    const downloadItemSVG = [
+      'icon_iOS.svg',
+      'icon_Android.svg',
+      'icon_TapTap.svg',
+      'MuMu.png',
+      'skland_fullcolor.png',
+      'recharge_center.png'
+    ]
+    const downloadItemContent = [
+      ['App Store', '下载'],
+      ['Android', '下载'],
+      ['通过TapTap下载'],
+      ['MuMu模拟器', 'Windowns下载'],
+      ['官方社区'],
+      ['官方充值中心']
+    ]
+    var downloadItemHtml = ''
+    downloadItemSVG.forEach((e, index) => {
+      downloadItemHtml += `
+      <div class="download-item download-item${index + 1}">
+          <div class="download-icon"><img src="images/${e}" alt=""></div>
+          <div class="download-content">
+            <span>${downloadItemContent[index][0]}</span>
+            <span>${downloadItemContent[index][1] ? downloadItemContent[index][1] : ''}</span>
+          </div>
+        </div>
+      `
+    })
+    $('.download').html(downloadItemHtml)
+  })
+</script>
+
+</html>

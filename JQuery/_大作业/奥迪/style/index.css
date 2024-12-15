@@ -1,0 +1,171 @@
+section:nth-of-type(1),
+section:nth-of-type(2),
+section:nth-of-type(3) {
+  height: 900px;
+}
+
+.lb-body {
+  position: relative;
+  background-color: #000000;
+}
+
+.lb-img{
+  position: relative;
+}
+
+.lb-cont{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: #fff;
+}
+
+.lb-cont h3{
+  font-size: 36px;
+}
+
+.lb-cont p{
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.lb-cont button{
+  margin-top: 20px;
+}
+
+.lb-pre,
+.lb-next {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  color: #fff;
+  font-size: 100px;
+  display: flex;
+  align-items: center;
+  transition: .1s;
+}
+
+.lb-pre {
+  left: 0;
+  padding-left: 50px;
+  padding-right: 20px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0)) no-repeat left;
+  background-size: 0%;
+}
+
+.lb-next {
+  right: 0;
+  padding-right: 50px;
+  padding-left: 20px;
+  background: linear-gradient(270deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0)) no-repeat right;
+  background-size: 0%;
+}
+
+.lb-pre:hover,
+.lb-next:hover {
+  background-size: 100%;
+}
+
+.fl3-body {
+  overflow: hidden;
+}
+
+.fl3-item {
+  width: 33.333vw;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  transition: .4s;
+}
+
+.fl3-item:hover {
+  width: 90vw;
+}
+
+.fl3-item1 {
+  background: url(../images/fl3-img1.jpg) no-repeat;
+}
+
+.fl3-item2 {
+  background: url(../images/fl3-img2.jpg) no-repeat;
+}
+
+.fl3-item3 {
+  background: url(../images/fl3-img3.jpg) no-repeat;
+}
+
+.fl3-content {
+  width: 238px;
+  height: 122px;
+  margin-left: 35px;
+  margin-bottom: 90px;
+}
+
+.fl3-content1 {
+  background: url(../images/fl3-content1.png) no-repeat;
+}
+
+.fl3-content2 {
+  background: url(../images/fl3-content2.png) no-repeat;
+}
+
+.fl3-content3 {
+  background: url(../images/fl3-content3.png) no-repeat;
+}
+
+.cs-body {
+  background: url(../images/cs-bg.jpg) center/cover no-repeat;
+  position: relative;
+}
+
+.cs-tab {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.cs-tab span {
+  margin: 0 15px;
+  padding: 0 5px;
+  padding-bottom: 10px;
+}
+
+.cs-tab span.active {
+  background: linear-gradient(red, red) no-repeat bottom center;
+  background-size: 100% 3px;
+}
+
+.cs-img {
+  margin-top: 20px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.cs-img img {
+  width: auto;
+}
+
+.cs-btn-group{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.class1-btn {
+  width: 145px;
+  height: 42px;
+  background: #fff;
+  border: none;
+
+  margin-right: 30px
+}
+
+.class2-btn {
+  width: 145px;
+  height: 42px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #ffffff;
+}

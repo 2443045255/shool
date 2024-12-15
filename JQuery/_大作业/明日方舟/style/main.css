@@ -1,0 +1,155 @@
+@font-face {
+  font-family: 'Novecentosanswide';
+  src: url(../fonts/Novecentosanswide-UltraBold.woff2);
+}
+
+@font-face {
+  font-family: 'SourceHanSansSC';
+  src: url(../fonts/SourceHanSansSC-Medium.woff2);
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url(../fonts/Oswald-Medium.woff2);
+}
+
+:root {
+  --header_zindex: 10;
+  --video-bg_zindex: 4;
+  --pageline_zindex: 5;
+  --section_zindex: 8;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+body,
+html {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: url(../images/body-bg.jpg) center/cover no-repeat;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  position: relative;
+  height: 100%;
+  max-width: 180rem;
+  width: 100vw;
+  overflow: hidden;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6.75rem;
+  color: #fff;
+  background-image: linear-gradient(0deg, transparent, rgba(0, 0, 0, .6), rgba(0, 0, 0, .8));
+  z-index: var(--header_zindex);
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 7rem;
+  margin-left: 3rem;
+}
+
+nav {
+  display: flex;
+  margin-right: 14.75rem;
+  border-right: 1px solid #fff;
+}
+
+nav>a {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0 2.5rem;
+  transition: .2s;
+}
+
+nav>a>span:nth-child(1) {
+  font-size: 1.375rem;
+  font-family: 'Oswald';
+}
+
+nav>a>span:nth-child(2) {
+  font-size: .875rem;
+  font-family: 'SourceHanSansSC';
+}
+
+nav>a.active {
+  color: #19d1ff;
+}
+
+nav>a:hover {
+  color: #19d1ff;
+}
+
+.pageline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: var(--pageline_zindex);
+}
+
+.pageline>div {
+  background-color: hsla(0, 0%, 100%, .3);
+}
+
+.pageline-right {
+  position: absolute;
+  right: 14.75rem;
+  top: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.pageline-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 11.25rem;
+  width: 100%;
+  height: 1px;
+}
+
+
+.h-100 {
+  height: 100%;
+}
+
+.a {
+  cursor: pointer;
+}

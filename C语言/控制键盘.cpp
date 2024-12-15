@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <stdio.h>
 
+#pragma comment( linker, "/subsystem:windows /entry:mainCRTStartup" )
 void keydown(int vk)
 {
 	keybd_event(vk, 0, 0, 0);

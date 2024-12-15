@@ -6,20 +6,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>奥迪</title>
   <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/index.css">
 </head>
 
 <body>
   <header>
     <div class="wrapper">
       <nav>
-        <a href="#" class="active">品牌展示</a>
-        <a href="#">未定义</a>
-        <a href="#">未定义</a>
+        <a href="index.html" class="active">品牌展示</a>
+        <a href="page2.html">车型展示</a>
+        <a href="page3.html">车型展示</a>
         <span class="hoverLine"></span>
       </nav>
     </div>
   </header>
+
+  <section>
+    <div class="lb-main h-100">
+      <div class="lb-body h-100">
+        <div class="lb-img h-100">
+          <img src="images/lb-1.jpg" alt="">
+          <div class="lb-cont">
+            <h3>奥迪 A6L</h3>
+            <p>豪华 C 级型动旗舰</p>
+            <button class="class2-btn a">了解更多</button>
+          </div>
+        </div>
+        <div class="lb-img h-100" style="display: none;">
+          <img src="images/lb-2.jpg" alt="">
+          <div class="lb-cont">
+            <h3>新奥迪 A3 Sportback</h3>
+            <p>飞驰的人生，从新奥迪 A3 开始</p>
+            <button class="class2-btn a">了解更多</button>
+          </div>
+        </div>
+        <div class="lb-img h-100" alt="" style="display: none;">
+          <img src="images/lb-3.jpg">
+          <div class="lb-cont">
+            <h3>奥迪 A6L</h3>
+            <p>豪华 C 级型动旗舰</p>
+            <button class="class2-btn a">了解更多</button>
+          </div>
+        </div>
+        <div class="lb-pre a">‹</div>
+        <div class="lb-next a">›</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="fl3-main h-100">
+      <div class="fl3-body flex h-100">
+        <div class="fl3-item fl3-item1 h-100">
+          <div class="fl3-content fl3-content1"></div>
+        </div>
+        <div class="fl3-item fl3-item2 h-100">
+          <div class="fl3-content fl3-content2"></div>
+        </div>
+        <div class="fl3-item fl3-item3 h-100">
+          <div class="fl3-content fl3-content3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cs-main h-100">
+      <div class="cs-body h-100">
+        <div class="cs-tab cs-tab1 a">
+          <span class="active">轿车</span>
+          <span>SUV</span>
+          <span>轿跑&敞篷车</span>
+          <span>旅行车</span>
+          <span>纯电车</span>
+          <span>高性能车</span>
+        </div>
+        <div class="cs-tab cs-tab2 a">
+          <span class="active">轿车</span>
+          <span>A3</span>
+          <span>A4</span>
+          <span>A5</span>
+          <span>A6</span>
+          <span>A7</span>
+        </div>
+        <div class="cs-img">
+          <img src="images/cs-img1.png" alt="">
+        </div>
+        <div class="cs-btn-group">
+          <button class="class1-btn a">查看配置</button>
+          <button class="class2-btn a">预约试驾</button>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
+<script>
+  $(() => {
+    var lb_imgActive = 0
+    function lbnext() {
+      lb_imgActive == 3 ? lb_imgActive = 0 : null
+      lb_imgActive == -1 ? lb_imgActive = 2 : null
+      $('.lb-img:visible').fadeOut('fast', function () {
+        $('.lb-img').eq(lb_imgActive).fadeIn('fast')
+      })
+
+    }
+    $('.lb-pre').click(function () {
+      lbnext(lb_imgActive--)
+    })
+    $('.lb-next').click(function () {
+      lbnext(lb_imgActive++)
+    })
+
+    $('.cs-tab1 span').click(function () {
+      $('.cs-tab1').find('span').removeClass('active')
+      $(this).addClass('active')
+    })
+    $('.cs-tab2 span').click(function () {
+      $('.cs-tab2').find('span').removeClass('active')
+      $(this).addClass('active')
+    })
+  })
+</script>
 
 </html>
