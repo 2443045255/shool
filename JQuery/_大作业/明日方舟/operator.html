@@ -46,6 +46,17 @@
         </nav>
       </div>
     </header>
+
+    <div class="section-bg"></div>
+    <div class="operator-bg1">
+      <div class="operator-bg1-body" style="background-image: url(images/operator/amiya_e1.png);"></div>
+    </div>
+    <div class="operator-img">
+      <div class="operator-img-body img_h">
+        <img src="images/operator/amiya_e0.png" alt="">
+      </div>
+    </div>
+    <div class="operator-bg2"></div>
     <div class="pageline">
       <div class="pageline-body">
         <div class="pageline-top"></div>
@@ -54,6 +65,7 @@
       </div>
     </div>
     <section>
+
       <div class="operator-show">
         <div class="operator-show-body">
           <div class="operator-show-name">
@@ -115,12 +127,12 @@
     ]
 
     const operator_name_list_item_name = [
-      '阿米娅',
-      '陈',
-      '能天使',
-      '凯尔希',
-      '白面鸮',
-      '德克萨斯'
+      ['阿米娅', 'AMIYA'],
+      ['陈', "CH'EN"],
+      ['能天使', 'EXUSIAI'],
+      ['凯尔希', "KAL'TSIT"],
+      ['白面鸮', 'PTILOPSIS'],
+      ['德克萨斯', 'TEXAS']
     ]
 
     var operator_name_list_item_html = ''
@@ -133,12 +145,92 @@
           <div class="operator-name-list-item-img absolute_100_100">
             <img src="images/operator/${e}" alt="">
           </div>
-          <div class="operator-name-list-item-name">${operator_name_list_item_name[i]}</div>
+          <div class="operator-name-list-item-name">${operator_name_list_item_name[i][0]}</div>
         </div>
       </div>
       `
     })
     $('.operator-name-list-ul').html(operator_name_list_item_html)
+
+    const operator_img = [
+      'amiya_e0.png',
+      'chen_e0.png',
+      'exusiai_e0.png',
+      'kaltsit_e0.png',
+      'ptilopsis_e0.png',
+      'texas_e0.png'
+    ]
+    const operator_bg = [
+      'amiya_e1.png',
+      'chen_e1.png',
+      'exusiai_e1.png',
+      'kaltsit_e1.png',
+      'ptilopsis_e1.png',
+      'texas_e1.png'
+    ]
+    const operator_cv = [
+      '黑泽朋世',
+      '石上静香',
+      '石见舞菜香',
+      '日笠阳子',
+      '金元寿子',
+      '田所梓'
+    ]
+    var operator_item_index
+    $('.operator-name-list-ul').delegate('.operator-name-list-item', 'click', function () {
+      if (operator_item_index == $(this).index()) {
+        return
+      }
+      $(this).parent().find('.operator-name-list-item').removeClass('active')
+      $(this).addClass('active')
+      operator_item_index = $(this).index()
+      $('.operator-bg1-body').animate({
+        'margin-left': '-20px',
+        'opacity': '0'
+      }, 300, function () {
+        $('.operator-bg1-body').css('background-image', `url(images/operator/${operator_bg[operator_item_index]})`)
+        $('.operator-bg1-body').css({
+          'margin-left': '20px',
+        })
+        $('.operator-bg1-body').animate({
+          'margin-left': '0px',
+          'opacity': '1'
+        }, 300)
+      })
+      $('.operator-img-body img').animate({
+        'margin-left': '20px',
+        'opacity': '0'
+      }, 300, function () {
+        $('.operator-img-body img').attr('src', `images/operator/${operator_img[operator_item_index]}`)
+        $('.operator-img-body img').css({
+          'margin-left': '-20px',
+        })
+        $('.operator-img-body img').animate({
+          'margin-left': '0px',
+          'opacity': '1'
+        }, 300)
+      })
+
+
+      $('.operator-show').animate({
+        'left': '+=20px',
+        'opacity': '0'
+      }, 300, function () {
+
+        $('.operator-show-name-left>span').eq(0).text(operator_name_list_item_name[operator_item_index][1])
+        $('.operator-show-name-left>span').eq(1).text(operator_name_list_item_name[operator_item_index][0])
+        $('.operator-show-cv-right-bottom').text(operator_cv[operator_item_index])
+        $('.operator-show').css({
+          'left': '-=40px',
+        })
+        $('.operator-show').animate({
+          'left': '+=20px',
+          'opacity': '1'
+        }, 300)
+
+      })
+
+    })
   })
 </script>
 
