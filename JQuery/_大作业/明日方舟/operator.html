@@ -89,23 +89,23 @@
           <div class="operator-show-txt">
             罗德岛的公开领袖，在内部拥有最高执行权。虽然，从外表上看起来仅仅是个不成熟的少女，实际上，她却是深受大家信任的合格的领袖。现在，阿米娅正带领着罗德岛，为了感染者的未来，为了让这片大地挣脱矿石病的阴霾而不懈努力。
           </div>
-          <div class="operator-name-list">
-            <div class="operator-name-list-body">
-              <div class="operator-name-list-ul">
 
-                <div class="operator-name-list-item active" style="display: none;">
-                  <div class="operator-name-list-item-body">
-                    <div class="operator-name-list-item-bg absolute_100_100"></div>
-                    <div class="operator-name-list-item-img absolute_100_100">
-                      <img src="images/operator/amiya.png" alt="">
-                    </div>
-                    <div class="operator-name-list-item-name">阿米娅</div>
+        </div>
+
+        <div class="operator-name-list">
+          <div class="operator-name-list-body">
+            <div class="operator-name-list-ul">
+
+              <div class="operator-name-list-item active" style="display: none;">
+                <div class="operator-name-list-item-body">
+                  <div class="operator-name-list-item-bg absolute_100_100"></div>
+                  <div class="operator-name-list-item-img absolute_100_100">
+                    <img src="images/operator/amiya.png" alt="">
                   </div>
+                  <div class="operator-name-list-item-name">阿米娅</div>
                 </div>
-
-
-
               </div>
+
             </div>
           </div>
         </div>
@@ -181,52 +181,52 @@
       if (operator_item_index == $(this).index()) {
         return
       }
+      var time = 250
       $(this).parent().find('.operator-name-list-item').removeClass('active')
       $(this).addClass('active')
       operator_item_index = $(this).index()
-      $('.operator-bg1-body').animate({
-        'margin-left': '-20px',
+      $('.operator-bg1-body').stop(true).animate({
+        'margin-left': '-10px',
         'opacity': '0'
-      }, 300, function () {
+      }, time, function () {
         $('.operator-bg1-body').css('background-image', `url(images/operator/${operator_bg[operator_item_index]})`)
         $('.operator-bg1-body').css({
-          'margin-left': '20px',
+          'margin-left': '10px',
         })
-        $('.operator-bg1-body').animate({
+        $('.operator-bg1-body').stop(true).animate({
           'margin-left': '0px',
           'opacity': '1'
-        }, 300)
+        }, time)
       })
-      $('.operator-img-body img').animate({
-        'margin-left': '20px',
+      $('.operator-img-body img').stop(true).animate({
+        'margin-left': '10px',
         'opacity': '0'
-      }, 300, function () {
+      }, time, function () {
         $('.operator-img-body img').attr('src', `images/operator/${operator_img[operator_item_index]}`)
         $('.operator-img-body img').css({
-          'margin-left': '-20px',
+          'margin-left': '-10px',
         })
-        $('.operator-img-body img').animate({
+        $('.operator-img-body img').stop(true).animate({
           'margin-left': '0px',
           'opacity': '1'
-        }, 300)
+        }, time)
       })
 
 
-      $('.operator-show').animate({
-        'left': '+=20px',
+      $('.operator-show-body').stop(true).animate({
+        'margin-left': '+10px',
         'opacity': '0'
-      }, 300, function () {
-
+      }, time, function () {
         $('.operator-show-name-left>span').eq(0).text(operator_name_list_item_name[operator_item_index][1])
         $('.operator-show-name-left>span').eq(1).text(operator_name_list_item_name[operator_item_index][0])
         $('.operator-show-cv-right-bottom').text(operator_cv[operator_item_index])
-        $('.operator-show').css({
-          'left': '-=40px',
+        $('.operator-show-body').css({
+          'margin-left': '-=20px',
         })
-        $('.operator-show').animate({
-          'left': '+=20px',
+        $('.operator-show-body').stop(true).animate({
+          'margin-left': '+=10px',
           'opacity': '1'
-        }, 300)
+        }, time)
 
       })
 

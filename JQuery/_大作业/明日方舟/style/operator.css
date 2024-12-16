@@ -156,6 +156,7 @@ main {
 .operator-show-cv-right {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .operator-show-cv-right-top {
@@ -225,7 +226,7 @@ main {
 }
 
 .operator-name-list-item:hover {
-  transform: translateY(-.5rem);
+  transform: translateY(-.2rem);
 }
 
 .operator-name-list-item-body {
