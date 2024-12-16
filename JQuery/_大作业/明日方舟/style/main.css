@@ -87,7 +87,7 @@ header {
 nav {
   display: flex;
   margin-right: 14.75rem;
-  border-right: 1px solid #fff;
+  padding: 0 2.5rem;
 }
 
 nav>a {
@@ -96,6 +96,19 @@ nav>a {
   align-items: start;
   margin: 0 2.5rem;
   transition: .2s;
+  padding-bottom: .5rem;
+  transform: translateY(.3rem);
+}
+
+nav>a.live {
+  background: linear-gradient(white, white) no-repeat bottom center;
+  background-size: 100% 2px;
+}
+
+nav>a.live:hover,
+nav>a.live.active {
+  background: linear-gradient(#19d1ff, #19d1ff) no-repeat bottom center;
+  background-size: 100% 2px;
 }
 
 nav>a>span:nth-child(1) {
@@ -108,11 +121,8 @@ nav>a>span:nth-child(2) {
   font-family: 'SourceHanSansSC';
 }
 
+nav>a:hover,
 nav>a.active {
-  color: #19d1ff;
-}
-
-nav>a:hover {
   color: #19d1ff;
 }
 
@@ -125,26 +135,39 @@ nav>a:hover {
   z-index: var(--pageline_zindex);
 }
 
-.pageline>div {
+.pageline-body {
+  height: 100%;
+  position: relative;
+}
+
+.pageline-body>div {
   background-color: hsla(0, 0%, 100%, .3);
 }
 
-.pageline-right {
-  position: absolute;
-  right: 14.75rem;
-  top: 0;
-  width: 1px;
-  height: 100%;
-}
-
+.pageline-top,
+.pageline-right,
 .pageline-bottom {
   position: absolute;
-  right: 0;
-  bottom: 11.25rem;
+  left: 0;
+  top: -1px;
   width: 100%;
   height: 1px;
 }
 
+section {
+  height: 100%;
+  position: relative;
+  z-index: var(--section_zindex);
+}
+
+
+.absolute_100_100 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 
 .h-100 {
   height: 100%;
@@ -152,4 +175,9 @@ nav>a:hover {
 
 .a {
   cursor: pointer;
+}
+
+.img_h>img {
+  height: 100%;
+  width: auto;
 }
