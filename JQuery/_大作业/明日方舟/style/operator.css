@@ -218,6 +218,7 @@ main {
 .operator-name-list-item {
   width: fit-content;
   padding-right: 1.3rem;
+  padding-bottom: 0;
   flex-shrink: 0;
   cursor: pointer;
   transition: .1s;
