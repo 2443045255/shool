@@ -31,7 +31,7 @@
             <span>OPERATOR</span>
             <span>干员</span>
           </a>
-          <a href="#" class="live">
+          <a href="world.html" class="live">
             <span>WORLD</span>
             <span>设定</span>
           </a>
@@ -111,11 +111,27 @@
         </div>
       </div>
     </section>
+    <div class="pagetip">
+      <span>2</span>
+      <span>/</span>
+      <span>3</span>
+      <p>OPERATOR</p>
+    </div>
   </main>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script>
   $(() => {
+    $('.operator-name-list-ul').on('mousewheel', function (event) {
+      event.preventDefault()
+      if (event.originalEvent.deltaY > 0) {
+        $('.operator-name-list-ul').scrollLeft($('.operator-name-list-ul').scrollLeft() + 20)
+      }
+      if (event.originalEvent.deltaY < 0) {
+        $('.operator-name-list-ul').scrollLeft($('.operator-name-list-ul').scrollLeft() - 20)
+      }
+    })
+
 
     const operator_name_list_item_img = [
       'amiya.png',
@@ -176,6 +192,14 @@
       '金元寿子',
       '田所梓'
     ]
+    const operator_txt = [
+      '罗德岛的公开领袖，在内部拥有最高执行权。虽然，从外表上看起来仅仅是个不成熟的少女，实际上，她却是深受大家信任的合格的领袖。现在，阿米娅正带领着罗德岛，为了感染者的未来，为了让这片大地挣脱矿石病的阴霾而不懈努力。',
+      '陈，龙门高级警司，龙门近卫局特别督查组组长，毕业于维多利亚皇家近卫学校，成绩优异，表现突出。在龙门近卫局供职期间，力主取缔龙门境内非法活动，对抗暴力犯罪和有组织犯罪，追缉武装逃犯与国际重犯等行动，并取得多项重大成果。\n现作为特别人员协助罗德岛行动，并为现场提供战术指挥支援。',
+      '能天使，拉特兰公民，适用拉特兰一至十三项公民权益。企鹅物流公司成员。从事秘密联络，武装押运等非公开活动，推测身份：信使。于合约期内任企鹅物流驻罗德岛联络人员，同时为罗德岛多项行动提供协助。',
+      '罗德岛最高管理者之一，阿米娅的直接辅导者。\n德岛医疗部门的总负责人。\n作为罗德岛的老成员，凯尔希医生是在阿米娅背后最稳固的援护者。',
+      '白面鸮，前莱茵生命公司，数据维护专员。在医疗类源石技艺领域取得不菲成就，于医疗数据维护，常规医疗方案应用，多项目医疗行为等相关领域，拥有丰富经验。\n现于罗德岛担任医疗干员，亦就职于医疗部门，某临床实验小组。同时，为罗德岛提供若干项医疗项目的相关辅助工作。',
+      '企鹅物流员工，单兵作战能力出类拔萃。\n合约期内任企鹅物流驻罗德岛联络人员，同时为罗德岛的多项行动提供协助。'
+    ]
     var operator_item_index
     $('.operator-name-list-ul').delegate('.operator-name-list-item', 'click', function () {
       if (operator_item_index == $(this).index()) {
@@ -220,6 +244,7 @@
         $('.operator-show-name-left>span').eq(0).text(operator_name_list_item_name[operator_item_index][1])
         $('.operator-show-name-left>span').eq(1).text(operator_name_list_item_name[operator_item_index][0])
         $('.operator-show-cv-right-bottom').text(operator_cv[operator_item_index])
+        $('.operator-show-txt').text(operator_txt[operator_item_index])
         $('.operator-show-body').css({
           'margin-left': '-=20px',
         })

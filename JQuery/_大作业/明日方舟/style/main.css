@@ -160,6 +160,34 @@ section {
   z-index: var(--section_zindex);
 }
 
+.pagetip {
+  position: absolute;
+  top: 10rem;
+  right: 0;
+  color: #fff;
+  text-align: center;
+  width: 14.75rem;
+  font-family: 'Oswald';
+}
+
+.pagetip span:nth-child(1) {
+  font-size: 6rem;
+}
+
+.pagetip span:nth-child(2) {
+  font-size: 4rem;
+}
+
+.pagetip span:nth-child(3) {
+  font-size: 5rem;
+  color: #18d1ff;
+}
+.pagetip p:nth-child(4) {
+  font-family: 'Novecentosanswide';
+  font-size: 2.5rem;
+  color: #18d1ff;
+}
+
 
 .absolute_100_100 {
   position: absolute;
