@@ -12,7 +12,33 @@
 </head>
 
 <body>
-  <main>
+  <div class="loading">
+    <div class="loading-body">
+      <div class="loading-icon" style="--fillcolor:#fff;">
+        <img src="images/arknights.svg" alt="">
+      </div>
+      <div class="loading-range">
+        <div class="loading-range-line">
+          <div class="loading-range-line-bg"></div>
+          <div class="loading-range-line-body" style="width: 0%;"></div>
+        </div>
+        <div class="loading-range-txt">
+          <div class="loading-range-txt-left">
+            <span>LOADING&nbsp;-&nbsp;</span>
+            <span class="loading-range-txt-left-val">0</span>% &nbsp;
+            <span>......</span>
+          </div>
+          <div class="loading-range-txt-right">
+            <span>ARKNIGHTS</span>
+            <span>
+              //&nbsp;&nbsp;&nbsp;&nbsp;https://ak.hypergryph.com/
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main style="width: 0%;">
     <header>
       <div class="wrapper">
         <div class="logo">
@@ -94,6 +120,28 @@
   </main>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
+<script>
+  window.onload = function () {
+    var loading = 0
+    var loading_setInterval = setInterval(() => {
+      loading++
+      $('.loading-range-line-body').css('width', loading + '%')
+      $('.loading-range-txt-left-val').text(loading)
+      if (loading == 100) {
+        clearInterval(loading_setInterval)
+        setTimeout(() => {
+          $('.loading').animate({
+            'opacity': '0'
+          }, function () {
+            $('.loading').css('display', 'none')
+            $('main').css('width', '100%')
+          })
+        }, 0);
+        return
+      }
+    }, 10);
+  }
+</script>
 <script>
   $(() => {
 
