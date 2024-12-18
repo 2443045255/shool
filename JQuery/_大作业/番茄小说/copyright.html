@@ -23,7 +23,7 @@
         <a href="#">原创榜</a>
         <a href="#">作家专区</a>
         <a href="copyright.html" class="live">版权专区</a>
-        <a href="#" class="live">登录</a>
+        <a href="login.html" class="live">登录</a>
         <a href="#">注册</a>
       </nav>
     </div>
@@ -71,6 +71,7 @@
 
 </body>
 <script src="js/jquery-1.12.4.js"></script>
+<script src="js/main.js"></script>
 <script>
   $('.ban-lb-index span').click(function () {
     var item_index = $(this).index()
@@ -103,9 +104,30 @@
     '2023-12-19 15:57',
     '2023-12-19 15:56'
   ]
-  var ban_show_html = ''
-  ban_show_name.forEach((e, i) => {
-    ban_show_html += `
+  ban_show_left()
+  function ban_show_left(value) {
+    var ban_show_html = ''
+    if (value) {
+      var randomArr = [0, 1, 2, 3, 4, 5]
+      ban_show_name.forEach((e, i) => {
+        var random = Math.floor(Math.random() * (randomArr.length - 1));
+        ban_show_html += `
+        <div class="ban-show-left-item">
+          <div class="ban-show-left-item-img">
+            <img src="images/ban_show_item/${randomArr[random] + 1}.jpg" alt="">
+          </div>
+          <div class="ban-show-left-item-txt">
+            <span class="ban-show-left-item-txt-name">${ban_show_name[randomArr[random]]}</span>
+            <span class="ban-show-left-item-txt-info">${ban_show_info[randomArr[random]]}</span>
+            <span class="ban-show-left-item-txt-time">${ban_show_time[randomArr[random]]}</span>
+          </div>
+        </div>
+        `
+        randomArr.splice(random, 1)
+      })
+    } else {
+      ban_show_name.forEach((e, i) => {
+        ban_show_html += `
     <div class="ban-show-left-item">
       <div class="ban-show-left-item-img">
         <img src="images/ban_show_item/${i + 1}.jpg" alt="">
@@ -117,8 +139,12 @@
       </div>
     </div>
     `
-  })
-  $('.ban-show-left-body').html(ban_show_html)
+      })
+    }
+
+    $('.ban-show-left-body').html(ban_show_html)
+  }
+
 
   const ban_show_right_name = [
     '繁星满宫亭',
@@ -154,6 +180,15 @@
     `
   })
   $('.ban-show-right-body').html(ban_show_right_html)
+
+  var ban_left_span = 0
+  $('.ban-show-left-chose span').click(function () {
+    if (ban_left_span == $(this).index()) return
+    $('.ban-show-left-chose span').removeClass('active')
+    $(this).addClass('active')
+    ban_show_left(true)
+    ban_left_span = $(this).index()
+  })
 </script>
 
 </html>
