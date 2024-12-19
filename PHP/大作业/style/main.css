@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'PingFangSC';
+  src: url(PingFangSC-Regular.otf);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'PingFangSC';
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
