@@ -27,9 +27,11 @@
           <a href="./register.php" class="topage">去注册</a>
         </li>
       </ul>
-
     </form>
   </div>
+  <?php
+    include "common/header.php"
+  ?>
 </body>
 
 </html>
