@@ -1,5 +1,9 @@
+<?php
+include "../admin/db_connect.php"
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
   <meta charset="UTF-8">
@@ -11,7 +15,6 @@
 
 <body>
   <div class="container">
-    <form action="">
       <ul>
         <div class="login-title">登录</div>
         <li class="line line-input">
@@ -27,7 +30,6 @@
           <a href="./register.php" class="topage">去注册</a>
         </li>
       </ul>
-    </form>
   </div>
   <?php
     include "common/header.php"

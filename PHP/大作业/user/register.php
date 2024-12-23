@@ -11,7 +11,6 @@
 
 <body>
   <div class="container">
-    <form action="">
       <ul>
         <div class="login-title">注册</div>
         <li class="line line-input">
@@ -31,8 +30,6 @@
           <a href="./login.php" class="topage">已有账号，去登陆</a>
         </li>
       </ul>
-
-    </form>
   </div>
 </body>
 

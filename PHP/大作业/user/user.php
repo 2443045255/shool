@@ -48,6 +48,15 @@
           </div>
         </div>
       </div>
+      <div class="user_module">
+        <div class="title">个人功能</div>
+        <div class="user_module_body">
+          <div class="GN-main">
+            <div class="GN-btn">修改密码</div>
+            <div class="GN-btn">退出登录</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
