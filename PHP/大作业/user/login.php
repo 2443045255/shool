@@ -1,7 +1,3 @@
-<?php
-include "../admin/db_connect.php"
-?>
-
 <!DOCTYPE html>
 <html lang="zh-cn">
 
