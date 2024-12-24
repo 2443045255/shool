@@ -123,9 +123,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="main-container">
         <h2>用户登录</h2>
         <?php if (isset($error)) {?>
-            <p style="color: red;"><?php echo $error;?></p>
+            <p style="color: red;"><?php echo $error; ?></p>
         <?php }?>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <label for="username">用户名:</label>
             <input type="text" name="username" id="username"><br><br>
             <label for="password">密码:</label>

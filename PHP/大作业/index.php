@@ -15,6 +15,9 @@
       </nav>
     </div>
   </header>
+  <?php
+   include 'user/common/footer.php'
+  ?>
 </body>
 
 </html>

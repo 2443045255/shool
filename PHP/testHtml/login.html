@@ -31,9 +31,9 @@
 </body>
 <script src="../js/main1.js"></script>
 <script>
-  if(sessionStorage.getItem("isLogin") == 'true'){
+  if(sessionStorage.getItem("isLogin")){
     alert('已登录,前往用户中心页')
-    location.href = 'user.php'
+    location.href = 'user/php'
   }
   var submit_btn = document.querySelector('.submit_btn')
   var username = document.getElementById('username')

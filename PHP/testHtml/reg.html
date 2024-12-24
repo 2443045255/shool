@@ -19,7 +19,7 @@
       </li>
       <li class="line line-input">
         <span class="title">密码:</span>
-        <input id="password" type="text" name="password" autocomplete="off" value="1234">
+        <input id="password" type="password" name="password" autocomplete="off" value="1234">
       </li>
       <li class="line line-input">
         <span class="title">确认密码:</span>
@@ -38,14 +38,24 @@
   var username = document.getElementById('username')
   var password = document.getElementById('password')
   var two_password = document.getElementById('two_password')
-  var getData = null
+  var getData
   submit_btn.addEventListener('click', function () {
     if (password检查() == false) return
     if (username.value && password.value && two_password.value) {
-      fetchToPhp('reg', username.value, password.value)
-      submit_btn.setAttribute('disabled', '')
+      var result = fetchToPhp('reg', username, password)
+      if (result && typeof result.then === 'function') {
+        result.then(data => {
+          console.log(data);
+        }).catch(error => {
+          console.error("Error:", error);
+        });
+      } else {
+        console.error('fetchToPhp did not return a Promise');
+      }
+      // submit_btn.setAttribute('disabled', '')
       // submit_btn.removeAttribute('disabled');
     }
   })
 </script>
+
 </html>

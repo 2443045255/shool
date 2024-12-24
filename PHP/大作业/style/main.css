@@ -25,6 +25,10 @@ a {
   text-decoration: none;
 }
 
+input:disabled {
+  cursor: not-allowed !important;
+}
+
 header {
   background: #232323;
   position: fixed;
@@ -99,22 +103,25 @@ header .wrapper {
 .user_loginRec_body {
   background: #eee;
   height: 300px;
+  overflow-y: auto;
 }
-.user_loginRec_item{
+
+.user_loginRec_item {
   padding: 10px 0;
   color: #232323;
 }
+
 .user_loginRec_item:nth-child(2n) {
   background: #fff;
 }
 
-.GN-main{
+.GN-main {
   padding-top: 10px;
   display: grid;
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 
-.GN-btn{
+.GN-btn {
   height: 40px;
   width: 120px;
   background: #232323;
@@ -124,4 +131,20 @@ header .wrapper {
   justify-content: center;
   color: #fff;
   cursor: pointer;
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
+  background: #232323;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.a {
+  cursor: pointer;
+  user-select: none;
 }

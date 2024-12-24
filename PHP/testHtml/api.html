@@ -1,0 +1,41 @@
+<?php
+
+$get_username = '';
+$get_password_hash = '';
+$get_type = '';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $get_type = isset($_POST['type']) ? $_POST['type'] : '';
+    $get_username = isset($_POST['username']) ? $_POST['username'] : '';
+    //密码哈希加盐
+    $get_password_hash = isset($_POST['password']) ? password_hash($_POST['password']+'abc') : '';
+    
+    if(isset($_POST['password'])){
+        returnFetch('error','密码为空');
+    }
+    else if($get_type == 'reg'){
+        returnFetch('success','123');
+        $conn = connectDB();//连接数据库
+
+        $conn->close();//关闭数据库连接
+    }
+
+    
+} else {
+    echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
+}
+function returnFetch($value1,$value2){
+    echo json_encode([
+        'status' => $value1,
+        'message' => $value2
+    ]);
+}
+
+// 数据库连接函数
+function connectDB() {
+    $conn = new mysqli('localhost', 'root', 'root', 'php');
+    if ($conn->connect_error) {
+        die("连接失败: ". $conn->connect_error);
+    }
+    return $conn;
+}
+?>

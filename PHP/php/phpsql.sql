@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `login_records` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `login_time` datetime NOT NULL,
   `login_ip` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

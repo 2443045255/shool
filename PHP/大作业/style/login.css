@@ -30,7 +30,7 @@ body {
 
 .line-input {
   position: relative;
-  padding-top: 12px;
+  padding-top: 5px;
   padding-bottom: 3px;
   border-bottom: 1px solid;
   margin-top: 40px;
@@ -40,15 +40,16 @@ body {
   position: absolute;
   bottom: 100%;
   left: 0;
-  color: #5b5b5b;
+  color: rgba(0, 0, 0, 0.5);
 }
 
-.line-input input {
+.line-input input[type='text'],
+.line-input input[type='password'] {
   border: none;
   outline: none;
   width: 100%;
   font-size: 18px;
-  padding: 0 5px;
+  padding: 5px;
 }
 
 .line .submit_btn {
@@ -70,4 +71,40 @@ body {
   padding: 15px 0;
   border-radius: 10px;
   background: #ddd;
+}
+
+.change_password_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change_password_main {
+  width: 300px;
+  background: #fff;
+  padding: 30px 15px;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.change_password_title {
+  font-size: 21px;
+}
+
+.change_password_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.change_password_close:hover {
+  color: #aaa;
 }
