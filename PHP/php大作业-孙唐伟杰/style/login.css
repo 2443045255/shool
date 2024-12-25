@@ -1,0 +1,110 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  padding: 30px 20px;
+  border-radius: 10px;
+  border: 1px solid;
+  width: 400px;
+}
+
+.container ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.login-title {
+  font-size: 25px;
+  text-align: center;
+}
+
+.line {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.line-input {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid;
+  margin-top: 40px;
+}
+
+.line-input .title {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.line-input input[type='text'],
+.line-input input[type='password'] {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.line .submit_btn {
+  border: none;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  border-radius: 10px;
+  background: #a6e6ff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.topage {
+  margin-top: 20px;
+  text-align: center;
+  padding: 15px 0;
+  border-radius: 10px;
+  background: #ddd;
+}
+
+.change_password_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change_password_main {
+  width: 300px;
+  background: #fff;
+  padding: 30px 15px;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.change_password_title {
+  font-size: 21px;
+}
+
+.change_password_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.change_password_close:hover {
+  color: #aaa;
+}

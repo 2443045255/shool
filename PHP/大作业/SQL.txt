@@ -1,0 +1,65 @@
+CREATE TABLE `login_records` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `login_time` datetime NOT NULL,
+  `login_ip` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `last_login_ip` varchar(45) DEFAULT NULL,
+  `login_failed_count` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转储表的索引
+--
+
+--
+-- 表的索引 `login_records`
+--
+ALTER TABLE `login_records`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`);
+
+--
+-- 表的索引 `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- 在导出的表使用AUTO_INCREMENT
+--
+
+--
+-- 使用表AUTO_INCREMENT `login_records`
+--
+ALTER TABLE `login_records`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用表AUTO_INCREMENT `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 限制导出的表
+--
+
+--
+-- 限制表 `login_records`
+--
+ALTER TABLE `login_records`
+  ADD CONSTRAINT `login_records_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`);
+COMMIT;

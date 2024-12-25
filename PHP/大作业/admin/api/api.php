@@ -1,5 +1,4 @@
 <?php
-// 数据库连接函数
 function connectDB()
 {
     $conn = new mysqli('localhost:3307', 'root', 'root', 'php');
