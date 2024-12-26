@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>奥迪</title>
+  <link rel="shortcut icon" href="Logo.png" type="image/x-icon">
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="style/index.css">
 </head>
@@ -82,12 +83,13 @@
           <span>高性能车</span>
         </div>
         <div class="cs-tab cs-tab2 a">
-          <span class="active">轿车</span>
           <span>A3</span>
           <span>A4</span>
           <span>A5</span>
           <span>A6</span>
           <span>A7</span>
+          <span>A8</span>
+          <span>e-tron GT</span>
         </div>
         <div class="cs-img">
           <img src="images/cs-img1.png" alt="">
@@ -119,14 +121,69 @@
       lbnext(lb_imgActive++)
     })
 
+    const firstTab = [
+      [
+        'A3',
+        'A4',
+        'A5',
+        'A6',
+        'A7',
+        'A8',
+        'e-tron GT'
+      ],
+      [
+        'Q2',
+        'Q3',
+        'Q4',
+        'Q5',
+        'Q7',
+        'Q8',
+        'e-tron'
+      ],
+      [
+        'A3',
+        'A5',
+        'A7',
+        'Q3',
+        'Q5',
+        'e-tron GT'
+      ],
+      [
+        'A4',
+        'A6',
+      ],
+      [
+        'e-tron',
+        'e-tron GT',
+      ],
+      [
+        'S',
+        'RS',
+      ]
+    ]
+
     $('.cs-tab1 span').click(function () {
       $('.cs-tab1').find('span').removeClass('active')
       $(this).addClass('active')
+      var firstTab_index = $(this).index()
+      var html = ''
+      firstTab[firstTab_index].forEach(e => {
+        html += `<span>${e}</span>`
+      })
+      $('.cs-tab2').html(html)
+      $('.cs-tab2>span').eq(0).addClass('active')
+      切换图片()
     })
-    $('.cs-tab2 span').click(function () {
+    $('.cs-tab2').delegate('span', 'click', function () {
       $('.cs-tab2').find('span').removeClass('active')
       $(this).addClass('active')
+      切换图片()
     })
+    function 切换图片() {
+      var firstTabText = $('.cs-tab1 .active').text()
+      var secondTabText = $('.cs-tab2 .active').text()
+      $('.cs-img img').attr('src', `images/index_chose/${firstTabText + '_' + secondTabText}.png`)
+    }
   })
 </script>
 

@@ -131,6 +131,10 @@ section:nth-of-type(3) {
   padding-bottom: 10px;
 }
 
+.cs-tab span:hover{
+  color: #ffaeae;
+}
+
 .cs-tab span.active {
   background: linear-gradient(red, red) no-repeat bottom center;
   background-size: 100% 3px;
