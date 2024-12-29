@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>书架</title>
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/book.css">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <div class="log">
+        <img src="images/番茄icon.svg" alt="">
+      </div>
+      <nav>
+        <a href="index.html" class="live">首页</a>
+        <a href="#">书库</a>
+        <a href="book.html" class="live">书架</a>
+        <a href="#">原创榜</a>
+        <a href="#">作家专区</a>
+        <a href="copyright.html" class="live">版权专区</a>
+        <a href="#">登录</a>
+        <a href="#">注册</a>
+      </nav>
+    </div>
+  </header>
+  <section>
+    <div class="book_first">
+      <div class="book-title">书架</div>
+      <div class="search">
+        <input type="text" id="search">
+        <div class="search_btn a">
+          <span>搜索</span>
+        </div>
+        <div class="drop-main">
+          <div class="drop-list">
+            <div class="drop-item">你好世界</div>
+            <div class="drop-item">你好世界</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="book-main">
+      <div class="book-list">
+        <div class="book-item">
+          <div class="book-item-img">
+            <img src="images/book/0.jpg" alt="">
+          </div>
+          <div class="book-item-txt">
+            <div class="book-item-name">
+              <p>xxx</p>
+            </div>
+            <div class="book-item-by">
+              <p>作者:</p>
+              <p>杀虫队队员</p>
+            </div>
+            <div class="book-item-time">
+              <p>更新时间:</p>
+              <p>2024-10-31</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+  $(function () {
+
+    var search = ''
+    $('#search').on('input', function () {
+      search = $(this).val()
+    })
+    $('.drop-list').delegate('.drop-item', 'click', function () {
+      search = $(this).text()
+    })
+    $('.drop-list').delegate('.drop-item', 'mouseenter', function () {
+      $('#search').val($(this).text())
+    })
+    $('.drop-list').mouseleave(function () {
+      $('#search').val(search)
+    })
+    function 写下拉菜单() {
+      var html = ''
+      for (let i = 0; i <= 4; i++) {
+        html += `<div class="drop-item">${arr_bookName[i]}</div>`
+      }
+      $('.drop-list').html(html)
+    }
+
+    var arr_bookName = [
+      '十日终焉',
+      '我不是戏神',
+      '我在精神病院学斩神',
+      '天渊',
+      '大一实习，你跑去749收容怪物',
+      '北派盗墓笔记',
+      '开局长生万古，苟到天荒地老',
+      '癫，都癫，癫点好啊',
+      '惊鸿',
+      '重生1993，暗海',
+      '诡舍',
+      '我以狐仙镇百鬼',
+      '过分野',
+      '诸神愚戏',
+      '冰河末世，我囤积了百亿物资',
+      '大秦：开局扶苏被贬，忽悠他造反',
+      '学姐别怕，我来保护你',
+      '高手下山，我家师姐太宠我了'
+    ]
+    写下拉菜单()
+    写书库()
+    function 写书库() {
+      var html = ''
+      arr_bookName.forEach((e, num) => {
+        html += `
+        <div class="book-item">
+          <div class="book-item-img">
+            <img src="images/book/${num}.jpg" alt="">
+          </div>
+          <div class="book-item-txt">
+            <div class="book-item-name">
+              <p>${e}</p>
+            </div>
+            <div class="book-item-by">
+              <p>作者:</p>
+              <p>杀虫队队员</p>
+            </div>
+            <div class="book-item-time">
+              <p>更新时间:</p>
+              <p>2024-10-31</p>
+            </div>
+          </div>
+        </div>
+        `
+      })
+      $('.book-list').html(html)
+      书本合并()
+    }
+
+    $('.book-list').mouseenter(function () {
+      书本分开()
+    })
+    $('.book-list').mouseleave(function () {
+      书本合并()
+    })
+    var animateTime = null
+    var book_item_height
+    var book_item_width
+    function 书本合并() {
+      book_item_height = $('.book-item').outerHeight(true)
+      book_item_width = $('.book-item').outerWidth(true)
+      $('.book-item').addClass('book-item-absolute')
+      $('.book-item').stop().animate({
+        'left': '0px',
+        'top': '0px',
+        'height': `${book_item_height}px`,
+        'width': `${book_item_width}px`
+      }, 0)
+      $('.book-item').addClass('book-item-absolute')
+      var last_index = $('.book-item').last().index() + 1
+      var w = $('.book-list').width()
+      $('.book-item').each(function (i, e) {
+        $(e).stop().animate({
+          'left': (w - book_item_width - 10 + w / last_index) / last_index * i + 'px'
+        }, 100,)
+      })
+      $('.book-list').css('height', book_item_height + 30 + 'px')
+    }
+    function 书本分开() {
+      var last_index = $('.book-item').last().index() + 1
+      var w = $('.book-list').width()
+      var line = 0
+      var index = 0
+      if (last_index % 5 != 0) {
+        line = Math.floor(last_index / 5) + 1
+      } else {
+        line = last_index / 5
+      }
+      for (let i = 1; i <= line; i++) {
+        for (let j = 0; j <= 4; j++) {
+          $('.book-item').eq(index).stop().animate({
+            'left': w / 5 * j + (j * 3) + 'px',
+            'top': ((i - 1) * book_item_height) + ((i - 1) * 15) + 'px'
+          }, 100)
+          index++
+          if (index == last_index) {
+            break
+          }
+        }
+      }
+      $('.book-list').css('height', book_item_height * line + (line * 15 - 15) + 30 + 'px')
+    }
+  })
+</script>
+
+</html>

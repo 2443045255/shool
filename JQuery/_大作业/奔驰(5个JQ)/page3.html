@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>奔驰-预约评鉴</title>
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/page3.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <nav>
+        <a href="index.html">车型展示</a>
+        <a href="page2.html">探索车型</a>
+        <a href="page3.html">预约品鉴</a>
+      </nav>
+      <div class="logo">
+        <img src="logo.png" alt="">
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="ps3">
+      <div class="ps3-body">
+        <div class="ps3-title">
+          <p class="BenCi">预约品鉴</p>
+          <p>欢迎在线预约品鉴。</p>
+        </div>
+        <div class="show-ps">
+          <div class="show-ps-title BenCi">预约名单</div>
+          <div class="show-ps-body">
+
+          </div>
+        </div>
+        <div class="ps3-inputGroup">
+          <div class="ps3-inputGroup-title BenCi">预约品鉴</div>
+          <div class="ps3-inputGroup-secondInput">
+            <div class="ps3-input">
+              <input type="text" placeholder="请输入心仪的车型" id="car" value="奔驰SUV">
+            </div>
+            <div class="ps3-input">
+              <input type="text" placeholder="请输入您的姓氏" id="name" value="张三">
+            </div>
+            <div class="ps3-input">
+              <input type="text" placeholder="请输入您的手机号" id="phone" value="12345678901">
+            </div>
+            <div class="ps3-input">
+              <input type="text" placeholder="您的城市" id="address" value="莆田">
+            </div>
+          </div>
+          <div class="ps3-btn a">确认信息</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+  $(function () {
+    $('.show-ps-body').delegate('.show-ps-item-del', 'click', function () {
+      $(this).parent().remove()
+    })
+    $('.ps3-btn').bind('click', function () {
+      var html = `
+      <div class="show-ps-item">
+        <div class="show-ps-item-car">
+          <span>车型:</span>
+          <span>${$('#car').val()}</span>
+        </div>
+        <div class="show-ps-userinfo">
+          <div class="show-ps-item-name">
+            <span>姓名:</span>
+            <span>${$('#name').val()}</span>
+          </div>
+          <div class="show-ps-item-phone">
+            <span>手机号:</span>
+            <span>${$('#phone').val()}</span>
+          </div>
+          <div class="show-ps-item-address">
+            <span>地址:</span>
+            <span>${$('#address').val()}</span>
+          </div>
+        </div>
+        <div class="show-ps-item-del a">删除</div>
+      </div>
+      `
+      $('.show-ps-body').append(html)
+    })
+  })
+</script>
+
+
+</html>

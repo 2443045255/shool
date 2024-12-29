@@ -1,0 +1,145 @@
+header {
+  background: #fff;
+}
+
+section {
+  width: 1160px;
+  margin: auto;
+  padding-top: 80px;
+  overflow: visible;
+}
+
+.book_first {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-title {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.search {
+  border: 1px solid #ff3f1d;
+  display: flex;
+  position: relative;
+}
+
+#search {
+  padding: 8px 5px;
+  outline: none;
+  border: none;
+  width: 350px;
+  font-size: 16px;
+  line-height: 1.1rem;
+}
+
+.search_btn {
+  background: #ff3f1d;
+  font-size: 14px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.drop-main {
+  position: absolute;
+  top: 100%;
+  padding-top: 5px;
+  width: 100%;
+  display: none;
+  z-index: 10;
+}
+
+#search:focus~.drop-main,
+.drop-main:hover {
+  display: block;
+}
+
+.drop-list {
+  background: #ddd;
+  font-size: 16px;
+  border-radius: 0 0 6px 6px;
+  padding: 3px;
+}
+
+.drop-item {
+  padding: 3px 10px;
+  border-radius: 4px;
+  transition: .1s;
+}
+
+.drop-item:hover {
+  background: #ccc;
+}
+
+.book-list {
+  margin-top: 50px;
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  min-height: 400px;
+  position: relative;
+}
+
+.book-item {
+  background: #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  top: 30px;
+  transition: .5s;
+}
+
+.book-item-absolute {
+  position: absolute;
+  box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.book-item-img img {
+  height: auto;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.book-item-txt {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-item-txt>div {
+  display: flex;
+  margin-top: 5px;
+}
+
+.book-item-txt>div>p:first-child {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+}
+
+
+.book-item-name {
+  display: block !important;
+  width: 200px;
+  margin: 5px 0;
+}
+
+.book-item-name>p {
+  width: 100%;
+  max-width: 100%;
+  color: black !important;
+  font-size: 18px !important;
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.book-item-by p:last-child,
+.book-item-time p:last-child {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>奥迪</title>
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/page3.css">
+</head>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <nav>
+        <a href="index.html">品牌展示</a>
+        <a href="page2.html">车型展示</a>
+        <a href="page3.html" class="active">预约试驾</a>
+        <span class="hoverLine"></span>
+      </nav>
+    </div>
+  </header>
+  <section>
+    <div class="try-main h-100">
+      <div class="try-body h-100">
+        <div class="try-title">
+          <img src="images/try-title.png" alt="">
+        </div>
+
+        <div class="try-inputGroup">
+          <div class="try-input mr30px">
+            <span>意向车系</span>
+            <input type="text" autocomplete="off" id="car1">
+            <div class="drop_menu drop_menu_1">
+              <div class="drop_menu_list">
+                <!-- <div class="drop_menu_item">奥迪A3</div> -->
+              </div>
+            </div>
+          </div>
+          <div class="try-input">
+            <span>意向车型</span>
+            <input type="text" autocomplete="off" id="car2">
+            <div class="drop_menu drop_menu_2">
+              <div class="drop_menu_list">
+                <!-- <div class="drop_menu_item">奥迪A3</div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="try-inputGroup mt50px">
+          <div class="try-input mr30px">
+            <span>你的姓名</span>
+            <input type="text" autocomplete="off" id="name" value="测试名字">
+          </div>
+          <div class="try-input">
+            <span>您的电话号码</span>
+            <input type="text" autocomplete="off" id="phone" value="12345678901">
+          </div>
+        </div>
+        <div class="try-inputGroup mt50px">
+          <div class="try-input mr30px">
+            <span>你所在的省份</span>
+            <input type="text" autocomplete="off" id="address1" value="福建">
+          </div>
+          <div class="try-input">
+            <span>你所在的城市</span>
+            <input type="text" autocomplete="off" id="address2" value="莆田">
+          </div>
+        </div>
+
+        <div class="try-btnGroup mt50px">
+          <div class="try-btn a">预约</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <div class="show-try close">
+    <div class="show-try-main">
+      <div class="show-try-closeBtn">
+        <p>显</p>
+        <p>示</p>
+      </div>
+      <div class="show-try-title">预约列表</div>
+      <div class="show-try-body">
+
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/main.js"></script>
+<script>
+  $(() => {
+    const drop_menu_1 = [
+      '轿车',
+      'SUV',
+      '轿跑&敞篷车',
+      '旅行车',
+      '纯电车',
+      '高性能车',
+    ]
+    const firstTab = [
+      [
+        'A3',
+        'A4',
+        'A5',
+        'A6',
+        'A7',
+        'A8',
+        'e-tron GT'
+      ],
+      [
+        'Q2',
+        'Q3',
+        'Q4',
+        'Q5',
+        'Q7',
+        'Q8',
+        'e-tron'
+      ],
+      [
+        'A3',
+        'A5',
+        'A7',
+        'Q3',
+        'Q5',
+        'e-tron GT'
+      ],
+      [
+        'A4',
+        'A6',
+      ],
+      [
+        'e-tron',
+        'e-tron GT',
+      ],
+      [
+        'S',
+        'RS',
+      ]
+    ]
+
+    $('.try-main').delegate('.try-input', 'mouseenter', function () {
+      $(this).find('.drop_menu').stop().animate({
+        'opacity': '1',
+        'margin-top': '0px'
+      }, 'fast')
+    })
+    $('.try-main').delegate('.try-input', 'mouseleave', function () {
+      $(this).find('.drop_menu').stop().animate({
+        'opacity': '0',
+        'margin-top': '-30px'
+      }, 'fast')
+    })
+
+    drop_menu_1.forEach(e => {
+      $('.drop_menu_1 .drop_menu_list').append(`<div class="drop_menu_item">${e}</div>`)
+    })
+
+    $('.drop_menu_1').delegate('.drop_menu_item', 'click', function () {
+      $('.drop_menu_2 .drop_menu_list').html('')
+      firstTab[$(this).index()].forEach(e => {
+        $('.drop_menu_2 .drop_menu_list').append(`<div class="drop_menu_item">${e}</div>`)
+      })
+    })
+
+    $('.drop_menu').delegate('.drop_menu_item', 'click', function () {
+      $(this).parents('.try-input').find('input').val($(this).text())
+    })
+
+    $('.show-try-closeBtn').click(function () {
+      if ($('.show-try').hasClass('close')) {
+        $('.show-try').removeClass('close')
+        $(this).html('<p>关</p><p>闭</p>')
+        $(this).css('color', 'red')
+      } else {
+        $('.show-try').addClass('close')
+        $(this).html('<p>显</p><p>示</p>')
+        $(this).css('color', 'green')
+      }
+    })
+
+    $('.try-btn').click(function () {
+      var car1 = $('#car1').val()
+      var car2 = $('#car2').val()
+      if (!car1 || !car2) {
+        alert('意向车系和意向车型不能为空')
+        return
+      }
+      var name = $('#name').val()
+      var phone = $('#phone').val()
+      if (!name || !phone) {
+        alert('姓名和手机号不能为空')
+        return
+      }
+      var address1 = $('#address1').val()
+      var address2 = $('#address2').val()
+      if (!address1 || !address2) {
+        alert('地址不能为空')
+        return
+      }
+      var html = `
+        <div class="show-try-item">
+          <div class="show-try-item-car">
+            <span>意向车系&车型:</span>
+            <span class="getVal">${car1},${car2}</span>
+          </div>
+          <div class="show-try-item-userinfo">
+            <div class="show-try-item-username">
+              <span>名字:</span>
+              <span class="getVal">${name}</span>
+            </div>
+            <div class="show-try-item-userphone">
+              <span>手机号:</span>
+              <span class="getVal">${phone}</span>
+            </div>
+          </div>
+          <div class="show-try-item-address">
+            <span>地区:</span>
+            <span class="getVal">${address1},${address2}</span>
+          </div>
+        </div>
+      `
+      $('.show-try-body').append(html)
+      alert('预约成功')
+    })
+  })
+</script>
+
+</html>

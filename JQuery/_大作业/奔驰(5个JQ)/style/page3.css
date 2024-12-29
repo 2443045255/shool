@@ -1,0 +1,146 @@
+section {
+  height: 100vh;
+  width: 100%;
+}
+
+.ps3 {
+  height: 100%;
+  background: url(../images/page3-bg1.jpg) center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ps3-body {
+  width: 100%;
+  padding: 80px 5% 0 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ps3-title {
+  color: #fff;
+}
+
+.ps3-title>p:nth-child(1) {
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  font-size: 45px;
+}
+
+.ps3-inputGroup {
+  width: 476px;
+  min-height: 639px;
+  background: rgba(255, 255, 255, .75);
+  border-radius: 8px;
+  backdrop-filter: blur(30px);
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ps3-inputGroup>div {
+  width: 85%;
+}
+
+.ps3-inputGroup-title {
+  font-size: 40px;
+}
+
+.ps3-inputGroup-secondInput {
+  padding-top: 26px;
+}
+
+.ps3-input {
+  height: 40px;
+  background: #ffffff;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  margin-top: 12px;
+}
+
+.ps3-input>input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.ps3-btn {
+  margin-top: auto;
+  width: 100%;
+  height: 40px;
+  background: #000000;
+  border-radius: 20px;
+  height: 40px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.show-ps {
+  flex: 1;
+}
+
+.show-ps-title{
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+}
+
+.show-ps-item {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  margin: 0 10px;
+  padding: 5px;
+  color: #ff9e5e;
+  position: relative;
+}
+
+.show-ps-item:nth-child(2n){
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.show-ps-item-del {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: rgba(255, 0, 0, 0.3);
+  color: rgb(255, 157, 157);
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  display: none;
+}
+
+.show-ps-item:hover .show-ps-item-del {
+  display: block;
+}
+
+.show-ps-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.show-ps-item:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.show-ps-userinfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 5px;
+}
+
+.show-ps-item-car span:first-child,
+.show-ps-item-name span:first-child,
+.show-ps-item-phone span:first-child,
+.show-ps-item-address span:first-child {
+  color: #000000;
+}
