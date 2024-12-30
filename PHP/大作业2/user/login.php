@@ -16,11 +16,11 @@
       <div class="login-title">登录</div>
       <li class="line line-input">
         <span class="title">用户名:</span>
-        <input id="username" type="text" name="username" autocomplete="off">
+        <input id="username" type="text" name="username" autocomplete="off" value="你好世界">
       </li>
       <li class="line line-input">
         <span class="title">密码:</span>
-        <input id="password" type="password" name="password" autocomplete="off">
+        <input id="password" type="password" name="password" autocomplete="off" value="123">
       </li>
       <li class="line line_btn">
         <input type="submit" value="提交登录" class="submit_btn">
