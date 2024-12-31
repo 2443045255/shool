@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+    <nav>
+        <img src="./images/logo.jpg" alt="">
+        <ul class="left1">
+
+            <li> <a href="index.html">首页</a> </li>
+            <li ><a href="all.html">分类 </li>
+            <li> <a href="ph.html">排行</a> </li>
+            <li> <a href="ts.html">图书</a> </li>
+            <li> <a href="tg.html">团购</a> </li>
+            <li> <a href="about.html">关于我们</a> </li>
+        </ul>
+        <ul class="right1">
+            <li><a href="register.html">注册</a></li>
+            <li><a href="login.html">登录</a></li>
+
+        </ul>
+    </nav>
+    <div id="nav-one">
+        <ul>
+            <li><a href="cx.html">畅销榜</a>
+            </li>
+            <li><a href="bd.html">必读榜</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div id="nav-two">
+        <ul>
+            <li><a href="about.html">关于我们</a>
+            </li>
+            <li><a href="contact.html">联系我们</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="cart">
+        <table>
+            <thead>
+                <tr>
+                    <td> <input type="checkbox" class="change"><span>全选</span> </td>
+                    <td>商品信息</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td>小计</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <!-------------------------- 表身--------------- -->
+            <tbody>
+                <tr id="tr1">
+                    <td><input type="checkbox" class="xz"></td>
+                    <td id="message">
+                        <img src="images/14.jpg" alt="">
+                        <p id="p1">《看不够的中国史》</p>
+                    </td>
+                    <td id="price">
+                        ¥<input type="text" name="price" value="55" readonly="readonly">
+                    </td>
+                    <td id="num">
+                        <input type="button" name="minus" value="-" onclick="minus(0)" />
+                        <input type="text" name="amount" value="1" />
+                        <input type="button" name="plus" value="+" onclick="plus(0)" />
+                    </td>
+                    <td id="price0" class="pr0">￥55</td>
+
+                    <td id="option">
+                        <ul>
+                            <li class="collection">移入收藏 </li>
+                            <li id="del1">删除</li> 
+                        </ul>
+                    </td>
+                </tr>
+                <tr id="tr2">
+                    <td><input type="checkbox" class="sty"></td>
+                    <td id="message">
+                        <img src="images/11.jpg" alt="">
+                        <p id="p2">《我的梦想是辞职》</p>
+                    </td>
+                    <td id="price">
+                        ¥<input type="text" name="price" value="47" readonly="readonly">
+                    </td>
+                    <td id="num">
+                        <input type="button" name="minus" value="-" onclick="minus(1)" />
+                        <input type="text" name="amount" value="1" />
+                        <input type="button" name="plus" value="+" onclick="plus(1)" />
+                    </td>
+                    <td id="price1" class="pr1">￥47</td>
+
+                    <td id="option">
+                        <ul>
+                            <li class="collection">移入收藏 </li>
+                            <li id="del2">删除</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr id="tr3">
+                    <td><input type="checkbox" class="sty"></td>
+                    <td id="message">
+                        <img src="images/22.jpg" alt="">
+                        <p id="p3">《椿树峁》</p>
+                    </td>
+                    <td id="price">
+                        ¥<input type="text" name="price" value="38" readonly="readonly">
+                    </td>
+                    <td id="num">
+                        <input type="button" name="minus" value="-" onclick="minus(2)" />
+                        <input type="text" name="amount" value="1" />
+                        <input type="button" name="plus" value="+" onclick="plus(2)" />
+                    </td>
+                    <td id="price2" class="pr2">￥38</td>
+
+                    <td id="option">
+                        <ul>
+                            <li class="collection">移入收藏 </li>
+                            <li id="del3">删除</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr id="tr4">
+                    <td><input type="checkbox" class="sty"></td>
+                    <td id="message">
+                        <img src="images/18.jpg" alt="">
+                        <p id="p4" >《边城》</p>
+                    </td>
+                    <td id="price">
+                        ¥<input type="text" name="price" value="13" readonly="readonly">
+                    </td>
+                    <td id="num">
+                        <input type="button" name="minus" value="-" onclick="minus(3)" />
+                        <input type="text" name="amount" value="1" />
+                        <input type="button" name="plus" value="+" onclick="plus(3)" />
+                    </td>
+                    <td id="price3" class="pr3">￥13</td>
+
+                    <td id="option">
+                        <ul>
+                            <li class="collection">移入收藏 </li>
+                            <li id="del4">删除</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="count">
+        
+        <div class="total">
+            <p>应付金额:</p><span id="totalPrice">&nbsp;</span>
+            <button id="button">结算</button>
+        </div>
+    </div>
+    <div class="order">
+        <h2>您本次购买的商品如下:</h2>
+        <div class="sp">
+            <div class="sp1"></div>
+            <div class="sp2"></div>
+            <div class="sp3"></div>
+            <div class="sp4"></div>
+        </div>
+        <div class="gj">
+            <div class="gj1">
+                <p>商品共计:</p> <span></span>
+            </div>
+            <div class="dd"><button id="submit">提交订单</button></div>
+        </div>
+    </div>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
