@@ -118,17 +118,50 @@
                 </ul>
         </div>
 </body>
-<script>
 
+<script>
     $(function () {
         var imgIndex = 0
         var oldImgIndex = 0
+
         $(".leftBtn").click(function () {
             图片切换(imgIndex--)
         })
         $(".rightBtn").click(function () {
             图片切换(imgIndex++)
         })
+        function 图片切换() {
+            imgIndex < 0 ? imgIndex = 4 : null
+            imgIndex > 4 ? imgIndex = 0 : null
+            $('.imgURL>li').eq(oldImgIndex).fadeOut("fast");
+            $('.imgURL>li').eq(imgIndex).fadeIn("fast")
+            oldImgIndex = imgIndex
+        }
+    })
+</script>
+
+<!-- <script>
+
+    $(function () {
+        var imgIndex = 0
+        var oldImgIndex = 0
+
+        $(".leftBtn").click(function () {
+            图片切换(imgIndex--)
+        })
+        $(".rightBtn").click(function () {
+            图片切换(imgIndex++)
+        })
+        function 图片切换() {
+            imgIndex < 0 ? imgIndex = 4 : null
+            imgIndex > 4 ? imgIndex = 0 : null
+            $('.imgURL>li').eq(oldImgIndex).fadeOut("fast");
+            $('.imgURL>li').eq(imgIndex).fadeIn("fast")
+            oldImgIndex = imgIndex
+            按钮选中(imgIndex)
+        }
+
+
         var imgImgsetInterval
         自动轮播()
         function 自动轮播() {
@@ -136,14 +169,7 @@
                 图片切换(imgIndex++)
             }, 1000);
         }
-        function 图片切换() {
-            imgIndex < 0 ? imgIndex = 4 : null
-            imgIndex > 4 ? imgIndex = 0 : null
-            $('.imgURL>li').eq(oldImgIndex).fadeOut("fast");
-            $('.imgURL>li').eq(imgIndex).fadeIn("fast")
-            按钮选中(imgIndex)
-            oldImgIndex = imgIndex
-        }
+
         $(".maodianUl>li").mouseenter(function () {
             按钮选中($(this).index())
             imgIndex = $(this).index()
@@ -160,6 +186,6 @@
         })
     })
 
-</script>
+</script> -->
 
 </html>

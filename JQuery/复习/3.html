@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <script src="jquery-1.12.4.js"></script>
+
+</head>
+
+<body>
+
+  <ul>
+
+    <li>li1</li>
+
+    <li>li2</li>
+
+    <li>li3</li>
+
+    <li>li4</li>
+
+    <li>li5</li>
+
+  </ul>
+
+  <script>
+    $('li').mouseenter(function () {
+      $(this).css('background','red')
+    })
+    $('li').mouseleave(function () {
+      $(this).css('background','none')
+    })
+
+  </script>
+
+</body>
+
+</html>
