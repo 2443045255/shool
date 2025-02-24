@@ -13,7 +13,7 @@
     }
 
     button {
-      padding: 10px 15px;
+      padding: .5rem .8rem;
       border-radius: 6px;
       border: 1px solid;
     }
@@ -22,27 +22,18 @@
 
 <body>
   <div id="app">
-    <ul>
-      <li>{{add_1.name}}</li>
-      <li>{{add_1.add}}</li>
-      <a :href="url">mc00.top</a>
-    </ul>
+    <button v-on:click="func1">按钮</button>
   </div>
 </body>
 <script>
   new Vue({
     el: "#app",
     data: {
-      name: "张三",
-      age: 10,
-      url: "http://mc00.top",
-      add_1: {
-        name: "1",
-        add: "10"
-      },
-      add_2: {
-        name: "2",
-        add: "20"
+
+    },
+    methods: {
+      func1() {
+        console.log("你好世界");
       }
     }
   })
