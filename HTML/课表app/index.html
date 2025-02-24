@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rxaser课表</title>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h2>Rxaser课表</h2>
+        </header>
+        <div class="cl_main">
+            <div class="cl_list cl_class_time">
+                <div></div>
+                <div>
+                    <p>第一大节</p>
+                    <p>(01,02 小节)</p>
+                </div>
+                <div>
+                    <p>第二大节</p>
+                    <p>(03,04 小节)</p>
+                </div>
+                <div>
+                    <p>第三大节</p>
+                    <p>(05,06 小节)</p>
+                </div>
+                <div>
+                    <p>第四大节</p>
+                    <p>(07,08 小节)</p>
+                </div>
+                <div>
+                    <p>第五大节</p>
+                    <p>(09,10 小节)</p>
+                </div>
+            </div>
+            <div class="cl_list">
+                <div>星期一</div>
+                <div></div>
+                <div class="计算机"></div>
+                <div class="前端"></div>
+                <div class="Java"></div>
+                <div class=""></div>
+            </div>
+            <div class="cl_list">
+                <div>星期二</div>
+                <div class="Nodejs"></div>
+                <div class="Python"></div>
+                <div class=""></div>
+                <div class=""></div>
+                <div class=""></div>
+            </div>
+            <div class="cl_list">
+                <div>星期三</div>
+                <div class="Java"></div>
+                <div class="计算机"></div>
+                <div class="前端"></div>
+                <div class=""></div>
+                <div class=""></div>
+            </div>
+            <div class="cl_list">
+                <div>星期四</div>
+                <div class="Web"></div>
+                <div class="Nodejs"></div>
+                <div class="Python"></div>
+                <div class=""></div>
+                <div class=""></div>
+            </div>
+            <div class="cl_list">
+                <div>星期五</div>
+                <div class=""></div>
+                <div class=""></div>
+                <div class=""></div>
+                <div class=""></div>
+                <div class=""></div>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    const Rxaser_class = {
+        class_计算机: [
+            '<p>计算机网络二</p>',
+            '<p>刘伟静</p>',
+            '<p>1-16周</p>',
+            '<p>3103实训室</p>',
+        ],
+        class_前端: [
+            '<p>前端开发体系结构</p>',
+            '<p>姜鑫</p>',
+            '<p>1-16周</p>',
+            '<p>3301实训室</p>',
+        ],
+        class_Java: [
+            '<p>Java开发技术</p>',
+            '<p>曾庆彬</p>',
+            '<p>1-16周</p>',
+            '<p>3103实训室</p>',
+        ],
+        class_Nodejs: [
+            '<p>Nodejs开发实践</p>',
+            '<p>曾庆彬</p>',
+            '<p>1-16周</p>',
+            '<p>3403实训室</p>',
+        ],
+        class_Python: [
+            '<p>Python语言程序</p>',
+            '<p>吴雪婷</p>',
+            '<p>1-16周</p>',
+            '<p>3401实训室</p>',
+        ],
+        class_Web: [
+            '<p>Web测试技术</p>',
+            '<p>黄飞鸿</p>',
+            '<p>1-16周</p>',
+            '<p>3403实训室</p>',
+        ],
+    }
+    put_class('计算机')
+    put_class('前端')
+    put_class('Java')
+    put_class('Nodejs')
+    put_class('Python')
+    put_class('Web')
+    function put_class(name) {
+        var el_all = document.querySelectorAll(`.${name}`)
+        el_all.forEach(e => {
+            var html = ''
+            Rxaser_class[`class_${name}`].forEach(e => {
+                html += e
+            })
+            e.innerHTML = html
+        })
+    }
+</script>
+
+</html>
