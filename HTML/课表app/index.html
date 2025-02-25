@@ -40,32 +40,32 @@
             <div class="cl_list">
                 <div>星期一</div>
                 <div></div>
-                <div class="计算机"></div>
-                <div class="前端"></div>
-                <div class="Java"></div>
+                <div class="计算机">3103</div>
+                <div class="前端">3301</div>
+                <div class="Java toClass" remark="改到周五 第一大节" toClass="5,1">3103</div>
                 <div class=""></div>
             </div>
             <div class="cl_list">
                 <div>星期二</div>
-                <div class="Nodejs"></div>
-                <div class="Python"></div>
+                <div class="Nodejs">3403</div>
+                <div class="Python">3401</div>
                 <div class=""></div>
                 <div class=""></div>
                 <div class=""></div>
             </div>
             <div class="cl_list">
                 <div>星期三</div>
-                <div class="Java"></div>
-                <div class="计算机"></div>
-                <div class="前端"></div>
+                <div class="Java">3402</div>
+                <div class="计算机">3103</div>
+                <div class="前端">3301</div>
                 <div class=""></div>
                 <div class=""></div>
             </div>
             <div class="cl_list">
                 <div>星期四</div>
-                <div class="Web"></div>
-                <div class="Nodejs"></div>
-                <div class="Python"></div>
+                <div class="Web">3403</div>
+                <div class="Nodejs">3502</div>
+                <div class="Python">3401</div>
                 <div class=""></div>
                 <div class=""></div>
             </div>
@@ -86,37 +86,31 @@
             '<p>计算机网络二</p>',
             '<p>刘伟静</p>',
             '<p>1-16周</p>',
-            '<p>3103实训室</p>',
         ],
         class_前端: [
             '<p>前端开发体系结构</p>',
             '<p>姜鑫</p>',
             '<p>1-16周</p>',
-            '<p>3301实训室</p>',
         ],
         class_Java: [
             '<p>Java开发技术</p>',
             '<p>曾庆彬</p>',
             '<p>1-16周</p>',
-            '<p>3103实训室</p>',
         ],
         class_Nodejs: [
             '<p>Nodejs开发实践</p>',
             '<p>曾庆彬</p>',
             '<p>1-16周</p>',
-            '<p>3403实训室</p>',
         ],
         class_Python: [
             '<p>Python语言程序</p>',
             '<p>吴雪婷</p>',
             '<p>1-16周</p>',
-            '<p>3401实训室</p>',
         ],
         class_Web: [
             '<p>Web测试技术</p>',
             '<p>黄飞鸿</p>',
             '<p>1-16周</p>',
-            '<p>3403实训室</p>',
         ],
     }
     put_class('计算机')
@@ -125,15 +119,61 @@
     put_class('Nodejs')
     put_class('Python')
     put_class('Web')
+
+    window.onload = function () {
+            showToClass()
+    }
+
     function put_class(name) {
         var el_all = document.querySelectorAll(`.${name}`)
-        el_all.forEach(e => {
+        var class_room = ''
+        var remark = ''
+        el_all.forEach((e, i) => {
+            class_room = ''
+            remark = ''
+
+            class_room = e.innerText
             var html = ''
             Rxaser_class[`class_${name}`].forEach(e => {
                 html += e
             })
+            if (e.attributes["remark"]) {
+                remark = e.attributes["remark"].value
+            }
+            if (!remark) {
+                html += `<p>${class_room}实训室</p>`
+            } else {
+                html += `<p>${class_room}实训室</p><p>${remark}</p>`
+            }
+
             e.innerHTML = html
         })
+    }
+
+    function showToClass() {
+        var el_all = document.querySelectorAll(`.toClass`)
+        var cl_list_all = document.querySelectorAll('.cl_list')
+        el_all.forEach(e => {
+            var toClassArr = e.getAttribute('toClass').split(',')
+            var classDay = toClassArr[0]
+            var classTime = toClassArr[1]
+            var toClass = document.querySelector('div')
+            toClass = cl_list_all[classDay].children[classTime]
+            var color = getRandomColor()
+            toClass.style.borderColor = color
+            e.style.borderColor = color
+            for (let i = 0; i <= 3; i++) {
+                toClass.appendChild(e.children[i].cloneNode(true))
+            }
+        })
+    }
+
+    //随机颜色
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r}, ${g}, ${b})`;
     }
 </script>
 

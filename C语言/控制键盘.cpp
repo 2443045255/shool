@@ -17,19 +17,20 @@ void keyup(int vk)
 void keypress(int vk)
 {
 	keydown(vk);
+	Sleep(50);
 	keyup(vk);
 }
 
 int main()
 {
-	SetConsoleTitle("控制键盘");
+	SetConsoleTitle("");
 	char userInput;
 	int isExit = true;
 
 	while (isExit)
 	{
-		//		printf("输入键值：");
-		scanf(" %c", &userInput);
+//		printf("输入键值：");
+		scanf("%c", &userInput);
 		if (userInput == '0')
 		{
 			isExit = false;
@@ -38,10 +39,15 @@ int main()
 		{
 			userInput -= 32;
 			keypress(userInput);
+//			keydown(userInput);
+//			Sleep(0);
+//			keyup(userInput);
 		}
 		else if (userInput >= 'A' && userInput <= 'Z')
 		{
 			userInput -= 0;
+			keypress(userInput);
+		}else{
 			keypress(userInput);
 		}
 		// printf("%d\n",userInput);
