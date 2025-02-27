@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue2</title>
+  <script src="../vue.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      user-select: none;
+    }
+
+    button {
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: 1px solid;
+    }
+
+    .box {
+      background: rgba(0, 0, 0, 0.5);
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box1 {
+      background: rgba(112, 112, 112, 0.5);
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .border {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="box">盒子</div>
+    <div class="box" :style="style_1">盒子</div>
+    <div class="box" :style="[style_1,style_2]">盒子</div>
+
+    <div @click="changeClass" :class="firstClass">盒子</div>
+
+    <!-- 值是数组的情况 -->
+    <div :class="classArr">盒子</div>
+    <div :class="classObj">盒子</div>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      style_1: {
+        color: "red",
+        fontSize: "40px"
+      },
+      style_2: {
+        backgroundColor: 'black'
+      },
+      firstClass: "box",
+      classArr: ['box', 'border'],
+      classObj: {
+        box: true,
+        border: true
+      }
+    },
+    methods: {
+      changeClass() {
+        if (this.firstClass != "box1") {
+          this.firstClass = "box1"
+        } else {
+          this.firstClass = "box"
+        }
+
+      }
+    },
+  })
+</script>
+
+</html>

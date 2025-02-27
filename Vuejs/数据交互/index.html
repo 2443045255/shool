@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vue2</title>
-  <script src="vue.js"></script>
+  <script src="../vue.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -55,6 +55,14 @@
       <h2>今天天气很{{ ct_3 }}</h2>
       <button @click="change">改变天气</button>
     </div>
+
+    <!-- 深度监测 -->
+    <div>
+      <p>num.a的值是: <span>{{ num.a }}</span></p>
+      <button @click="num.a++">a+1</button>
+      <p>num.b.c的值是: <span>{{ num.b.c }}</span></p>
+      <button @click="num.b.c++">c+1</button>
+    </div>
   </div>
 </body>
 <script>
@@ -68,6 +76,13 @@
       firstName: "1",
       lastName: "2",
       isHot: true,
+      num: {
+        a: 1,
+        b: {
+          c: 2,
+          d: 3
+        }
+      }
     },
     //事件
     methods: {
@@ -104,6 +119,22 @@
       ct_3() {
         return this.isHot ? "炎热" : "凉爽"
       },
+    },
+    watch: {
+      "isHot": {
+        handler(newVal, oldVal) {
+          console.log(`${oldVal}-${newVal}`)
+        },
+        //还没变化时就拿到数据
+        immediate: true
+      },
+      "num": {
+        handler() {
+          console.log("num发生了变化");
+        },
+        //深度监听配置
+        deep: true
+      }
     }
   })
 </script>
