@@ -1,6 +1,9 @@
 const fs = require('fs')
 var data1 = "你好世界\n"
 
+var filePath = __dirname
+console.log(filePath);
+
 // try {
 //   fs.writeSync('./hello.txt', data1)
 // } catch (error) {
@@ -18,7 +21,7 @@ var data1 = "你好世界\n"
 //   console.log("写入成功")
 // })
 
-fs.readFile("./hello.txt", "utf8", (err, data) => {
-  if (err) throw err;
-  console.log(data);
-})
+// fs.readFile(filePath + "/txtFile/hello.txt", "utf8", (err, data) => {
+//   if (err) throw err;
+//   console.log(data);
+// })
