@@ -54,10 +54,7 @@ int main()
 		if(u_vk >= 'a' && u_vk <= 'z'){
 			u_vk = u_vk - 32;
 		}
-//		if(u_vk >= 'A' && u_vk <= 'Z'){
-//			
-//		}
-		printf("u_vk=%d",u_vk);
+
 		scanf("%c",&u_Mtime);
 		
 		if(u_Mtime == 32){
@@ -79,28 +76,12 @@ int main()
 			}
 		}
 		
-		printf("u_vk(按键)=%d,u_Mtime(次数)=%d,u_Stime(延迟)=%d\n",u_vk,u_Mtime,u_Stime);
+		printf("(按键)=%d,(次数)=%d,(延迟)=%d\n",u_vk,u_Mtime,u_Stime);
 		
 		moreTime(u_vk,u_Mtime,u_Stime);
 		
 		fflush(stdin);
 		
-		
-//		if (userInput == '0'){
-//			isExit = false;
-//		}if (userInput >= 'a' && userInput <= 'z'){
-//			userInput -= 32;
-//			keypress(userInput);
-////			keydown(userInput);
-////			Sleep(0);
-////			keyup(userInput);s
-//		}else if (userInput >= 'A' && userInput <= 'Z'){
-//			userInput -= 0;
-//			keypress(userInput);
-//		}else{
-//			keypress(userInput);
-//		}
-//		// printf("%d\n",userInput);
 		if(whileTime>=100){
 			isExit = false;
 		}
