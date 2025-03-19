@@ -16,25 +16,35 @@
         <div class="cl_main">
             <div class="cl_list cl_class_time">
                 <div></div>
-                <div>
+                <div class="classTime">
                     <p>第一大节</p>
                     <p>(01,02 小节)</p>
+                    <p>8:30-9:10</p>
+                    <p>9:20-10:00</p>
                 </div>
-                <div>
+                <div class="classTime">
                     <p>第二大节</p>
                     <p>(03,04 小节)</p>
+                    <p>10:20-11:00</p>
+                    <p>11:10-11:50</p>
                 </div>
-                <div>
+                <div class="classTime">
                     <p>第三大节</p>
                     <p>(05,06 小节)</p>
+                    <p>14:30-13:10</p>
+                    <p>13:20-14:00</p>
                 </div>
-                <div>
+                <div class="classTime">
                     <p>第四大节</p>
                     <p>(07,08 小节)</p>
+                    <p>13:10-13:50</p>
+                    <p>16:00-14:40</p>
                 </div>
-                <div>
+                <div class="classTime">
                     <p>第五大节</p>
                     <p>(09,10 小节)</p>
+                    <p>19:00-19:40</p>
+                    <p>19:50-20:30</p>
                 </div>
             </div>
             <div class="cl_list">
@@ -42,7 +52,7 @@
                 <div></div>
                 <div class="计算机">3103</div>
                 <div class="前端">3301</div>
-                <div class="Java toClass" remark="改到周五 第一大节" toClass="5,1">3103</div>
+                <div class=""></div>
                 <div class="movie1">3403</div>
             </div>
             <div class="cl_list">
@@ -71,7 +81,7 @@
             </div>
             <div class="cl_list">
                 <div>星期五</div>
-                <div class=""></div>
+                <div class="Java">3103</div>
                 <div class=""></div>
                 <div class=""></div>
                 <div class=""></div>
@@ -123,23 +133,31 @@
             '<p>5-16周</p>',
         ],
     }
-    put_class('计算机')
-    put_class('前端')
-    put_class('Java')
-    put_class('Nodejs')
-    put_class('Python')
-    put_class('Web')
-    put_class('movie1')
-    put_class('心理')
+
+    const className = [
+        '计算机',
+        '前端',
+        'Java',
+        'Nodejs',
+        'Python',
+        'Web',
+        'movie1',
+        '心理'
+    ]
+
+    className.forEach(e => {
+        put_class(e)
+    })
 
     window.onload = function () {
-            showToClass()
+        
     }
 
     function put_class(name) {
         var el_all = document.querySelectorAll(`.${name}`)
         var class_room = ''
         var remark = ''
+        color = getRandomColor1()
         el_all.forEach((e, i) => {
             class_room = ''
             remark = ''
@@ -159,24 +177,7 @@
             }
 
             e.innerHTML = html
-        })
-    }
-
-    function showToClass() {
-        var el_all = document.querySelectorAll(`.toClass`)
-        var cl_list_all = document.querySelectorAll('.cl_list')
-        el_all.forEach(e => {
-            var toClassArr = e.getAttribute('toClass').split(',')
-            var classDay = toClassArr[0]
-            var classTime = toClassArr[1]
-            var toClass = document.querySelector('div')
-            toClass = cl_list_all[classDay].children[classTime]
-            var color = getRandomColor()
-            toClass.style.borderColor = color
-            e.style.borderColor = color
-            for (let i = 0; i <= 3; i++) {
-                toClass.appendChild(e.children[i].cloneNode(true))
-            }
+            e.style.backgroundColor = color
         })
     }
 
@@ -184,9 +185,17 @@
     function getRandomColor() {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
-        const b = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256)
         return `rgb(${r}, ${g}, ${b})`;
     }
+    function getRandomColor1() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r}, ${g}, ${b},0.4)`;
+    }
+
+    //写入课程时间
 </script>
 
 </html>
