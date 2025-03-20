@@ -1,13 +1,13 @@
 const http = require('http');
 
 
-var Uport = 23333
-var ip3 = 151
+var Uport = 3000
+var ip3 = 249
 var num = 0
 setInterval(() => {
   for (let ip4 = 1; ip4 <= 254; ip4++) {
     const options = {
-      hostname: `10.240.${ip3}.${ip4}`,
+      hostname: `192.168.${ip3}.${ip4}`,
       port: Uport,
       path: '/',
       method: 'GET'

@@ -38,6 +38,14 @@ header {
     padding: .1rem;
 }
 
+.classTime>p:nth-child(3){
+    color: #3dbe27;
+}
+
+.classTime>p:nth-child(4){
+    color: #327227;
+}
+
 .cl_main {
     flex: 1;
     display: grid;
