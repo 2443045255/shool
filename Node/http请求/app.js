@@ -1,8 +1,8 @@
 const http = require('http');
 
 
-var Uport = 3000
-var ip3 = 200
+var Uport = 23333
+var ip3 = 151
 var num = 0
 setInterval(() => {
   for (let ip4 = 1; ip4 <= 254; ip4++) {
