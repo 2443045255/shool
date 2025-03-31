@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue2</title>
+  <script src="../vue.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 5px;
+    }
+
+    button {
+      padding: .5rem .8rem;
+      border-radius: 6px;
+      border: 1px solid;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{ msg }}</h2>
+    <!-- 双向绑定 -->
+    <input v-model="msg" type="text">
+    <button v-on:click="func1">按钮</button>
+    <!-- 回车后在控制台把文本框的内容打印出来 -->
+    <input @keyup.huiche="keyFunc_1" type="text">
+    <!-- 按下tab在控制台把文本框的内容打印出来 -->
+    <input @keydown.tab="keyFunc_1" type="text">
+    <!-- 多个单词构成的按键，转换成短横线的形式 -->
+    <input @keydown.caps-lock="keyFunc_1" type="text">
+    <!-- shift,ctrl,alt,win必须配合其他案件使用 -->
+    <input @keyup.ctrl="keyFunc_1" type="text">
+
+    <label for="">姓:<input v-model="firstName" type="text" autocomplete="off"></label>
+    <label for="">名:<input v-model="lastName" type="text" autocomplete="off"></label>
+    <p><span>姓名:</span><span>{{ firstName }}-{{ lastName }}</span></p>
+    <p><span>姓名:</span><span>{{ func2() }}</span></p>
+    <p><span>姓名:</span><span>{{ ct_1 }}</span></p>
+    <!-- 简写 -->
+    <p><span>姓名:</span><span>{{ ct_1 }}</span></p>
+    <div>
+      <h2>今天天气很{{ isHot?"炎热":"凉爽" }}</h2>
+      <button @click="change">改变天气</button>
+      <!-- 使用计算属性 -->
+      <h2>今天天气很{{ ct_3 }}</h2>
+      <button @click="change">改变天气</button>
+    </div>
+
+    <!-- 深度监测 -->
+    <div>
+      <p>num.a的值是: <span>{{ num.a }}</span></p>
+      <button @click="num.a++">a+1</button>
+      <p>num.b.c的值是: <span>{{ num.b.c }}</span></p>
+      <button @click="num.b.c++">c+1</button>
+    </div>
+  </div>
+</body>
+<script>
+  Vue.config.keyCodes = {
+    huiche: 13,
+  }
+  const vm = new Vue({
+    el: "#app",
+    data: {
+      msg: 'Hello World',
+      firstName: "1",
+      lastName: "2",
+      isHot: true,
+      num: {
+        a: 1,
+        b: {
+          c: 2,
+          d: 3
+        }
+      }
+    },
+    //事件
+    methods: {
+      func1() {
+        console.log("你好世界");
+      },
+      func2() {
+        return `${this.firstName}-${this.lastName}`
+      },
+      keyFunc_1(e) {
+        console.log(e.target.value);
+      },
+      change() {
+        return this.isHot = !this.isHot
+      },
+    },
+    computed: {
+      ct_1: {
+        get() {
+          return `${this.firstName}-${this.lastName}`
+        },
+        set(value) {
+          console.log(value);
+          var arr = value.split('-')
+          console.log(arr);
+          this.firstName = arr[0]
+          this.lastName = arr[1]
+        },
+      },
+      //只用get函数的时候就可以进行简写，只读取计算结果，不修改结果值
+      ct_2() {
+        return `${this.firstName}-${this.lastName}`
+      },
+      ct_3() {
+        return this.isHot ? "炎热" : "凉爽"
+      },
+    },
+    watch: {
+      "isHot": {
+        handler(newVal, oldVal) {
+          console.log(`${oldVal}-${newVal}`)
+        },
+        //还没变化时就拿到数据
+        immediate: true
+      },
+      "num": {
+        handler() {
+          console.log("num发生了变化");
+        },
+        //深度监听配置
+        deep: true
+      }
+    }
+  })
+</script>
+
+</html>
