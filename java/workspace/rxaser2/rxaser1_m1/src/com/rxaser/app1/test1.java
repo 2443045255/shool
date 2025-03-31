@@ -30,8 +30,33 @@ public class test1 {
 //        } else if (num1 >= 60) {
 //            System.out.println("及格");
 //        }
-        int a = 10;
-        int m = 5;
-        System.out.println(m = ++a * m);
+//        int i = 1;
+//        int s1 = 0;
+//        do {
+//            if (i % 2 != 0) {
+//                System.out.println(i);
+//            } else {
+//                s1 += i;
+//            }
+//            i++;
+//        } while (i <= 100);
+//        System.out.println(s1);
+        int s1 = 0;
+        for (int i = 0; i <= 100; i++) {
+            if (i % 2 != 0) {
+                s1 += i;
+            }
+        }
+        System.out.println(s1);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int s2 = 0;
+        for (int i = a; i <= b; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                s2++;
+            }
+        }
+        System.out.println(s2 + "个");
     }
 }
