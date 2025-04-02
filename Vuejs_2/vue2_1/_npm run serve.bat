@@ -1,1 +1,1 @@
-start /b npm run serve
+npm run serve

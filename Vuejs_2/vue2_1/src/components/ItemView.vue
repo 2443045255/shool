@@ -1,18 +1,26 @@
 <template>
   <li>
     <label>
-      <input type="checkbox" :checked="todoObj.done" />
+      <input type="checkbox" :checked="todoObj.done" @click="headleCheck" />
       <span>{{ todoObj.title }}</span>
     </label>
-    <button class="btn btn-danger" style="display:none">删除</button>
+    <button class="btn btn-danger" @click="headleDelete">删除</button>
   </li>
 </template>
 
 <script>
 export default {
   name: "ItemView",
-  props: ["todoObj"]
-}
+  props: ["todoObj", "checkTodo", "deleteTodo"],
+  methods: {
+    headleCheck() {
+      this.checkTodo(this.todoObj.id);
+    },
+    headleDelete(){
+      this.deleteTodo(this.todoObj.id)
+    }
+  },
+};
 </script>
 
 <style scoped>
@@ -43,6 +51,12 @@ li button {
   margin-top: 3px;
 }
 
+li:hover button {
+  display: block;
+}
+li:hover {
+  background-color: #ddd;
+}
 li:before {
   content: initial;
 }

@@ -1,27 +1,25 @@
 <template>
   <ul class="todo-main">
-    <ItemView v-for="todoObj in todos" :key="todoObj.id" :todoObj="todoObj" />
+    <ItemView
+      v-for="todoObj in todos"
+      :key="todoObj.id"
+      :todoObj="todoObj"
+      :checkTodo="checkTodo"
+      :deleteTodo="deleteTodo"
+    />
   </ul>
 </template>
 
 <script>
-import ItemView from './ItemView.vue';
+import ItemView from "./ItemView.vue";
 
 export default {
   name: "ListView",
   components: {
-    ItemView
+    ItemView,
   },
-  data() {
-    return {
-      todos: [
-        { id: "001", title: "吃饭", done: false },
-        { id: "002", title: "睡觉", done: true },
-        { id: "003", title: "学习", done: false },
-      ]
-    }
-  }
-}
+  props: ["todos", "checkTodo", "deleteTodo"],
+};
 </script>
 
 <style scoped>
@@ -40,5 +38,4 @@ export default {
   padding-left: 5px;
   margin-top: 10px;
 }
-
 </style>
