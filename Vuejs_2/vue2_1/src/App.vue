@@ -4,12 +4,8 @@
       <div class="todo-container">
         <div class="todo-wrap">
           <HeaderView :addTodo="addTodo" />
-          <ListView
-            :todos="todos"
-            :checkTodo="checkTodo"
-            :deleteTodo="deleteTodo"
-          />
-          <FooterView />
+          <ListView :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
+          <FooterView :todos="todos" :checkAllTodo="checkAllTodo" :clearTodo="clearTodo" />
         </div>
       </div>
     </div>
@@ -30,11 +26,12 @@ export default {
   },
   data() {
     return {
-      todos: [
-        { id: "001", title: "吃饭", done: false },
-        { id: "002", title: "睡觉", done: true },
-        { id: "003", title: "学习", done: false },
-      ],
+      todos: JSON.parse(localStorage.getItem("todos")) || [],
+      // todos: [
+      //   { id: "001", title: "吃饭", done: false },
+      //   { id: "002", title: "睡觉", done: true },
+      //   { id: "003", title: "学习", done: false },
+      // ],
     };
   },
   methods: {
@@ -42,6 +39,7 @@ export default {
       //将对象添加到数组
       this.todos.unshift(todo);
     },
+    //选中子项
     checkTodo(id) {
       this.todos.forEach((e) => {
         if (e.id == id) {
@@ -49,18 +47,43 @@ export default {
         }
       });
     },
+    //删除子项
     deleteTodo(id) {
-      this.todos = this.todos.filter((e) => {
-        return e.id != id;
+      this.todos = this.todos.filter(item => {
+        return item.id != id;
       });
     },
+    //跟随大括号选中
+    checkAllTodo(done) {
+      this.todos.forEach(e => {
+        e.done = done
+      })
+    },
+    //清理所有选中
+    clearTodo() {
+      this.todos = this.todos.filter(item => {
+        return !item.done
+      })
+    }
   },
-};
+  //监听
+  watch: {
+    todos: {
+      //深度监听
+      deep: true,
+      //发生变化执行
+      handler(value) {
+        localStorage.setItem("todos", JSON.stringify(value))
+      }
+    }
+  }
+}
 </script>
 
 <style>
 body {
   background: #fff;
+  user-select: none;
 }
 
 .btn {
