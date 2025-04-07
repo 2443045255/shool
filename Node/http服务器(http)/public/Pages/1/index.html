@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机号码</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="numMain"></div>
+        <div>
+            <button onclick="生成号码()">生成号码</button>
+            <select name="" id="select1" onclick="选择玩法()">
+                <option value="2">选2</option>
+                <option value="3">选3</option>
+                <option value="4">选4</option>
+                <option value="5">选5</option>
+                <option value="6">选6</option>
+                <option value="7">选7</option>
+                <option value="8">选8</option>
+                <option value="9">选9</option>
+                <option value="10" selected>选10</option>
+            </select>
+            <button onclick="清除()">清除</button>
+        </div>
+    </main>
+</body>
+
+</html>
+<script>
+    var 号码数量 = 0
+    var numArr = []
+    for (i = 1; i <= 80; i++) {
+        if (i <= 9) {
+            numArr.push("0" + i)
+        } else {
+            numArr.push(i)
+        }
+    }
+    var randomNum
+    var randomSum = []
+    var sum = []
+
+    var 玩法 = 10
+    function 选择玩法(){
+        var select1 = document.getElementById("select1")
+        玩法 = parseInt(select1.options[select1.selectedIndex].value)
+    }
+    var numMain = document.querySelector(".numMain")
+    function 生成号码() {
+        for (i = 1; i <= 玩法; i++) {
+            randomNum = Math.floor(Math.random() * 80);
+            if (randomSum.indexOf(randomNum) == -1) {
+                sum.push(numArr[randomNum])
+                randomSum.push(randomNum)
+            } else {
+                i--
+            }
+        }
+        
+        var numP = document.createElement("p")
+        numP.className = "num"
+        号码数量++
+        if (号码数量 <= 9) {
+            号码数量 = '0' + 号码数量
+        }
+        numP.textContent = `${select1.options[select1.selectedIndex].textContent} 第${号码数量}组：`
+        for (i = 0; i <= 9; i++) {
+            for (j = 0; j <= 9; j++) {
+                if (sum[i] < sum[j]) {
+                    var temp = sum[i]
+                    sum[i] = sum[j]
+                    sum[j] = temp
+                }
+            }
+        }
+
+        sum.forEach(e => {
+            var numSpan = document.createElement("span")
+            numSpan.textContent = e
+            numP.append(numSpan)
+        })
+        numMain.append(numP)
+        numMain.scrollTop = numMain.scrollHeight
+        sum = []
+        randomSum = []
+    }
+    function 清除(){
+        numMain.innerHTML = ''
+        号码数量 = 0
+    }
+</script>

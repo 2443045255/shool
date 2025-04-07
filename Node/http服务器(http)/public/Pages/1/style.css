@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button {
+    padding: .5rem 1rem;
+}
+
+main {
+    padding: 0 5%;
+}
+
+.numMain {
+    height: 80vh;
+    background: #ccc;
+    overflow: auto;
+    transition: 0.3s;
+}
+
+
+.num {
+    padding: 5px;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.num span {
+    margin: 0 5px;
+}
+
+#select1 {
+    width: 100px;
+}
