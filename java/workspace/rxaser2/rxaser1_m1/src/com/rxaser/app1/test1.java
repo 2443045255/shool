@@ -1,5 +1,6 @@
 package com.rxaser.app1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class test1 {
@@ -41,22 +42,48 @@ public class test1 {
 //            i++;
 //        } while (i <= 100);
 //        System.out.println(s1);
-        int s1 = 0;
-        for (int i = 0; i <= 100; i++) {
-            if (i % 2 != 0) {
-                s1 += i;
-            }
-        }
-        System.out.println(s1);
 
-        int a = sc.nextInt();
-        int b = sc.nextInt();
-        int s2 = 0;
-        for (int i = a; i <= b; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                s2++;
-            }
+
+//        int s1 = 0;
+//        for (int i = 0; i <= 100; i++) {
+//            if (i % 2 != 0) {
+//                s1 += i;
+//            }
+//        }
+//        System.out.println(s1);
+//
+//        int a = sc.nextInt();
+//        int b = sc.nextInt();
+//        int s2 = 0;
+//        for (int i = a; i <= b; i++) {
+//            if (i % 3 == 0 && i % 5 == 0) {
+//                s2++;
+//            }
+//        }
+//        System.out.println(s2 + "个");
+
+//        int[] arr1 = {11, 22, 33, 44, 55};
+//        int arr1_sum = 0;
+//        for (int i = 0; i < arr1.length - 1; i++) {
+//            arr1_sum += arr1[i];
+//        }
+//        System.out.println("求和" + arr1_sum);
+
+//        int[] arr2 = {9, 19, 8, 20, 10, 11};
+//        int arr2_max = 0;
+//        for (int i = 0; i < arr2.length - 1; i++) {
+//            if (arr2[i] > arr2_max) {
+//                arr2_max = arr2[i];
+//            }
+//        }
+//        System.out.println("最大值" + arr2_max);
+
+        int[] arr3 = {1, 2, 3, 4, 5};
+        int[] arr3_same = {0, 0, 0, 0, 0};
+        int j = 0;
+        for (int i = arr3.length - 1; i >= 0; i--) {
+            arr3_same[j] = arr3[i];
+            j++;
         }
-        System.out.println(s2 + "个");
     }
 }
