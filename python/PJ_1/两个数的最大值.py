@@ -7,3 +7,4 @@ if num1 < num2:
     print(f"{num2}是最大值")
 if num1 == num2:
     print(f"{num1}等于{num2}")
+

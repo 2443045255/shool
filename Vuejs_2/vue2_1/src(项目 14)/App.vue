@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import pubsub from "pubsub-js"
+
 import HeaderView from "./components/HeaderView.vue";
 import ListView from "./components/ListView.vue";
 import FooterView from "./components/FooterView.vue";
@@ -41,14 +43,14 @@ export default {
     },
     //选中子项
     checkTodo(id) {
-      this.todos.forEach((e) => {
-        if (e.id == id) {
-          e.done = !e.done;
+      this.todos.forEach(item => {
+        if (item.id == id) {
+          item.done = !item.done;
         }
       });
     },
     //删除子项
-    deleteTodo(id) {
+    deleteTodo(_, id) {
       this.todos = this.todos.filter(item => {
         return item.id != id;
       });
@@ -64,17 +66,27 @@ export default {
       this.todos = this.todos.filter(item => {
         return !item.done
       })
+    },
+    updateTodo(id, title) {
+      this.todos.forEach(item => {
+        if (item.id == id) {
+          item.title = title
+        }
+      })
     }
   },
 
   mounted() {
     //声明全局事件的触发事件
     this.$bus.$on("checkTodo", this.checkTodo)
-    this.$bus.$on("deleteTodo", this.deleteTodo)
+    // this.$bus.$on("deleteTodo", this.deleteTodo)
+    this.$bus.$on("updateTodo", this.updateTodo)
+    this.pubID = pubsub.subscribe("deleteTodo", this.deleteTodo)
   },
   beforeDestroy() {
     //删除全局事件总线
     this.$bus.$off()
+    pubsub.unsubscribe(this.pubID)
   },
   //监听
   watch: {

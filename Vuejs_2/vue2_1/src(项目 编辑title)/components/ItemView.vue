@@ -2,13 +2,17 @@
   <li>
     <label>
       <input type="checkbox" :checked="todoObj.done" @click="headleCheck" />
-      <span>{{ todoObj.title }}</span>
+      <span v-show="!todoObj.isEdit">{{ todoObj.title }}</span>
+      <input type="text" :value="todoObj.title" v-show="todoObj.isEdit" @blur="handelCancel(todoObj, $event)">
     </label>
     <button class="btn btn-danger" @click="headleDelete">删除</button>
+    <button class="btn btn-danger" @click="headleWrite(todoObj)">编辑</button>
   </li>
 </template>
 
 <script>
+import pubsub from "pubsub-js"
+
 export default {
   name: "ItemView",
   props: ["todoObj"],
@@ -19,7 +23,15 @@ export default {
     },
     headleDelete() {
       // this.deleteTodo(this.todoObj.id)
-      this.$bus.$emit("deleteTodo", this.todoObj.id)
+      // this.$bus.$emit("deleteTodo", this.todoObj.id)
+      pubsub.publish("deleteTodo", this.todoObj.id)
+    },
+    headleWrite(todoObj) {
+      this.$set(todoObj, "isEdit", true)
+    },
+    handelCancel(todoObj, e) {
+      todoObj.isEdit = false
+      this.$bus.$emit("updateTodo", todoObj.id, e.target.value)
     }
   },
 };
