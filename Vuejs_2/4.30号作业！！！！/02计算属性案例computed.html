@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table.gridtable {
+
+      font-family: verdana, arial, sans-serif;
+      font-size: 11px;
+      color: #333333;
+      border-width: 1px;
+      border-color: #666666;
+      border-collapse: collapse;
+    }
+
+    table.gridtable th {
+      border-width: 1px;
+      border-style: solid;
+      padding: 8px;
+      border-color: #666666;
+      background-color: #dedede;
+    }
+
+    table.gridtable td {
+      border-width: 1px;
+      border-style: solid;
+      padding: 8px;
+      border-color: #666666;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <table class="gridtable">
+      <tr>
+        <th>学科</th>
+        <th>分数</th>
+      </tr>
+      <tr>
+        <td>语文</td>
+        <td><input type="text" v-model.number="chinese"></td>
+      </tr>
+      <tr>
+        <td>数学</td>
+        <td><input type="text" v-model.number="math"></td>
+      </tr>
+      <tr>
+        <td>英语</td>
+        <td><input type="text" v-model.number="english"></td>
+      </tr>
+      <tr>
+        <td>总分</td>
+        <td><input type="text" v-model.number="sum"></td>
+      </tr>
+      <tr>
+        <td>平均分</td>
+        <td><input type="text" v-model.number="average"></td>
+      </tr>
+
+    </table>
+  </div>
+  <script>
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+</style>
+<body>
+  <form action="http://127.0.0.1:3000/register">
+    <label for="">账号: <input type="text" name="user"></label>
+    <label for="">密码: <input type="password" name="psw"></label>
+    <label for="">性别: <input type="radio" name="sex" value="男">男<input type="radio" name="sex" value="女">女</label>
+    <label for="">地址: <input type="password" name="address"></label>
+    <label for="">邮箱: <input type="password" name="email"></label>
+    <input type="submit" value="注册">
+  </form>
+</body>
+</html>

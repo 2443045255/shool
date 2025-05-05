@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+     <p>群消息：</p>
+     <p>{{someone}}说：我{{age}}岁了</p>
+     <p>当前群消息为空</p>
+     <hr>
+    </div>
+    <script>
+        const app=Vue.createApp({
+            data(){
+                return{
+                    show:false,
+                    someone:'',
+                    age:'',
+                    girls:[
+                        {name:'小红',age:20},
+                        {name:'小荷',age:21},
+                        {name:'小兰',age:22}
+                    ]
+                }
+            },
+           
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

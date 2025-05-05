@@ -1,21 +1,29 @@
 <template>
   <div>
-    <MyDemo />
-    <MyDemo1 />
+    <h2>{{ $store.state.title }}</h2>
+    <h2>title</h2>
+        
+    <MySon1></MySon1>
+    <MySon2></MySon2>
   </div>
-
 </template>
 
 <script>
-import MyDemo from './components/MyDemo.vue';
-import MyDemo1 from './components/MyDemo1.vue';
+import MySon1 from './components/MySon1.vue';
+import MySon2 from './components/MySon2.vue';
 
 export default {
-  name: "App",
-  components: {
-    MyDemo,
-    MyDemo1
-  }
+  name:"App",
+  components:{
+    MySon1,
+    MySon2
+  },
+  mounted(){
+    // console.log(this.$store.state.title);
+  },
 }
 </script>
-<style scoped></style>
+
+<style>
+
+</style>

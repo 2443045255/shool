@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.global.js"></script>
+  <style>
+    #app {
+      width: 1300px;
+      height: 600px
+    }
+
+    .left {
+      width: 600px;
+      height: 600px;
+      float: left
+    }
+
+    .right {
+      width: 600px;
+      height: 600px;
+      float: right
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>填写个人信息</h2>
+    <div class="left">
+      <form @submit.prevent>
+        <label>姓名：</label>
+        <!-- 输入字段预期值信息 -->
+        <input type="text" placeholder="请输入姓名"><br>
+        <fieldset>
+          <label>健康信息</label><br>
+          <label>身高：</label>
+          <input type="text" placeholder="请输入身高"><br>
+          <label>体重：</label>
+          <input type="text" placeholder="请输入体重"><br>
+        </fieldset>
+        <label>性别：</label>
+        <input type="radio" value="男">
+        <label>男</label>
+        <input type="radio" value="女">
+        <label>女</label><br>
+        <label>喜爱的运动：</label><br>
+        <input type="checkbox" value="篮球">
+        <label>篮球</label>
+        <input type="checkbox" value="足球">
+        <label>足球</label>
+        <input type="checkbox" value="羽毛球">
+        <label>羽毛球</label>
+        <input type="checkbox" value="跑步">
+        <label>跑步</label><br>
+        <label>地址：</label>
+        <select>
+          <option value="北京">北京</option>
+          <option value="上海">上海</option>
+          <option value="广州">广州</option>
+        </select><br>
+        <label>个人简介：</label><br>
+        <textarea placeholder="请输入个人信息" cols="30" rows="10">
+                </textarea>
+        <br>
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+
+
+      </form>
+
+    </div>
+    <div class="right">
+      <p>姓名：</p>
+      <p>身高：</p>
+      <p>体重：</p>
+      <p>性别：</p>
+      <p>喜爱的运动：</p>
+      <p>地址：</p>
+      <p>个人信息：</p>
+    </div>
+  </div>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          name: "",
+          height: "",
+          weight: "",
+          sex: "",
+          sports: [],
+          address: "",
+          introduce: ""
+        }
+      }
+    }).mount("#app")
+  </script>
+
+</body>
+
+</html>
