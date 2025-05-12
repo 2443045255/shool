@@ -1,29 +1,34 @@
 <template>
-  <div>
-    <h2>{{ $store.state.title }}</h2>
-    <h2>title</h2>
-        
-    <MySon1></MySon1>
-    <MySon2></MySon2>
+  <div class="app">
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="page-header">
+          <h2>Vue Router Demo</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <router-link class="list-group-item" active-class="active" to="/About">About</router-link>
+          <router-link class="list-group-item" active-class="active" to="/Home" aria-current="page">Home</router-link>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="panel">
+          <div class="panel-body">
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import MySon1 from './components/MySon1.vue';
-import MySon2 from './components/MySon2.vue';
-
 export default {
-  name:"App",
-  components:{
-    MySon1,
-    MySon2
-  },
-  mounted(){
-    // console.log(this.$store.state.title);
-  },
+
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

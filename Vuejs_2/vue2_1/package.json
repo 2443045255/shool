@@ -13,6 +13,7 @@
     "nanoid": "^5.1.5",
     "pubsub-js": "^1.9.5",
     "vue": "^2.6.14",
+    "vue-router": "^3.6.5",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
